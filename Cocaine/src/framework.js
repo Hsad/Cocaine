@@ -76,6 +76,15 @@ function Response (WordList) {
     };
 }
 
+//Message Box
+//the message log will have a list of these to make it easier
+//arguments and types:
+//message: list of strings
+//user: bool (false if it's something the player typed, true if it's something the other user typed)
+var MessageBox (message, user) = cc.Node.extend({ //***make sure this syntax is right, I didn't check***
+    //***NEEDS IMPLEMENTATION***
+});
+
 //Message Log
 //Essentially a bunch of image queues: one for each intensity level
 //stack is a list of lists of images: each sublist has multiple intensity levels of the same image.
@@ -180,7 +189,7 @@ function ChatBox(index, user, level) {
         //if the accuracy isn't high enough, get the ambiguation message
         if (accuracy < this.acceptableAccuracy) {
             var ambiguation = this.conversation.GetAmbiguationMessage();
-            //handle what the response should be from here
+            //***handle what the response should be from here***
             //***NEEDS IMPLEMENTATION***
         }
         else {
@@ -230,7 +239,7 @@ function ChatBox(index, user, level) {
             }
         }
         else if (this.timer == this.closeTime) {
-            //Close the window
+            //Close the window and shift other windows down if necessary
             //***NEEDS IMPLEMENTATION***
         }
     };
