@@ -11,8 +11,7 @@
     ],
     "jsList":[
         "src/resource.js",
-        "src/app.js",
-        "test.js",
-		"src/spencerTest.js",
+        "src/responseHandler.js",
+        "src/app.js"
     ]
 }
