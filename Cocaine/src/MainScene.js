@@ -10,7 +10,7 @@ var ChatWindowLayer = cc.Layer.extend({
 	chatWinSprite : null,
 	
 	//Constructor. should pass in the windows X Location,
-	ctor : function(_xSpawn){
+	ctor : function(_xSpawn, _person){
 		//initialize the super
 		this._super();
 		
@@ -44,13 +44,17 @@ var MainScene = cc.Scene.extend({
 		this.newsFeedLayer = new NewsFeedLayer();
 		this.addChild(this.newsFeedLayer);
 		
-		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-175);
+		
+		//-------------------------
+		//Create the Chat windows!!
+		//-------------------------
+		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-175, dercterMerc);
 		this.addChild(this.chatWindowLayer);
-		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-350);
+		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-350, dercterMerc);
 		this.addChild(this.chatWindowLayer);
-		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-525);
+		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-525, dercterMerc);
 		this.addChild(this.chatWindowLayer);
-		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-700);
+		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-700, dercterMerc);
 		this.addChild(this.chatWindowLayer);
 	}
 });
