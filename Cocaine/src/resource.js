@@ -1,7 +1,10 @@
 var res = {
     HelloWorld_png : "res/HelloWorld.png",
     CloseNormal_png : "res/CloseNormal.png",
-    CloseSelected_png : "res/CloseSelected.png"
+    CloseSelected_png : "res/CloseSelected.png",
+	
+	//our images
+	chatCleanPNG : "res/chat.png"
 };
 
 var g_resources = [];

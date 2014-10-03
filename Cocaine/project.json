@@ -12,6 +12,10 @@
     "jsList":[
         "src/resource.js",
         "src/responseHandler.js",
-        "src/app.js"
+        "src/app.js",
+		"src/MainScene.js",
+		"src/Person.js",
+		"src/Conversation.js",
+		"src/people.js"
     ]
 }
