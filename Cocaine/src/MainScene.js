@@ -14,6 +14,7 @@ var ChatWindowLayer = cc.Layer.extend({
 		//initialize the super
 		this._super();
 		
+		console.log(_person.name);
 		//-----------------------------
 		//Create the chat window sprite
 		//-----------------------------

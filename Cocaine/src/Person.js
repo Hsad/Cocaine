@@ -1,8 +1,8 @@
-var Person = {
-	name : "NermGersHer",
-	profilePic : null,
+function Person(){
+	this.name = "NermGersHer";
+	this.profilePic = null;
 	//an array of strings perhaps??????
-	posts : [],
+	this.posts = [];
 	//an array of conversation objects
-	conversations : []
+	this.conversations = [];
 }
