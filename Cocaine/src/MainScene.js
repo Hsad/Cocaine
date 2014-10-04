@@ -24,6 +24,7 @@ var ChatWindowLayer = cc.Layer.extend({
 			scale: .5,
 			rotation: 0,
 		});
+        console.log("ChatWindowSprite depth: " + this.chatWinSprite.zIndex);
 		this.addChild(this.chatWinSprite);
 		
 		//------------------------------------------------
@@ -31,6 +32,13 @@ var ChatWindowLayer = cc.Layer.extend({
 		//------------------------------------------------
 		this.textLogLayer = new TextLogLayer();
 		this.addChild(this.textLogLayer);
+        
+        //-----------------------------
+        // create the response box
+        //-----------------------------
+        
+        var responseBox = new ResponseHandler(_xSpawn,200);
+        this.addChild(responseBox);
 	}
 });
 
@@ -38,6 +46,7 @@ var MainScene = cc.Scene.extend({
 	onEnter : function(){
 		this._super();
 		
+        //how Spencer and I both feel right now
 		console.log("I hate everything");
 		
 		//gotta instantiate the layers and then make references to them and add them as children

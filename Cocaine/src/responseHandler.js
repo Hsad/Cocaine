@@ -3,17 +3,24 @@ var ResponseHandler = cc.Layer.extend({
         this._super();
         this.requiredResponse = "";
         //create a sprite and add it as a child
-        //***NEEDS IMPLEMENTATION***
+        //
         
         //create a label and add it as a child
-        var templateLabel = new cc.LabelTTF("Required Input:", cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
-        templateLabel.setFontFillColor(cc.color(255,255,255,255));
-        templateLabel.x = x;
+        var templateLabel = new cc.LabelTTF("Required Input: GDAGDAFHdahyrdjyutdbfGTTEJAYRAFEWhtejeGRhtejyrgrwRFREFDAJYRDHTEAJTRJYRD", "Arial", 12, cc.size(165, 56), cc.TEXT_ALIGNMENT_LEFT);
+        templateLabel.setFontFillColor(new cc.color(127,127,127,255));
+        templateLabel.x = x+5;
         templateLabel.y = y;
+        templateLabel.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM;
+        console.log("LabelTTF depth: " + templateLabel.zIndex);
         this.addChild(templateLabel);
         
         //create a TextFieldTTF and add it as a child
-        var inputField = new cc.TextFieldTTF("                         Entered Input", cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
+        var inputField = new cc.TextFieldTTF("Entered Input: GRAGRTWERYTUGFTRERTYUYTREWQERTYUYTREWQWERTYUIYTREWQERTYUIYTREWQWERTYUIYTREW", cc.size(165, 56), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
+        inputField.setFontFillColor(new cc.color(0,0,255,255));
+        inputField.x = x+5;
+        inputField.y = y;
+        inputField.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
+        console.log("TextFieldTTF depth: " + inputField.zIndex);
         this.addChild(inputField);
         
         //add keyboard listener and add it
