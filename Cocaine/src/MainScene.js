@@ -7,26 +7,29 @@ var TextLogLayer = cc.Layer.extend({
 });
 
 var ChatWindowLayer = cc.Layer.extend({
-	chatWinSprite : null,
+	sprite : null,
 	
 	//Constructor. should pass in the windows X Location,
 	ctor : function(_xSpawn, _person){
 		//initialize the super
 		this._super();
-		
-		console.log(_person.name);
 		//-----------------------------
 		//Create the chat window sprite
 		//-----------------------------
-		this.chatWinSprite = new cc.Sprite(res.chatCleanPNG);
-		this.chatWinSprite.attr({
+		this.sprite = new cc.Sprite(res.chatCleanPNG);
+		this.sprite.attr({
 			x: _xSpawn,
-			y: 130,
-			scale: .5,
+			y: this.sprite.height/2+5,
+			scale: 1,
 			rotation: 0,
 		});
-		this.addChild(this.chatWinSprite);
-		
+		this.addChild(this.sprite);
+		var templateLabel = new cc.LabelTTF(_person.name, cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
+        templateLabel.setFontFillColor(cc.color(255,255,255,255));
+        templateLabel.x = _xSpawn;
+        templateLabel.y = 220;
+		console.log(this.sprite.width);
+        this.addChild(templateLabel);
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
@@ -45,17 +48,17 @@ var MainScene = cc.Scene.extend({
 		this.newsFeedLayer = new NewsFeedLayer();
 		this.addChild(this.newsFeedLayer);
 		
-		
+		var wid = 355 ;
 		//-------------------------
 		//Create the Chat windows!!
 		//-------------------------
-		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-175, dercterMerc);
-		this.addChild(this.chatWindowLayer);
-		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-350, dercterMerc);
-		this.addChild(this.chatWindowLayer);
-		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-525, dercterMerc);
-		this.addChild(this.chatWindowLayer);
-		this.chatWindowLayer = new ChatWindowLayer(cc.winSize.width-700, dercterMerc);
-		this.addChild(this.chatWindowLayer);
+		this.chatWindowLayer1 = new ChatWindowLayer(wid*7/2, dercterMerc);
+		this.addChild(this.chatWindowLayer1);
+		this.chatWindowLayer2 = new ChatWindowLayer(wid*5/2, dercterMerc);
+		this.addChild(this.chatWindowLayer2);
+		this.chatWindowLayer3 = new ChatWindowLayer(wid*3/2, dercterMerc);
+		this.addChild(this.chatWindowLayer3);
+		this.chatWindowLayer4 = new ChatWindowLayer(wid/2, dercterMerc);
+		this.addChild(this.chatWindowLayer4);
 	}
 });
