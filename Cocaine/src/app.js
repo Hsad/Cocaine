@@ -41,6 +41,10 @@ var HelloWorldLayer = cc.Layer.extend({
         helloLabel.y = 0;
         // add the label as a child to this layer
         this.addChild(helloLabel, 5);
+        
+        //****************************************************
+        var responseBox = new ResponseHandler(100,100);
+        this.addChild(responseBox);
 
         // add "HelloWorld" splash screen"
         this.sprite = new cc.Sprite(res.HelloWorld_png);
