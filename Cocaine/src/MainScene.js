@@ -133,9 +133,9 @@ var ChatWindowLayer = cc.Layer.extend({
 
 		this.addChild(this.sprite);
 
-		var templateLabel = new cc.LabelTTF(_person.name, cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 24);
+		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 16, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
-        templateLabel.x = _xSpawn - this.sprite.width/4;
+        templateLabel.x = _xSpawn + 30;
         templateLabel.y = this.sprite.height - 25;
 		
         this.addChild(templateLabel);
