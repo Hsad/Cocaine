@@ -8,7 +8,7 @@ testConvo.modules.push(["hi",
 						"hey man", 
 						"you there?",
 						"yeah sorry",
-						"okay nevermind...");
+						"okay nevermind..."]);
 testConvo.modules.push(["a",
 						"b",
 						"c",

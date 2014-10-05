@@ -15,6 +15,7 @@
 		"src/people.js",
         "src/responseHandler.js",
         "src/app.js",
-		"src/MainScene.js"
+		"src/MainScene.js",
+		"src/Merc.js"
     ]
 }
