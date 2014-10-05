@@ -64,7 +64,7 @@ var NewsFeedLayer = cc.Layer.extend({
 	},
 	update: function() {
 		if (this.timer > 500){ //the 500 should be a random value
-			this.feedArray[this.feedArray.length] = new NewsFeed(this.xCent, this.yCent);
+			this.feedArray[this.feedArray.length] = new NewsFeed(this.xCent, this.yCent, name);
 			this.addChild(this.feedArray[this.feedArray.length - 1]); //-1 becasue the list just got bigger
 
 			var offset = this.feedArray[this.feedArray.length - 1].spriteHeight;
@@ -72,6 +72,7 @@ var NewsFeedLayer = cc.Layer.extend({
 				this.feedArray[x].sprite.y -= offset;
 			}
 			console.log("sir print alot?");
+			//i have to be free, but the power of routine and long term planning stays my feet
 			this.timer = 0;
 		}
 		this.timer++;
@@ -81,7 +82,7 @@ var NewsFeedLayer = cc.Layer.extend({
 var NewsFeed = cc.Layer.extend({
 	sprite : null,
 
-	ctor : function(xLoc, yLoc){
+	ctor : function(xLoc, yLoc, name){
 		this._super();
 
 		this.sprite = new cc.Sprite(res.feedPNG);
