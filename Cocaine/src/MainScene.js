@@ -21,6 +21,7 @@ var NewsFeedLayer = cc.Layer.extend({
 	//Constructor. should pass in the windows X Location,
 	ctor : function(){
 		//initialize the super
+		this.scheduleUpdate();
 		this._super();
 		this.xCent = cc.winSize.width/2;
 		this.yCent = cc.winSize.height/2;
@@ -34,19 +35,20 @@ var NewsFeedLayer = cc.Layer.extend({
 			scale: 1,
 			rotation: 0
 		});
-		this.addChild(this.sprite);
-		//console.log(this.sprite.width);
-		//console.log("anyonehome?");
-		//console.log(cc.winSize.height);
-		//console.log(cc.winSize.width);
+		this.addChild(this.sprite);;
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
 		this.friendList = new FriendList();
 		this.addChild(this.friendList);
 
+		//this.feedArray
+
 		this.newsFeed = new NewsFeed(this.xCent, this.yCent);
 		this.addChild(this.newsFeed);
+
+
+		//this.timer = 0;
 /*
 		if (this.hasChildNodes()) {
 			// So, first we check if the object is not empty, if the object has child nodes
@@ -59,6 +61,13 @@ var NewsFeedLayer = cc.Layer.extend({
 			}
 		}
 	*/	
+	},
+	update: function() {
+		//if (this.timer > 1000){
+			//console.log("sir print alot?");
+			//this.timer = 0;
+		//}
+		//this.timer++;
 	}
 });
 
