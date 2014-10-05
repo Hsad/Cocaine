@@ -157,11 +157,13 @@ var MainScene = cc.Scene.extend({
 		//-------------------------
 		this.chatWindowLayer1 = new ChatWindowLayer(wid*7/2, mercDersterferner);
 		this.addChild(this.chatWindowLayer1);
+		
 		this.chatWindowLayer2 = new ChatWindowLayer(wid*5/2, bernCherng);
 		this.addChild(this.chatWindowLayer2);
 		this.chatWindowLayer3 = new ChatWindowLayer(wid*3/2, sperncer);
 		this.addChild(this.chatWindowLayer3);
 		this.chatWindowLayer4 = new ChatWindowLayer(wid/2, dersh);
 		this.addChild(this.chatWindowLayer4);
+		
 	}
 });
