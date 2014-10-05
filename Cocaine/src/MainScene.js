@@ -48,22 +48,31 @@ var ChatWindowLayer = cc.Layer.extend({
 		this.sprite = new cc.Sprite(res.chatCleanPNG);
 		this.sprite.attr({
 			x: _xSpawn,
-			y: this.sprite.height/2+5,
+			y: this.sprite.height/2-94,
 			scale: 1,
 			rotation: 0,
 		});
+
 		this.addChild(this.sprite);
-		var templateLabel = new cc.LabelTTF(_person.name, cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
+		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 12, cc.size(325, 0), cc.TEXT_ALIGNMENT_LEFT);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
-        templateLabel.x = _xSpawn;
-        templateLabel.y = 220;
+        templateLabel.x = _xSpawn+5;
+        templateLabel.y = 360;
 		console.log(this.sprite.width);
         this.addChild(templateLabel);
+
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
 		this.textLogLayer = new TextLogLayer();
 		this.addChild(this.textLogLayer);
+        
+        //-----------------------------
+        // create the response box
+        //-----------------------------
+        
+        var responseBox = new ResponseHandler(_xSpawn,33,335);
+        this.addChild(responseBox);
 	}
 });
 
@@ -71,6 +80,7 @@ var MainScene = cc.Scene.extend({
 	onEnter : function(){
 		this._super();
 		
+        //how Spencer and I both feel right now
 		console.log("I hate everything");
 		
 		//gotta instantiate the layers and then make references to them and add them as children

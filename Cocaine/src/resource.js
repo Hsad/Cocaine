@@ -5,7 +5,8 @@ var res = {
 	
 	//our images
 	chatCleanPNG : "res/chat.png",
-	wallFeedPNG : "res/wallUp.png"
+	wallFeedPNG : "res/wallUp.png",
+  responseBoxPNG : "res/ResponseBox.png"
 };
 
 var g_resources = [];
