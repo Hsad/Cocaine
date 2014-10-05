@@ -5,7 +5,11 @@ var res = {
 	
 	//our images
 	chatCleanPNG : "res/chat.png",
+	//Background stuff
 	wallFeedPNG : "res/wallUp.png",
+	friendListPNG : "res/friendList.png",
+	feedPNG : "res/feed.png",
+	//
   responseBoxPNG : "res/ResponseBox.png"
 };
 
