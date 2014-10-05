@@ -9,8 +9,8 @@ var res = {
 	wallFeedPNG : "res/wallUp.png",
 	friendListPNG : "res/friendList.png",
 	feedPNG : "res/feed.png",
+    bgPNG : "res/background_happy.png",
 	//
-  responseBoxPNG : "res/ResponseBox.png",
 	dershPNG : "res/dersh.png"
 };
 
