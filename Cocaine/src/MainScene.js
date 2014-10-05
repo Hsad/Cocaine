@@ -103,7 +103,7 @@ var ChatWindowLayer = cc.Layer.extend({
 		this.sprite.attr({
 			x: _xSpawn,
 			y: this.sprite.height/2 +5,
-			scale: 1,
+			scale: 1.1,
 			rotation: 0,
 		});
 		this.addChild(this.sprite);

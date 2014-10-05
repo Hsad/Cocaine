@@ -1,7 +1,5 @@
 var merc = new Person("Merc Dersterferner",res.dershPNG);
-var testConvo = new Conversation(1);
-testConvo.modules.push(["hi", "hey man", "you there?","yeah sorry","okay nevermind..."]);
-merc.conversations.push(testConvo);
+
 	
 var bern = new Person("Bern Cherng",res.dershPNG);
 var sperncer= new Person("Sperncer Jernsern",res.dershPNG);
