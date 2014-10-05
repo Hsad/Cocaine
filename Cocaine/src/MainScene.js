@@ -42,7 +42,7 @@ var ChatWindowLayer = cc.Layer.extend({
         // create the response box
         //-----------------------------
         
-        var responseBox = new ResponseHandler(_xSpawn,33);
+        var responseBox = new ResponseHandler(_xSpawn,33,335);
         this.addChild(responseBox);
 	}
 });
