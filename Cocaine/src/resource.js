@@ -4,7 +4,8 @@ var res = {
     CloseSelected_png : "res/CloseSelected.png",
 	
 	//our images
-	chatCleanPNG : "res/chat.png"
+	chatCleanPNG : "res/chat.png",
+	wallFeedPNG : "res/wallUp.png"
 };
 
 var g_resources = [];
