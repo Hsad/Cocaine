@@ -139,14 +139,12 @@ var ChatWindowLayer = cc.Layer.extend({
 			scale: 1,
 			rotation: 0,
 		});
-
 		this.addChild(this.sprite);
-
+		
 		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 16, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
         templateLabel.x = _xSpawn + 30;
         templateLabel.y = this.sprite.height - 25;
-		
         this.addChild(templateLabel);
 
 		//------------------------------------------------
@@ -181,13 +179,14 @@ var MainScene = cc.Scene.extend({
 		//-------------------------
 		//Create the Chat windows!!
 		//-------------------------
-		this.chatWindowLayer1 = new ChatWindowLayer(wid*7/2, mercDersterferner);
+		this.chatWindowLayer1 = new ChatWindowLayer(wid*7/2, merc);
 		this.addChild(this.chatWindowLayer1);
-		this.chatWindowLayer2 = new ChatWindowLayer(wid*5/2, bernCherng);
+		this.chatWindowLayer2 = new ChatWindowLayer(wid*5/2, bern);
 		this.addChild(this.chatWindowLayer2);
 		this.chatWindowLayer3 = new ChatWindowLayer(wid*3/2, sperncer);
 		this.addChild(this.chatWindowLayer3);
 		this.chatWindowLayer4 = new ChatWindowLayer(wid/2, dersh);
 		this.addChild(this.chatWindowLayer4);
+		
 	}
 });
