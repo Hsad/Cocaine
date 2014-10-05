@@ -42,14 +42,14 @@ var NewsFeedLayer = cc.Layer.extend({
 		this.friendList = new FriendList();
 		this.addChild(this.friendList);
 
-		//this.feedArray
+		this.feedArray = [];
 
-		this.newsFeed = new NewsFeed(this.xCent, this.yCent);
-		this.addChild(this.newsFeed);
+		this.feedArray[0] = new NewsFeed(this.xCent, this.yCent);
+		this.addChild(this.feedArray[0]);
 
 
-		//this.timer = 0;
-/*
+		this.timer = 0;
+		/*
 		if (this.hasChildNodes()) {
 			// So, first we check if the object is not empty, if the object has child nodes
 			var children = this.childNodes;
@@ -63,11 +63,18 @@ var NewsFeedLayer = cc.Layer.extend({
 	*/	
 	},
 	update: function() {
-		//if (this.timer > 1000){
-			//console.log("sir print alot?");
-			//this.timer = 0;
-		//}
-		//this.timer++;
+		if (this.timer > 500){ //the 500 should be a random value
+			this.feedArray[this.feedArray.length] = new NewsFeed(this.xCent, this.yCent);
+			this.addChild(this.feedArray[this.feedArray.length - 1]); //-1 becasue the list just got bigger
+
+			var offset = this.feedArray[this.feedArray.length - 1].spriteHeight;
+			for (x = 0; x < this.feedArray.length - 1; x++){
+				this.feedArray[x].sprite.y -= offset;
+			}
+			console.log("sir print alot?");
+			this.timer = 0;
+		}
+		this.timer++;
 	}
 });
 
@@ -85,6 +92,7 @@ var NewsFeed = cc.Layer.extend({
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
+		this.spriteHeight = this.sprite.height;
 	}
 });
 
@@ -132,12 +140,10 @@ var ChatWindowLayer = cc.Layer.extend({
 		});
 		this.addChild(this.sprite);
 		
-		//display the persons name whom this chat window belongs
-		var templateLabel = new cc.LabelTTF(_person.name, cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 24);
+		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 16, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
-        templateLabel.x = _xSpawn - this.sprite.width/4-10;
-        templateLabel.y = this.sprite.height- 20;
-		
+        templateLabel.x = _xSpawn + 30;
+        templateLabel.y = this.sprite.height - 25;
         this.addChild(templateLabel);
 
 		//------------------------------------------------
