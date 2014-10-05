@@ -11,7 +11,6 @@ var res = {
 	feedPNG : "res/feed.png",
     bgPNG : "res/background_happy.png",
 	//
-  responseBoxPNG : "res/ResponseBox.png",
 	dershPNG : "res/dersh.png"
 };
 
