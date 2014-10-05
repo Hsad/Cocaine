@@ -135,8 +135,8 @@ var ChatWindowLayer = cc.Layer.extend({
 		//display the persons name whom this chat window belongs
 		var templateLabel = new cc.LabelTTF(_person.name, cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 24);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
-        templateLabel.x = _xSpawn - this.sprite.width/4-20;
-        templateLabel.y = this.sprite.height;
+        templateLabel.x = _xSpawn - this.sprite.width/4-10;
+        templateLabel.y = this.sprite.height- 20;
 		
         this.addChild(templateLabel);
 
