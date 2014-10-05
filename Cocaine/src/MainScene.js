@@ -7,22 +7,78 @@ var NewsFeedLayer = cc.Layer.extend({
 	ctor : function(){
 		//initialize the super
 		this._super();
+		this.xCent = cc.winSize.width/2;
+		this.yCent = cc.winSize.height/2;
 		//-----------------------------
 		//Create the chat window sprite
 		//-----------------------------
 		this.sprite = new cc.Sprite(res.wallFeedPNG);
 		this.sprite.attr({
-			x: 200,
-			y: this.sprite.height,
+			x: this.xCent,
+			y: this.yCent,
 			scale: 1,
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
-		console.log(this.sprite.width);
-		console.log("anyonehome?");
+		//console.log(this.sprite.width);
+		//console.log("anyonehome?");
+		//console.log(cc.winSize.height);
+		//console.log(cc.winSize.width);
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
+		this.friendList = new FriendList();
+		this.addChild(this.friendList);
+
+		this.newsFeed = new NewsFeed(this.xCent, this.yCent);
+		this.addChild(this.newsFeed);
+/*
+		if (this.hasChildNodes()) {
+			// So, first we check if the object is not empty, if the object has child nodes
+			var children = this.childNodes;
+
+			for (var i = 0; i < children.length; i++) {
+				// do something with each child as children[i]
+				// NOTE: List is live, Adding or removing children will change the list
+				console.log("some thing is working at least");
+			}
+		}
+	*/	
+	}
+});
+
+var NewsFeed = cc.Layer.extend({
+	sprite : null,
+
+	ctor : function(xLoc, yLoc){
+		this._super();
+
+		this.sprite = new cc.Sprite(res.feedPNG);
+		this.sprite.attr({
+			x: xLoc,
+			y: yLoc,
+			scale: 1,
+			rotation: 0,
+		});
+		this.addChild(this.sprite);
+	}
+});
+
+var FriendList = cc.Layer.extend({
+	sprite : null,
+	
+	ctor : function(){
+		this._super();
+
+		this.sprite = new cc.Sprite(res.friendListPNG);
+		this.sprite.attr({
+			x: cc.winSize.width - this.sprite.width/2,
+			y: cc.winSize.height/2,
+			scale: 1,
+			rotation: 0,
+		});
+		this.addChild(this.sprite);
+		//console.log("Oh hi");
 	}
 });
 
