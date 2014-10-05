@@ -1,13 +1,10 @@
 var NewsFeedLayer = cc.Layer.extend({
 	
-});
-
-var TextLogLayer = cc.Layer.extend({
-	//console.log("how many times is this called");
+	//console.log("how many times is this called"),
 	sprite : null,
 	
 	//Constructor. should pass in the windows X Location,
-	ctor : function(_xSpawn, _person){
+	ctor : function(){
 		//initialize the super
 		this._super();
 		//-----------------------------
@@ -15,24 +12,22 @@ var TextLogLayer = cc.Layer.extend({
 		//-----------------------------
 		this.sprite = new cc.Sprite(res.wallFeedPNG);
 		this.sprite.attr({
-			x: _xSpawn,
-			y: this.sprite.height/2+5,
+			x: 200,
+			y: this.sprite.height,
 			scale: 1,
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
-		var templateLabel = new cc.LabelTTF(_person.name, cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
-        templateLabel.setFontFillColor(cc.color(255,255,255,255));
-        templateLabel.x = _xSpawn;
-        templateLabel.y = 220;
 		console.log(this.sprite.width);
-        this.addChild(templateLabel);
+		console.log("anyonehome?");
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
-		this.textLogLayer = new TextLogLayer();
-		this.addChild(this.textLogLayer);
 	}
+});
+
+var TextLogLayer = cc.Layer.extend({
+
 });
 
 var ChatWindowLayer = cc.Layer.extend({
