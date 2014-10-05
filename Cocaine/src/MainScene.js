@@ -14,8 +14,11 @@ var ChatWindowLayer = cc.Layer.extend({
 		//initialize the super
 		this._super();
 		//-----------------------------
-		//Create the chat window sprite
+		//
+		//sprites
+		//
 		//-----------------------------
+		//window sprite
 		this.sprite = new cc.Sprite(res.chatCleanPNG);
 		this.sprite.attr({
 			x: _xSpawn,
@@ -24,11 +27,12 @@ var ChatWindowLayer = cc.Layer.extend({
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
-		var templateLabel = new cc.LabelTTF(_person.name, cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
+		
+		var templateLabel = new cc.LabelTTF(_person.name, cc.size(350, 0), cc.TEXT_ALIGNMENT_LEFT, "Arial", 24);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
-        templateLabel.x = _xSpawn;
-        templateLabel.y = 220;
-		console.log(this.sprite.width);
+        templateLabel.x = _xSpawn - this.sprite.width/4;
+        templateLabel.y = this.sprite.height - 25;
+		
         this.addChild(templateLabel);
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
@@ -52,13 +56,13 @@ var MainScene = cc.Scene.extend({
 		//-------------------------
 		//Create the Chat windows!!
 		//-------------------------
-		this.chatWindowLayer1 = new ChatWindowLayer(wid*7/2, dercterMerc);
+		this.chatWindowLayer1 = new ChatWindowLayer(wid*7/2, mercDersterferner);
 		this.addChild(this.chatWindowLayer1);
-		this.chatWindowLayer2 = new ChatWindowLayer(wid*5/2, dercterMerc);
+		this.chatWindowLayer2 = new ChatWindowLayer(wid*5/2, bernCherng);
 		this.addChild(this.chatWindowLayer2);
-		this.chatWindowLayer3 = new ChatWindowLayer(wid*3/2, dercterMerc);
+		this.chatWindowLayer3 = new ChatWindowLayer(wid*3/2, sperncer);
 		this.addChild(this.chatWindowLayer3);
-		this.chatWindowLayer4 = new ChatWindowLayer(wid/2, dercterMerc);
+		this.chatWindowLayer4 = new ChatWindowLayer(wid/2, dersh);
 		this.addChild(this.chatWindowLayer4);
 	}
 });
