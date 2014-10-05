@@ -1,3 +1,18 @@
+var bgLayer = cc.Layer.extend({
+    sprite : null,
+    ctor: function() {
+        this._super();
+        this.sprite = new cc.Sprite(res.bgPNG);
+        this.sprite.attr({
+            x: 800,
+            y: 450,
+            scale: 1,
+            rotation: 0
+        });
+        this.addChild(this.sprite);
+    }
+});
+
 var NewsFeedLayer = cc.Layer.extend({
 	
 	//console.log("how many times is this called"),
@@ -18,7 +33,7 @@ var NewsFeedLayer = cc.Layer.extend({
 			x: this.xCent,
 			y: this.yCent,
 			scale: 1,
-			rotation: 0,
+			rotation: 0
 		});
 		this.addChild(this.sprite);;
 		//------------------------------------------------
@@ -111,8 +126,8 @@ var ChatWindowLayer = cc.Layer.extend({
 		this.sprite = new cc.Sprite(res.chatCleanPNG);
 		this.sprite.attr({
 			x: _xSpawn,
-			y: this.sprite.height/2 +5,
-			scale: 1.1,
+			y: this.sprite.height/2,
+			scale: 1,
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
@@ -148,10 +163,12 @@ var MainScene = cc.Scene.extend({
 		console.log("I hate everything");
 		
 		//gotta instantiate the layers and then make references to them and add them as children
+        this.backgroundLayer = new bgLayer();
+        this.addChild(this.backgroundLayer);
 		this.newsFeedLayer = new NewsFeedLayer();
 		this.addChild(this.newsFeedLayer);
 		
-		var wid = 355 ;
+		var wid = 335 ;
 		//-------------------------
 		//Create the Chat windows!!
 		//-------------------------

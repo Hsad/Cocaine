@@ -11,17 +11,17 @@ var ResponseHandler = cc.Layer.extend({
         this.addChild(responseBox);
         
         //create a label and add it as a child
-        this.templateLabel = new cc.LabelTTF("Required Input: GDAGDAFHdahyrdjyutdbfGTTEJAYRAFEWhtejeGRhtejyrgrwRFREFD", "Arial", 12, cc.size(w-10, 56), cc.TEXT_ALIGNMENT_LEFT);
+        this.templateLabel = new cc.LabelTTF("Required Input: GDAGDAFHdahyrdjyutdbfGTTEJAYRAFEWhtejeGRhtejyrgrwRFREFD", "Arial", 12, cc.size(w-16, 56), cc.TEXT_ALIGNMENT_LEFT);
         this.templateLabel.setFontFillColor(new cc.color(127,127,127,255));
-        this.templateLabel.x = x+5;
+        this.templateLabel.x = x+4;
         this.templateLabel.y = y;
         this.templateLabel.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
         this.addChild(this.templateLabel);
         
         //create a TextFieldTTF and add it as a child
-        this.inputField = new cc.TextFieldTTF("Entered Input: GRAGRTWERYTUGFTRERTYUYTREWQERTYUYTREWQWERTYUIYTREWI", cc.size(w-10, 56), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
+        this.inputField = new cc.TextFieldTTF("Entered Input: GRAGRTWERYTUGFTRERTYUYTREWQERTYUYTREWQWERTYUIYTREWI", cc.size(w-16, 56), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
         this.inputField.setFontFillColor(new cc.color(0,0,255,255));
-        this.inputField.x = x+5;
+        this.inputField.x = x+4;
         this.inputField.y = y;
         this.inputField.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
         this.addChild(this.inputField);
@@ -30,7 +30,7 @@ var ResponseHandler = cc.Layer.extend({
         var parent = this;
         
         //add keyboard listener and add it
-        this.keyboardListener = cc.EventListener.create({
+        /*this.keyboardListener = cc.EventListener.create({
             event: cc.EventListener.KEYBOARD,
             onKeyPressed: function(keyCode, event) {
                 return false;
@@ -39,8 +39,8 @@ var ResponseHandler = cc.Layer.extend({
                 return false;
             }
         });
-        this.keyboardListener.setEnabled(false);
-        cc.eventManager.addListener(this.keyboardListener, this);
+        //this.keyboardListener.setEnabled(false);
+        cc.eventManager.addListener(this.keyboardListener, this);*/
         
         //add mouse listener and add it
         this.mouseListener = cc.EventListener.create({
@@ -48,20 +48,20 @@ var ResponseHandler = cc.Layer.extend({
             onMouseDown: function(event) {
                 if (event._x > x-w/2 && event._x < x+w/2 && event._y < y+23 && event._y > y-23) {
                     if (selectedBox != null) {
-                        selectedBox.keyboardListener.setEnabled(false);
+                        //selectedBox.keyboardListener.setEnabled(false);
+                        console.log("IME detached!");
                         selectedBox.inputField.detachWithIME();
-                        selectedBox.inputField.removeDelegate();
                     }
                     selectedBox = parent;
-                    parent.keyboardListener.setEnabled(true);
-                    parent.inputField.setDelegate(new cc.IMEDelegate());
+                    //parent.keyboardListener.setEnabled(true);
+                    parent.inputField.setPlaceHolder("");
                     parent.inputField.attachWithIME();
-                    console.log(parent.inputField.getDelegate());
+                    console.log("IME attached!");
                 }
                 return false;
             }
         });
-        cc.eventManager.addListener(this.mouseListener, this.inputField);
+        cc.eventManager.addListener(this.mouseListener, this);
         
         //add a function to set the required response
         function setRequiredResponse(message) {
