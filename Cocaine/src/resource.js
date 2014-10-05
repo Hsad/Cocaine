@@ -11,6 +11,7 @@ var res = {
 	feedPNG : "res/feed.png",
 	//
   responseBoxPNG : "res/ResponseBox.png"
+	dershPNG : "res/dersh.png"
 };
 
 var g_resources = [];
