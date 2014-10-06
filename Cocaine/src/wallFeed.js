@@ -83,6 +83,12 @@ var NewsFeed = cc.Layer.extend({
 
 	ctor : function(xLoc, yLoc, profilePic){
 		this._super();
+
+		//
+		//something that figures out the needed size for the wall post, 
+		//then lays out the needed background
+		//and the extra stuff
+		//
 		this.sprite = new cc.Sprite(profilePic);
 		//this.sprite = new cc.Sprite(res.feedPNG);
 		this.sprite.attr({
