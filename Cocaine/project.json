@@ -9,6 +9,7 @@
     "modules":[
         "cocos2d"
     ],
+    "Fonts Provided By Application": "Idolwind",
     "jsList":[
         "src/resource.js",
         "src/Person.js",

@@ -11,7 +11,7 @@ var res = {
 	feedPNG : "res/feed.png",
     bgPNG : "res/background_happy.png",
 	//
-	dershPNG : "res/dersh.png"
+	dershPNG : "res/dersh.png",
 };
 
 var g_resources = [];
