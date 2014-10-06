@@ -1,4 +1,4 @@
-var merc = new Person("Merc Dersterferner",res.dershPNG);
+var merc = new Person("Merc Dersterferner",res.mercPNG);
 
 //create a new conversation to append to the conversation list
 //                               |

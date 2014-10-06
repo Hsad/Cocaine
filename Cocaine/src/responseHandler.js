@@ -7,7 +7,7 @@ var ResponseHandler = cc.Layer.extend({
         this.requiredResponse = "Default Required Response.";
         
         //create a label and add it as a child
-        this.templateLabel = new cc.LabelTTF(this.requiredResponse, "Idolwild.ttf", 12, cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT);
+        this.templateLabel = new cc.LabelTTF(this.requiredResponse, "idolwild.ttf", 12, cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT);
         this.templateLabel.setFontFillColor(new cc.color(127,127,127,255));
         this.templateLabel.x = x+2;
         this.templateLabel.y = y;
@@ -16,7 +16,7 @@ var ResponseHandler = cc.Layer.extend({
         
         //create a TextFieldTTF and add it as a child
 
-        this.inputField = new cc.TextFieldTTF(" ", cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT, "Idolwild.ttf", 12);
+        this.inputField = new cc.TextFieldTTF(" ", cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT, "idolwild.ttf", 12);
 
         this.inputField.setFontFillColor(new cc.color(0,0,255,255));
         this.inputField.x = x+2;
