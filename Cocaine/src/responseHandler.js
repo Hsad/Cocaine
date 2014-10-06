@@ -4,7 +4,7 @@ var selectedBox = null;
 var ResponseHandler = cc.Layer.extend({
     ctor : function(x,y,w) {
         this._super();
-        this.requiredResponse = "DEFAULT REQUIRED RESPONSE";
+        this.requiredResponse = "Default Required Response.";
         
         //create a label and add it as a child
         this.templateLabel = new cc.LabelTTF(this.requiredResponse, "Arial", 12, cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT);
@@ -48,18 +48,12 @@ var ResponseHandler = cc.Layer.extend({
                     sender.setFontFillColor(new cc.color(255,0,0,255));
                     sender.discrepancy = true;
                 }
-                else {
-                    sender.setFontFillColor(new cc.color(0,0,255,255));
-                    sender.discrepancy = false;
-                }
                 return false;
             }
         }
         inputFieldEventHandler.onTextFieldDeleteBackward = function(sender, delText, len) {
             for (i = 0; i < sender.getString().length-1; i++) {
                 if (sender.parent.requiredResponse[i] != sender.getString()[i]) {
-                    sender.setFontFillColor(new cc.color(255,0,0,255));
-                    sender.discrepancy = true;
                     return false;
                 }
             }
