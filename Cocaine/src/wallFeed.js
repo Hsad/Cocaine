@@ -65,7 +65,7 @@ var NewsFeedLayer = cc.Layer.extend({
 			console.log(allPeople[randInt].name);
 			this.feedArray[this.feedArray.length] = new NewsFeed(
 					this.xCent, this.yCent, allPeople[randInt].profilePic);
-			this.addChild(this.feedArray[this.feedArray.length - 1]); //-1 becasue the list just got bigger
+			this.addChild(this.feedArray[this.feedArray.length - 1]); //-1 because the list just got bigger
 
 			var offset = this.feedArray[this.feedArray.length - 1].spriteHeight;
 			for (x = 0; x < this.feedArray.length - 1; x++){

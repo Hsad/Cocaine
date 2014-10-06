@@ -3,6 +3,7 @@ var res = {
     CloseNormal_png : "res/CloseNormal.png",
     CloseSelected_png : "res/CloseSelected.png",
 	
+	
 	//our images
 	chatCleanPNG : "res/chat.png",
 	//Background stuff
@@ -13,6 +14,12 @@ var res = {
 	
 	//profile pictures
 	dershPNG : "res/dersh.png",
+	sperncerPNG : "res/sperncer.png",
+	tererncePNG : "res/terrnce.png",
+	jersternPNG : "res/jerstin.png",
+	dervernPNG : "res/dervin.png",
+	mercPNG : "res/derctermerc.png",
+	bernPNG : "res/berncherng.png",
 	
 	//chat bubbles
 	playerBubbleBottomPNG : "res/you_chat_bottom.png",
