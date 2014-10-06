@@ -11,10 +11,6 @@ var res = {
 	friendListPNG : "res/friendList.png",
 	feedPNG : "res/feed.png",
     bgPNG : "res/background_happy.png",
-<<<<<<< HEAD
-	//
-	dershPNG : "res/dersh.png",
-=======
 	
 	//profile pictures
 	dershPNG : "res/dersh.png",
@@ -31,8 +27,10 @@ var res = {
 	playerBubbleTopPNG : "res/you_chat_top.png",
 	otherBubbleBottomPNG : "res/other_person_chat_bottom.png",
 	otherBubbleMiddlePNG : "res/other_person_chat_middle.png",
-	otherBubbleTopPNG : "res/other_person_chat_top.png"
->>>>>>> 61f2754097c2550dee0b538b94c0917e4a3c3b9c
+	otherBubbleTopPNG : "res/other_person_chat_top.png",
+    
+    //fonts
+    Idolwild : "res/idolwild.ttf"
 };
 
 var g_resources = [];

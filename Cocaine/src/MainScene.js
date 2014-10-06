@@ -1,3 +1,14 @@
+var jitter = function(node, x_jitter, y_jitter) {
+    if (typeof node.x_anchor === 'undefined') {
+        node.x_anchor = node.x;
+    }
+    if (typeof node.y_anchor === 'undefined') {
+        node.y_anchor = node.y;
+    }
+    node.x = node.x_anchor + Math.random(x_jitter) - x_jitter/2;
+    node.y = node.y_anchor + Math.random(y_jitter) - y_jitter/2;
+}
+
 var bgLayer = cc.Layer.extend({
     sprite : null,
     ctor: function() {
@@ -103,7 +114,10 @@ var ChatWindowLayer = cc.Layer.extend({
 	//Constructor. should pass in the windows X Location,
 	ctor : function(_xSpawn, _person){
 		//initialize the super
+        this.scheduleUpdate();
 		this._super();
+        this._xSpawn = _xSpawn;
+        this.jittering = true;
 		//-----------------------------
 		//sprites
 		//-----------------------------
@@ -132,9 +146,19 @@ var ChatWindowLayer = cc.Layer.extend({
         // create the response box
         //-----------------------------
         
-        var responseBox = new ResponseHandler(_xSpawn,33,335);
-        this.addChild(responseBox);
-	}
+        this.responseBox = new ResponseHandler(_xSpawn,33,335);
+        this.responseBox.chatbox = this;
+        this.addChild(this.responseBox);
+	},
+    update : function() {
+        if (this.jittering) {
+            jitter(this, 30, 30);
+        }
+        else {
+            this.x = this.x_anchor;
+            this.y = this.y_anchor;
+        }
+    }
 });
 
 var MainScene = cc.Scene.extend({
