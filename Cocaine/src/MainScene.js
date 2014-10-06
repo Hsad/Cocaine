@@ -116,7 +116,16 @@ var FriendList = cc.Layer.extend({
 });
 
 var TextLogLayer = cc.Layer.extend({
+	ctor : function(){
+		this._super();
+	}
+});
 
+var ChatBubble = cc.Layer.extend({
+	ctor : function(_message, _xSpawn, YSpawn, _isPlayers){
+		this._super();
+			
+	}
 });
 
 var ChatWindowLayer = cc.Layer.extend({
@@ -140,7 +149,7 @@ var ChatWindowLayer = cc.Layer.extend({
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
-		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 14, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
+		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 20, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
         templateLabel.x = _xSpawn + 30;
         templateLabel.y = this.sprite.height - 25;
