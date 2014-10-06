@@ -17,7 +17,6 @@ var ResponseHandler = cc.Layer.extend({
         //create a TextFieldTTF and add it as a child
 
         this.inputField = new cc.TextFieldTTF(" ", cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT, res.Idolwild, 12);
-
         this.inputField.setFontFillColor(new cc.color(0,0,255,255));
         this.inputField.x = x+2;
         this.inputField.y = y;
