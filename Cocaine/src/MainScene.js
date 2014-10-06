@@ -12,7 +12,7 @@ var bgLayer = cc.Layer.extend({
         this.addChild(this.sprite);
     }
 });
-
+/*
 var NewsFeedLayer = cc.Layer.extend({
 	
 	//console.log("how many times is this called"),
@@ -60,7 +60,7 @@ var NewsFeedLayer = cc.Layer.extend({
 				console.log("some thing is working at least");
 			}
 		}
-	*/	
+	//astrix/	
 	},
 	update: function() {
 		if (this.timer > 500){ //the 500 should be a random value
@@ -72,7 +72,6 @@ var NewsFeedLayer = cc.Layer.extend({
 				this.feedArray[x].sprite.y -= offset;
 			}
 			console.log("sir print alot?");
-			//i have to be free, but the power of routine and long term planning stays my feet
 			this.timer = 0;
 		}
 		this.timer++;
@@ -113,7 +112,7 @@ var FriendList = cc.Layer.extend({
 		this.addChild(this.sprite);
 		//console.log("Oh hi");
 	}
-});
+});*/
 
 var TextLogLayer = cc.Layer.extend({
 
