@@ -204,4 +204,162 @@ terernce.conversations.push(lvlTwoConvoThree);
 							
 /* LEVEL THREE CONVERSATIONS */
 
+/* Conversation One */ 
+lvlThreeConvoOne.modules.push([ // Note: Chipotle is fucking better. --Terence
+							"Alright, Moe's or Chipotle?",
+							"Dude Chipotle no question, Moe's has queso but the meat and vegetables at Chipotle are always so much better.",
+							"You've gotta have an opinion on this, right?",
+							"Well yeah dude, Chipotle is the objectively better choice. Especially considering the Moe's on campus is run by Sodexo.",
+							"Guess you're not a mexican food guy. Bye.",
+							]);
+							
+lvlThreeConvoOne.modules.push([
+							"Well yeah, but you've gotta factor in the menu diversity that Moe's has.",
+							"What, taco stack? Dude, the quesarito is infinitely tastier and doesn't taste like the awful cheese that Moe's uses.",
+							"Like, what answer does Chipotle have to the taco stack?",
+							"The taco stack is literally the only thing that Moe's does differently, and Chipotle has the quesarito to counter that.",
+							"No answer? Guess I win then."
+							]);
+							
+lvlThreeConvoOne.modules.push([
+							"Dude, it's just a double wrapped burrito with extra cheese. What's the difference?",
+							"Look, if you don't understand why Chipotle is better at this point, then you're clearly already too far gone to save.",
+							"Like even the texture is the same if you aren't deliberately trying to notice it.",
+							"Bro it still all comes down to ingredients. Even the burrito bowl is infinitely better than anything Moe's has, and it doesn't even have a tortilla.",
+							"Avoiding the important questions? Real mature. I win, later."
+							]);
+							
+/* Conversation Two */
+lvlThreeConvoTwo.modules.push([
+							"LOL did you hear about Tommy?",
+							"No, but knowing him whatever you're about to tell me is going to be something colossally stupid that he did. What happened?",
+							"I swear he's really outdone himself this time.",
+							"Okay, I'll bite. What did our favorite moron do this time?",
+							"Cool, ignore my news about our friend. Bye."
+							]);
+							
+lvlThreeConvoTwo.modules.push([
+							"He spent last night in the emergency room!",
+							"Let me guess, did he do something stupid involving alcohol and that damn longboard again?",
+							"Three guesses to what happened, first two don't count.",
+							"Only need the one, we all know how obssessed he's been with that stupid longboard this semester.",
+							"Whatever, guess you don't need to know anyway."
+							]);
+							
+lvlThreeConvoTwo.modules.push([
+							"Not really much of a shocker, is it.",
+							"Well yeah, that kid's like a human giraffe. He barely has the sense of balance to walk straight normally, much less ride a long board.",
+							"Oh well, the nurses said he'll be fine.",
+							"Honestly I'm not even surprised; that kid has to have an entire squadron of guardian angels on call the way he manages to escape serious trouble.",
+							"Not that you care... later."
+							]);
+
+/* Conversation Three */
+lvlThreeConvoThree.modules.push([
+							"Dude are you a comic book fan?",
+							"Nah, I only really follow the new Batman comics, Marvel's Ultimate Universes, Teen Titans, and... yeah, I'm a comic book guy.",
+							"No offense, you kind of seem like type haha.",
+							"Honestly, if I didn't completely agree with you I'd probably be kind of upset with you right now.",
+							"Offense taken, I guess. My bad, see ya dude."
+							]);
+							
+lvlThreeConvoThree.modules.push([
+							"So you know about new show coming out, right?",
+							"Of course I do, dude! I've been watching Arrow since it started airing on the CW, and the Flash is basically one of the best DC heroes ever.",
+							"The Flash?",
+							"Dude words cannot describe how excited I am for that premiere, as well as Arrow's return. I'm a bit worried about Arrow going downhill though.",
+							"Well, you're welcome, it's happening. Later dude."
+							]);
+							
+lvlThreeConvoThree.modules.push([
+							"Yeah, the romantic tension they've been throwing around all of last season is kind of annoying.",
+							"Ugh, you're telling me. Every time anyone important falls in love with a supporting character they have to kill off the support to keep the show interesting.",
+							"Dunno how much longer I'm gonna watch if it gets any more soapy.",
+							"I feel you, they need to focus more on the whole 'hero' thing and less on all of the namby pamby inter-character relations. It's killing the mood.",
+							"Oh well, I guess you don't care that much. Peace."
+							]);
+						
+terernce.conversations.push(lvlThreeConvoOne);
+terernce.conversations.push(lvlThreeConvoTwo);
+terernce.conversations.push(lvlThreeConvoThree);
+						
+/* LEVEL FOUR CONVERSATIONS */ 
+
 /* Conversation One */
+lvlFourConvoOne.modules.push([
+							"Hey, where are you living this year?",
+							"I'm on an apartment off campus, like three blocks away from the alumni house. Honestly it's one of the best decisions I've made since I got here.",
+							"Apartment or Campus Housing?",
+							"Oh man, I'm so done with living on campus. I took the plunge and got an apartment this semester, and honestly I couldn't be happier.",
+							"Guess I came off kinda stalker-y, see ya."
+							]);
+							
+lvlFourConvoOne.modules.push([
+							"Yeah? What's it like living on your own?",
+							"It's great most of the time, but there are definitely some parts of the real world I wasn't adequately prepared for haha.",
+							"Feeling adult yet?",
+							"Yeah, there's definitely a whole lot to living on your own that I didn't really consider before I moved in here. Food, cleaning, etc.",
+							"Adult enough to ignore me, I suppose... bye."
+							]);
+							
+lvlFourConvoOne.modules.push([
+							"Haha cooking for yourself now?",
+							"Yeah dude, turns out having a non-stick pan and chicken breast means you can make just about anything on the planet. It's truly amazing.",
+							"Or are you just getting take-out all the time?",
+							"Nah dude, part of the reason I moved off campus was to save money. If I spent all the money I saved by living here on pizza it wouldn't really be worth it haha.",
+							"Maybe the internet at your place sucks too? It's certainly been iffy on campus. See you around."
+							]);
+							
+/* Conversation Two */
+lvlFourConvoTwo.modules.push([
+							"Ugh, I gotta start hitting the gym. You work out?",
+							"Haha only the bare minimum. I caught myself putting on a bit of weight last year and I've been walking to places more and eating out as little as possible.",
+							"Like anything at all?",
+							"I dunno, I've been trying to get back into my routine that I had going on my freshman year, but classes keep getting away of going to the gym with people.",
+							"Sweet, ignore a brother who's looking for help. Later."
+							]);
+							
+lvlFourConvoTwo.modules.push([
+							"Hey, looks like we've got a common goal, wanna start heading to the gym together?",
+							"I dunno, I've always been better at working out alone. I tend to just plug in music and space out so I forget how much of a drag it is to exert myself :P",
+							"Even only once or twice a week?",
+							"I dunno, I've always felt more comfortable working out alone. Maybe it's me being self-conscious, but I always feel like I'm getting more done that way.",
+							"Or never. Later, jerk."
+							]);
+							
+lvlFourConvoTwo.modules.push([
+							"Alright, if you don't want to go together, any tips for losing weight?",
+							"The fastest way also sucks the most; running. If you don't want to use the treadmill or elliptical, swimming is also a low-impact, high calorie burner.",
+							"Like just some simple stuff?",
+							"It's all about calories in < calories out, dude. Doing lots of cardio like running or swimming and eating right will let your weight drop like a stone.",
+							"Not one tip? I thought we were friends. Bye."
+							]);
+							
+/* Conversation Three */
+lvlFourConvoThree.modules.push([
+							"Dude, is Chicken Bacon Ranch just a New York thing?",
+							"I dunno, I've seen stuff like Chicken Bacon Ranch subs and pizzas available to buy near places at home, but they're nowhere near as popular as they are here.",
+							"Like seriously, it can't be just me that notices how popular the stuff is here, right?",
+							"Yeah, I feel you on that. It's like no one ever really wants to get anything else unless they don't like chicken or they're trying to lose weight or something.",
+							"Guess you don't care as much as I do... peace."
+							]);
+							
+lvlFourConvoThree.modules.push([
+							"What do people tend to get where you live?",
+							"My hometown is biiiiig on buffalo chicken everything, especially pizzas and calzones. It helps that there are two pizza places at home that make incredible buff chick stuff.",
+							"Or do you not eat out a lot at home?",
+							"Don't get me wrong, my parents are great cooks, but getting buffalo chicken pizza and calzones at home is one of the things I look forward to most when I head back home from school.",
+							"Or maybe you just don't eat at all, cause you're dead to me. Bye.",
+							]);
+							
+lvlFourConvoThree.modules.push([
+							"Buffalo Chicken? Everyone I know at home is a meat lover's or chicken parm kinda guy.",
+							"I'll be honest, I'm not really a fan of the big clumps of mozzarella places tend to put on chicken parm pizza, and meat lover's is just way too much salt for me to handle.",
+							"Do you ever get anything like that?",
+							"Eh, it's not really my thing. I'm the kind of person that finds something they like at a restaurant and just gets that every single time they go there (unless I see someone try something tastier).",
+							"Guess you're not as hungry as I am, haha. See ya."
+							]);
+							
+terernce.conversations.push(lvlThreeConvoOne);
+terernce.conversations.push(lvlThreeConvoTwo);
+terernce.conversations.push(lvlThreeConvoThree);
