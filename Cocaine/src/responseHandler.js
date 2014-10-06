@@ -4,10 +4,10 @@ var selectedBox = null;
 var ResponseHandler = cc.Layer.extend({
     ctor : function(x,y,w) {
         this._super();
-        this.requiredResponse = "yeah that is kinda weird, oh well that sucks";
+        this.requiredResponse = "Default Required Response.";
         
         //create a label and add it as a child
-        this.templateLabel = new cc.LabelTTF(this.requiredResponse, "Arial", 14, cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT);
+        this.templateLabel = new cc.LabelTTF(this.requiredResponse, "Arial", 12, cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT);
         this.templateLabel.setFontFillColor(new cc.color(127,127,127,255));
         this.templateLabel.x = x+2;
         this.templateLabel.y = y;
@@ -16,7 +16,7 @@ var ResponseHandler = cc.Layer.extend({
         
         //create a TextFieldTTF and add it as a child
 
-        this.inputField = new cc.TextFieldTTF(" ", cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT, "Arial", 14);
+        this.inputField = new cc.TextFieldTTF(" ", cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT, "Arial", 12);
 
         this.inputField.setFontFillColor(new cc.color(0,0,255,255));
         this.inputField.x = x+2;
@@ -48,18 +48,12 @@ var ResponseHandler = cc.Layer.extend({
                     sender.setFontFillColor(new cc.color(255,0,0,255));
                     sender.discrepancy = true;
                 }
-                else {
-                    sender.setFontFillColor(new cc.color(0,0,255,255));
-                    sender.discrepancy = false;
-                }
                 return false;
             }
         }
         inputFieldEventHandler.onTextFieldDeleteBackward = function(sender, delText, len) {
             for (i = 0; i < sender.getString().length-1; i++) {
                 if (sender.parent.requiredResponse[i] != sender.getString()[i]) {
-                    sender.setFontFillColor(new cc.color(255,0,0,255));
-                    sender.discrepancy = true;
                     return false;
                 }
             }
