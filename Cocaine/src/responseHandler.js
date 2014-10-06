@@ -37,14 +37,35 @@ var ResponseHandler = cc.Layer.extend({
 			}
         inputFieldEventHandler.onTextFieldInsertText = function(sender, text, len) {
             if (text == "\n") {
-                sender.parent.DoStuffWithTextFromTheField(sender.getString());
-				sender.setString("");	// clear the input field
-                cc.log("Enter has been pressed!")
+                if (sender.getString() == sender.parent.requiredResponse) {
+                    sender.parent.DoStuffWithTextFromTheField(sender.getString());
+                    sender.setString("");	// clear the input field
+                }
                 return true;
             }
             else {
+                if (text != sender.parent.requiredResponse[sender.getString().length]){
+                    sender.setFontFillColor(new cc.color(255,0,0,255));
+                    sender.discrepancy = true;
+                }
+                else {
+                    sender.setFontFillColor(new cc.color(0,0,255,255));
+                    sender.discrepancy = false;
+                }
                 return false;
             }
+        }
+        inputFieldEventHandler.onTextFieldDeleteBackward = function(sender, delText, len) {
+            for (i = 0; i < sender.getString().length-1; i++) {
+                if (sender.parent.requiredResponse[i] != sender.getString()[i]) {
+                    sender.setFontFillColor(new cc.color(255,0,0,255));
+                    sender.discrepancy = true;
+                    return false;
+                }
+            }
+            sender.setFontFillColor(new cc.color(0,0,255,255));
+            sender.discrepancy = false;
+            return false;
         }
         global = inputFieldEventHandler;
 		this.inputField.setDelegate(inputFieldEventHandler);
