@@ -2,7 +2,6 @@ var TextLogLayer = cc.Layer.extend({
 
 	ctor : function(){
 		this._super();
-		console.log("hey");
 		this.bubbleList = [];
 		
 		//-------------
@@ -146,19 +145,14 @@ var ChatWindowLayer = cc.Layer.extend({
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
 		this.textLog = new TextLogLayer();
-		console.log("hey dawg");
 		this.addChild(this.textLog);
         
         //-----------------------------
         // create the response box
         //-----------------------------
-        
         this.responseBox = new ResponseHandler(_xSpawn,33,335);
-		console.log("made res box");
         this.responseBox.chatbox = this;
-		console.log("attached chatbox");
         this.addChild(this.responseBox);
-		console.log("umm");
 	},
     update : function() {
         if (this.jittering) {
