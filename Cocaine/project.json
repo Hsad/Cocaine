@@ -18,6 +18,7 @@
         "src/app.js",
 		"src/MainScene.js",
 		"src/Merc.js",
-		"src/wallFeed.js"
+		"src/wallFeed.js",
+		"src/ChatWindow.js"
     ]
 }

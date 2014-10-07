@@ -1,25 +1,37 @@
 var TextLogLayer = cc.Layer.extend({
+	bubbleList : [],
+
 	ctor : function(){
 		this._super();
-	}
+	},
 	
 	addBubble : function(_message, _xSpawn, _ySpawn, _isPlayers){
+					
 		this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers);
 		this.addChild(newestBubble);
-	}
+		
+		bubbleList.push(newestBubble);
+		pushLogStack();
+		return this.newestBubble;
+	},
 	
 	pushLogStack : function(){
-	
+		for(i = 0; i < bubbleList.length; i++)
+		{
+			bubbleList[i].y += newestBubble.height;
+		}
 	}
 	
 });
 
 var ChatBubble = cc.Layer.extend({
-
+	
 	ctor : function(_message, _xSpawn, _ySpawn, _isPlayers){
 		this._super();
 		//calculate how many lines tall this bubble is (based on an average of 30 chars a line)
 		this.lines = Math.floor(_message.length / 29) + 1;
+		//height keeps track of the height of all the sprites
+		this.height = 0;
 		//-------------------------------------
 		//first you have to make the top sprite
 		//-------------------------------------
@@ -30,6 +42,7 @@ var ChatBubble = cc.Layer.extend({
 			scale: 1,
 			rotation: 0
 		});
+		this.height +=this.topSprite.height; 			//height keeps track of the height of all the sprites
 		this.addChild(this.topSprite);
 		//----------------------------------------------------------------------------
 		//if there's more than 1 line of text, add a middle sprite for each extra line
@@ -49,6 +62,7 @@ var ChatBubble = cc.Layer.extend({
 					rotation: 0
 				});
 				this.addChild(this.middleSprite);
+				this.height +=this.middleSprite.height; 			//height keeps track of the height of all the sprites
 			}
 		}
 		//-------------------------
@@ -71,6 +85,7 @@ var ChatBubble = cc.Layer.extend({
 			scale: 1,
 			rotation: 0
 		});
+		this.height +=this.bottomSprite.height; 			//height keeps track of the height of all the sprites
 		this.addChild(this.bottomSprite);
 		
 		//-----------------------------
@@ -98,7 +113,10 @@ var ChatWindowLayer = cc.Layer.extend({
 	//Constructor. should pass in the windows X Location,
 	ctor : function(_xSpawn, _person){
 		//initialize the super
+        this.scheduleUpdate();
 		this._super();
+        this._xSpawn = _xSpawn;
+        this.jittering = true;
 		//-----------------------------
 		//sprites
 		//-----------------------------
@@ -111,7 +129,7 @@ var ChatWindowLayer = cc.Layer.extend({
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
-		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 20, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
+		var templateLabel = new cc.LabelTTF(_person.name, "Idolwild", 18, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
         templateLabel.x = _xSpawn + 30;
         templateLabel.y = this.sprite.height - 25;
@@ -120,14 +138,24 @@ var ChatWindowLayer = cc.Layer.extend({
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
-		this.textLogLayer = new TextLogLayer();
+		this.textLog = new TextLogLayer();
 		this.addChild(this.textLogLayer);
         
         //-----------------------------
         // create the response box
         //-----------------------------
         
-        var responseBox = new ResponseHandler(_xSpawn,33,335);
-        this.addChild(responseBox);
-	}
+        this.responseBox = new ResponseHandler(_xSpawn,33,335);
+        this.responseBox.chatbox = this;
+        this.addChild(this.responseBox);
+	},
+    update : function() {
+        if (this.jittering) {
+            jitter(this, 5, 5);
+        }
+        else {
+            this.x = this.x_anchor;
+            this.y = this.y_anchor;
+        }
+    }
 });
