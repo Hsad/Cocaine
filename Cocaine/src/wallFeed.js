@@ -21,8 +21,8 @@ var NewsFeedLayer = cc.Layer.extend({
 
 		this.feedArray[0] = new NewsFeed(this.xCent, this.yCent, allPeople[0].profilePic);
 		this.addChild(this.feedArray[0]);
-		console.log("first Name=")
-		console.log(allPeople[0].name);
+		//console.log("first Name=")
+		//console.log(allPeople[0].name);
 
 
 		this.timer = 0;
@@ -34,7 +34,7 @@ var NewsFeedLayer = cc.Layer.extend({
 			for (var i = 0; i < children.length; i++) {
 				// do something with each child as children[i]
 				// NOTE: List is live, Adding or removing children will change the list
-				console.log("some thing is working at least");
+				//console.log("some thing is working at least");
 			}
 		}
 	*/	
@@ -44,14 +44,14 @@ var NewsFeedLayer = cc.Layer.extend({
 			//
 			//something that choses an avalible person for a wall post
 			//
-			console.log("allPeople.lenght = ");
-			console.log(allPeople.length);
+			//console.log("allPeople.length = ");
+			//console.log(allPeople.length);
 			randInt = Math.floor(Math.random() * allPeople.length);
-			console.log("randInt = ");
-			console.log(randInt);
+			//console.log("randInt = ");
+			//console.log(randInt);
 
-			console.log("profName= ");
-			console.log(allPeople[randInt].name);
+			//console.log("profName= ");
+			//console.log(allPeople[randInt].name);
 			this.feedArray[this.feedArray.length] = new NewsFeed(
 					this.xCent, this.yCent, allPeople[randInt].profilePic);
 			this.addChild(this.feedArray[this.feedArray.length - 1]); //-1 because the list just got bigger
@@ -60,7 +60,7 @@ var NewsFeedLayer = cc.Layer.extend({
 			for (x = 0; x < this.feedArray.length - 1; x++){
 				this.feedArray[x].y -= offset;
 			}
-			console.log("sir print alot?");
+			//console.log("sir print alot?");
 			this.timer = 0;
 		}
 		this.timer++;

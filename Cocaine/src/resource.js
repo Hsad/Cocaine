@@ -33,14 +33,17 @@ var res = {
 	otherBubbleMiddlePNG : "res/other_person_chat_middle.png",
 	otherBubbleTopPNG : "res/other_person_chat_top.png",
     
-    //fonts
-    Idolwild : "res/idolwild.ttf"
 };
 
 var g_resources = [];
 for (var i in res) {
     g_resources.push(res[i]);
 }
+g_resources.push({
+    type:"font",
+    name:"Idolwild",
+    srcs:["res/idolwild-webfont.eot", "res/idolwild.ttf"]
+});
 /* //untested, just dont delete
 var secret = { //Dash's sooper secret thing that is probably really obvious
 	a : "just now",
