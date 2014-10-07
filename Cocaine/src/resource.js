@@ -35,7 +35,9 @@ var res = {
 
 	//wall posts
 	postBern1PNG : "res/post/Post_Bern_1.png",
-	postJerstern1PNG : "res/post/Post_Jerstern_1.png"
+	postJerstern1PNG : "res/post/Post_Jerstern_1.png",
+    postMerc1PNG : "res/post/Post_Merc_1.png",
+    postMerc2PNG : "res/post/Post_Merc_2.png"
     
     
 };
