@@ -26,7 +26,7 @@ var res = {
 	bernPNG : "res/berncherng.png",
     gf1PNG : "res/gf1.png",
     gf2PNG : "res/gf2.png",
-    animePNG : "res/anime-enthusiast.png",
+    animePNG : "res/anime_enthusiast.png",
     grangranPNG : "res/grangran.png",
     cerfeePNG : "res/cerfee.png",
     lernkPNG : "res/lernk.png",

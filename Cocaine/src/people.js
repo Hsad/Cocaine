@@ -5,6 +5,6 @@ var gf1 = new Person("Girlfriend #1", res.gf1PNG);
 var gf2 = new Person("Girlfriend #2", res.gf2PNG);
 var anime = new Person("Anime-kun", res.animePNG);
 var grangran = new Person("Grandma", res.grangranPNG);
-var cerfee = new Person("Amernder \"Pumpkin Spice\" Mertherbluh", res.cerfeePNG);
+var cerfee = new Person("Permpkin \"Spice\" Cerfee", res.cerfeePNG);
 var lernk = new Person("Lernk", res.lernkPNG);
 var zerk = new Person("Zerk Merkerberg", res.zerkPNG);
