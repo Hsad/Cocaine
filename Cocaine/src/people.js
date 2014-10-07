@@ -1,6 +1,7 @@
 var bern = new Person("Bern Cherng",res.bernPNG);
 var sperncer= new Person("Sperncer Jernsern",res.sperncerPNG);
 var dersh = new Person("Dersh Kerler",res.dershPNG);
+var terernce = new Person("Terernce Fererl", res.tererncePNG);
 var gf1 = new Person("Girlfriend #1", res.gf1PNG);
 var gf2 = new Person("Girlfriend #2", res.gf2PNG);
 var anime = new Person("Anime-kun", res.animePNG);
