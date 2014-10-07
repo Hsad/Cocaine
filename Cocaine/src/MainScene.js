@@ -5,8 +5,10 @@ var jitter = function(node, x_jitter, y_jitter) {
     if (typeof node.y_anchor === 'undefined') {
         node.y_anchor = node.y;
     }
-    node.x = node.x_anchor + Math.random(x_jitter) - x_jitter/2;
-    node.y = node.y_anchor + Math.random(y_jitter) - y_jitter/2;
+    node.x = node.x_anchor + (Math.random()-0.5)*2*x_jitter;
+    node.y = node.y_anchor + (Math.random()-0.5)*2*y_jitter;
+    node.responseBox.x = (node.x_anchor - node.x);
+    node.responseBox.y = (node.y_anchor - node.y);
 }
 
 var bgLayer = cc.Layer.extend({
@@ -152,7 +154,7 @@ var ChatWindowLayer = cc.Layer.extend({
 	},
     update : function() {
         if (this.jittering) {
-            jitter(this, 30, 30);
+            jitter(this, 5, 5);
         }
         else {
             this.x = this.x_anchor;
