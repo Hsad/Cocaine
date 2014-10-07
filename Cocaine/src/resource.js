@@ -33,6 +33,7 @@ var res = {
 	otherBubbleMiddlePNG : "res/other_person_chat_middle.png",
 	otherBubbleTopPNG : "res/other_person_chat_top.png",
     
+    
 };
 
 var g_resources = [];
