@@ -10,9 +10,9 @@ var res = {
 	wallFeedPNG : "res/wallUp.png",
 	friendListPNG : "res/friendList.png",
 	feedPNG : "res/feed.png",
-	postTopPNG : "res/post_top_old.png",
+	postTopPNG : "res/post_top.png",
 	postMidPNG : "res/post_middle.png",
-	postBotPNG : "res/post_bottom_old.png",
+	postBotPNG : "res/post_bottom.png",
 
     bgPNG : "res/background_happy.png",
 	
@@ -44,3 +44,33 @@ g_resources.push({
     name:"Idolwild",
     srcs:["res/idolwild-webfont.eot", "res/idolwild.ttf"]
 });
+/* //untested, just dont delete
+var secret = { //Dash's sooper secret thing that is probably really obvious
+	a : "just now",
+	b : "0.00203 milliseconds ago",
+	c : "literally this instant",
+	d : "moments ago",
+	e : "sorry ya Just missed 'em",
+	f : "just now",
+	g : "just now",
+	h : "just now",
+	i : "just now",
+	j : "3 days ago",
+	k : "0.0420 seconds ago",
+	l : "-3.2 seconds ago",
+	m : "will have been nearly posted in 2 seconds",
+	n : "1821 yrs ago",
+	o : "moments ago",
+	p : "fairly recently",
+	q : "I don't know, what do I look like? A clock?",
+	r : "^^ this guy needs to get outside",
+	s : "just now",
+	t : "jerst nerw",
+	u : "help I'm trapped in DerpFerce",
+	v : "just now",
+	w : "just now",
+	x : "just now",
+	y : "just now",
+	z : "just now"
+}
+*/
