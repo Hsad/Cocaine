@@ -1,24 +1,31 @@
 var TextLogLayer = cc.Layer.extend({
-	bubbleList : [],
 
 	ctor : function(){
 		this._super();
-	},
-	
-	addBubble : function(_message, _xSpawn, _ySpawn, _isPlayers){
-					
-		this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers);
-		this.addChild(newestBubble);
+		console.log("hey");
+		this.bubbleList = [];
 		
-		bubbleList.push(newestBubble);
-		pushLogStack();
-		return this.newestBubble;
-	},
-	
-	pushLogStack : function(){
-		for(i = 0; i < bubbleList.length; i++)
-		{
-			bubbleList[i].y += newestBubble.height;
+		//-------------
+		//addBubble()
+		//-------------
+		this.addBubble = function(_message, _xSpawn, _ySpawn, _isPlayers){
+			this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers);
+			this.addChild(this.newestBubble);
+			
+			
+			
+			this.bubbleList.push(this.newestBubble);
+			this.pushLogStack();
+			return this.newestBubble;
+		}
+		//----------------
+		//pushLogStack()
+		//-----------------
+		this.pushLogStack = function(){
+			for(i = 0; i < this.bubbleList.length; i++)
+			{
+				this.bubbleList[i].y += this.newestBubble.height;
+			}
 		}
 	}
 	
@@ -139,15 +146,19 @@ var ChatWindowLayer = cc.Layer.extend({
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
 		this.textLog = new TextLogLayer();
-		this.addChild(this.textLogLayer);
+		console.log("hey dawg");
+		this.addChild(this.textLog);
         
         //-----------------------------
         // create the response box
         //-----------------------------
         
         this.responseBox = new ResponseHandler(_xSpawn,33,335);
+		console.log("made res box");
         this.responseBox.chatbox = this;
+		console.log("attached chatbox");
         this.addChild(this.responseBox);
+		console.log("umm");
 	},
     update : function() {
         if (this.jittering) {
