@@ -1,13 +1,13 @@
 allPeople = [];
 
 function Person(_name, _proPic ){
-	allPeople.push(this);
 	this.name = _name
 	this.profilePic = _proPic;
 	//an array of strings perhaps??????
 	this.posts = [];
 	//an array of conversation objects
 	this.conversations = [];
+	allPeople.push(this);
 }
 
 function Conversation(_difficulty) {
