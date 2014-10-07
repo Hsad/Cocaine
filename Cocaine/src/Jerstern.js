@@ -1,7 +1,7 @@
 var jerstern = new Person("Jerstern Cererglererner",res.jersternPNG);
 
 //posts
-jerstern.posts.push(["It's more than a fad!", ]);
+jerstern.posts.push(["It's more than a fad!", res.postJerstern1PNG]);
 //create a new conversation to append to the conversation list
 //                               |
 // this conversations difficulty v

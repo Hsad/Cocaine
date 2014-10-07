@@ -34,8 +34,8 @@ var res = {
 	otherBubbleTopPNG : "res/other_person_chat_top.png",
 
 	//wall posts
-	benDogPNG : "res/post/Post_Bern_1",
-	justBlogPNG : "res/post/Post_Jerstern_1",
+	postBern1PNG : "res/post/Post_Bern_1.png",
+	postJerstern1PNG : "res/post/Post_Jerstern_1.png"
     
     
 };
