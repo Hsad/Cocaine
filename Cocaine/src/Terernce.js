@@ -360,6 +360,88 @@ lvlFourConvoThree.modules.push([
 							"Guess you're not as hungry as I am, haha. See ya."
 							]);
 							
-terernce.conversations.push(lvlThreeConvoOne);
-terernce.conversations.push(lvlThreeConvoTwo);
-terernce.conversations.push(lvlThreeConvoThree);
+terernce.conversations.push(lvlFourConvoOne);
+terernce.conversations.push(lvlFourConvoTwo);
+terernce.conversations.push(lvlFourConvoThree);
+
+/* LEVEL FIVE CONVERSATIONS */
+
+/* Conversation One */
+lvlFiveConvoOne.modules.push([
+							"Hey, you got a minute?",
+							"While I do consider my time extremely valuable, and no doubt have a multitude of obligations I need to attend to, I suppose that I could take some time out of my busy schedule to assist you. What is your request?",
+							"You there?",
+							"I suppose it depends on what your definition of 'there' is; For example, while I am not here for you in the physical sense, in the spiritual and metaphorical sense I am all yours.",
+							"Guess not. See ya."
+							]);
+							
+lvlFiveConvoOne.modules.push([
+							"Woah, someone's verbose today.",
+							"I have decided that in order to more accurately convey my thoughts, I shall try and change my vernacular to more clearly reflect what is going on inside my mind.",
+							"Someone buy a new thesaurus?",
+							"Far from it, my friend. I'm merely attempting to reflect my extensive knowledge of the english language and celebrate the intrinsic beauty found within our native tongue.",
+							"Well it looks like you ran out of words, I'll see you around."
+							]);
+							
+lvlFiveConvoOne.modules.push([
+							"Look man, if you're going to talk like an asshole I don't think I need your help anyways.",
+							"I am afraid that this is the person that I am going to be from now on, and if you still desire to be friends with me then you must choose to accept this 'new me'.",
+							"Think you can tone it down a bit?",
+							"I am afraid not; from now on you are going to be friends with one of the most verbose and loquatious members of this school's community; hopefully you will be able to learn something from further interactions with me.",
+							"Good, wasn't particularly enjoying this conversation anyways."
+							]);
+							
+/* Conversation Two */
+lvlFiveConvoTwo.modules.push([
+							"Oh also, do you remember how to declare a class operator in C++?",
+							"Yeah, isn't it just 'bool Class::operator[operator goes here](const args) const { code }'?",
+							"I haven't had to do it in a while and I forget how haha.",
+							"Me neither, isn't it basically just 'bool Class::operator[operator goes here](const args) const { code }'?",
+							"Oh well, guess you don't have time for me anymore."
+							]);
+							
+lvlFiveConvoTwo.modules.push([
+							"Do you have any specific examples you could use? I've always been bad at understanding psuedo-code.",
+							"Well, for example, implementing '>' looks like this: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'. Does that make sense?"
+							"Please, anything at all?",
+							"Um yeah, in one of my old programs I used this for the '>' operator: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'.",
+							"Whatever, I'll go ask someone else."
+							]);
+							
+lvlFiveConvoTwo.modules.push([
+							"Yeah, that makes a lot more sense than before.",
+							"No worries dude, anytime.",
+							"Thanks again!",
+							"Any time, man.",
+							"Looks like you peaced out on me... again."
+							]);
+							
+/* Conversation Three */
+
+lvlFiveConvoThree.modules.push([
+							"Eyhay anmay, at'swhay upway?",
+							"Oday ouyay antway otay explainway ywhay ou'reyay eakingspay inway igpay atinlay?",
+							"Ahahay at'swhay ethay attermay, an'tcay understandway emay?",
+							"Onay Iway ancay understandway ouyay, Iway ustjay on'tday understandway ywhay...",
+							"Uessgay Iway ostlay ouyay. Eesay ouyay aterlay, udbay."
+							]);
+							
+lvlFiveConvoThree.modules.push([
+							"Unnoday, Iway iguredfay I'dway ytray andway umpstay ouyay!",
+							"I'mway otnay umpedstay, isthay isway ustjay eallyray annoyingway.",
+							"Ouyay eemsay otay ebay avinghay oubletray espondingray.",
+							"Eahyay, ecausebay eadingray ittenwray igpay atinlay akestay oreverfay!",
+							"Ehmay, itterquay. Eesay ouyay aroundway."
+							]);
+							
+lvlFiveConvoThree.modules.push([
+							"Eriouslysay oughthay, isthay isway ettinggay eallyray edioustay.",
+							"Yeah, let's stop.",
+							"Iway inkthay I'mway oinggay otay opstay oonsay.",
+							"Ohway eallyray? Andway erehay Iway asway inkingthay eway ereway ustjay ettinggay artedstay.",
+							"Touche, my friend."
+							]);
+							
+terernce.conversations.push(lvlFiveConvoOne);
+terernce.conversations.push(lvlFiveConvoTwo);
+terernce.conversations.push(lvlFiveConvoThree);

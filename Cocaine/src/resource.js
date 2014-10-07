@@ -10,9 +10,9 @@ var res = {
 	wallFeedPNG : "res/wallUp.png",
 	friendListPNG : "res/friendList.png",
 	feedPNG : "res/feed.png",
-	postTopPNG : "res/post_top_old.png",
+	postTopPNG : "res/post_top.png",
 	postMidPNG : "res/post_middle.png",
-	postBotPNG : "res/post_bottom_old.png",
+	postBotPNG : "res/post_bottom.png",
 
     bgPNG : "res/background_happy.png",
 	
@@ -32,6 +32,10 @@ var res = {
 	otherBubbleBottomPNG : "res/other_person_chat_bottom.png",
 	otherBubbleMiddlePNG : "res/other_person_chat_middle.png",
 	otherBubbleTopPNG : "res/other_person_chat_top.png",
+
+	//wall posts
+	benDogPNG : "res/post/Post_Bern_1",
+	justBlogPNG : "res/post/Post_Jerstern_1",
     
 };
 
@@ -44,3 +48,4 @@ g_resources.push({
     name:"Idolwild",
     srcs:["res/idolwild-webfont.eot", "res/idolwild.ttf"]
 });
+

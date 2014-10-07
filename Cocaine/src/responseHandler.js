@@ -93,12 +93,12 @@ var ResponseHandler = cc.Layer.extend({
     		//cc.log("clicked out of the text field");
     	}
     },
-    
+ 
+   
     DoStuffWithTextFromTheField:function(s) {
-        this.testBubble = new ChatBubble(s, this.chatbox._xSpawn, 300, true);
+        this.testBubble = this.chatbox.textLog.addBubble(s, this.chatbox._xSpawn, 105, true);
         this.chatbox.addChild(this.testBubble);
     	cc.log(s);
-
     }
 });
 
