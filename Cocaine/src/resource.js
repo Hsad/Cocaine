@@ -24,6 +24,13 @@ var res = {
 	dervernPNG : "res/dervin.png",
 	mercPNG : "res/derctermerc.png",
 	bernPNG : "res/berncherng.png",
+    gf1PNG : "res/gf1.png"
+    gf2PNG : "res/gf2.png"
+    animePNG : "res/anime-enthusiast.png"
+    grangranPNG : "res/grangran.png"
+    cerfeePNG : "res/cerfee.png"
+    lernkPNG : "res/lernk.png"
+    zerkPNG : "res/merkerberg.png"
 	
 	//chat bubbles
 	playerBubbleBottomPNG : "res/you_chat_bottom.png",

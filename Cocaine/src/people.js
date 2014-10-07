@@ -1,4 +1,10 @@
 var bern = new Person("Bern Cherng",res.bernPNG);
 var sperncer= new Person("Sperncer Jernsern",res.sperncerPNG);
-var dervern = new Person("Dervern Herlpert",res.dervernPNG);
 var dersh = new Person("Dersh Kerler",res.dershPNG);
+var gf1 = new Person("Girlfriend #1", res.gf1PNG);
+var gf2 = new Person("Girlfriend #2", res.gf2PNG);
+var anime = new Person("Anime-kun", res.animePNG);
+var grangran = new Person("Grandma", res.grangranPNG);
+var cerfee = new Person("Amernder \"Pumpkin Spice\" Mertherbluh", res.cerfeePNG);
+var lernk = new Person("Lernk", res.lernkPNG);
+var zerk = new Person("Zerk Merkerberg", res.zerkPNG);
