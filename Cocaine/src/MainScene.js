@@ -94,7 +94,7 @@ var ChatBubble = cc.Layer.extend({
 		//-----------------------------
 		//finally create the text label
 		//-----------------------------
-		this.text = new cc.LabelTTF(_message, "Arial", 14, cc.size(185, 0), cc.TEXT_ALIGNMENT_LEFT);
+		this.text = new cc.LabelTTF(_message, "Idolwild", 14, cc.size(185, 0), cc.TEXT_ALIGNMENT_LEFT);
 		this.text.setFontFillColor(cc.color(0,0,0,255));
 		if(_isPlayers)
 		{
@@ -132,7 +132,7 @@ var ChatWindowLayer = cc.Layer.extend({
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
-		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 20, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
+		var templateLabel = new cc.LabelTTF(_person.name, "Idolwild", 18, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
         templateLabel.x = _xSpawn + 30;
         templateLabel.y = this.sprite.height - 25;

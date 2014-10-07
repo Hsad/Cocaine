@@ -55,7 +55,7 @@ var NewsFeedLayer = cc.Layer.extend({
 			//
 			//something that choses an avalible person for a wall post
 			//
-			console.log("allPeople.lenght = ");
+			console.log("allPeople.length = ");
 			console.log(allPeople.length);
 			randInt = Math.floor(Math.random() * allPeople.length);
 			console.log("randInt = ");
