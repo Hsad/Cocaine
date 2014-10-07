@@ -19,7 +19,8 @@ var NewsFeedLayer = cc.Layer.extend({
 
 		this.feedArray = [];
 
-		this.feedArray[0] = new NewsFeed(this.xCent, this.yCent, allPeople[0].profilePic);
+		this.feedArray[0] = new NewsFeed(this.xCent, this.yCent, allPeople[0]); 
+		//this should be random ^^^ so that the same person isn't always first
 		this.addChild(this.feedArray[0]);
 		//console.log("first Name=")
 		//console.log(allPeople[0].name);
@@ -53,7 +54,7 @@ var NewsFeedLayer = cc.Layer.extend({
 			//console.log("profName= ");
 			//console.log(allPeople[randInt].name);
 			this.feedArray[this.feedArray.length] = new NewsFeed(
-					this.xCent, this.yCent, allPeople[randInt].profilePic);
+					this.xCent, this.yCent, allPeople[randInt]);
 			this.addChild(this.feedArray[this.feedArray.length - 1]); //-1 because the list just got bigger
 
 			var offset = this.feedArray[this.feedArray.length - 1].spriteHeight;
@@ -61,6 +62,10 @@ var NewsFeedLayer = cc.Layer.extend({
 				this.feedArray[x].y -= offset;
 			}
 			//console.log("sir print alot?");
+			/*
+			if (this.feedArray.length > 10){
+				this.feedArray[11].
+			}*/
 			this.timer = 0;
 		}
 		this.timer++;
@@ -69,7 +74,7 @@ var NewsFeedLayer = cc.Layer.extend({
 var NewsFeed = cc.Layer.extend({
 	sprite : null,
 
-	ctor : function(xLoc, yLoc, profilePic){
+	ctor : function(xLoc, yLoc, profile){
 		this._super();
 		this.spriteHeight = 0;
 		//
@@ -108,7 +113,7 @@ var NewsFeed = cc.Layer.extend({
 		});
 		this.addChild(this.sprite);
 		this.spriteHeight += 30;
-		this.proSprite = new cc.Sprite(profilePic);
+		this.proSprite = new cc.Sprite(profile.profilePic);
 		this.proSprite.attr({
 			x: xLoc - 287,
 			y: yLoc,
@@ -117,15 +122,17 @@ var NewsFeed = cc.Layer.extend({
 		});
 		this.addChild(this.proSprite);
 		this.nameTxt = new cc.LabelTTF(
-				"name", "Idolwild", 46, cc.size(240, 56), cc.TEXT_ALIGNMENT_LEFT);
+				profile.name, "Idolwild", 46, cc.size(240, 56), cc.TEXT_ALIGNMENT_LEFT);
 		this.nameTxt.setFontFillColor(new cc.color(59,89,177,255));
 		this.nameTxt.x = xLoc-110;
 		this.nameTxt.y = yLoc+20;
 		this.nameTxt.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
 		this.addChild(this.nameTxt);
 
+		
+		var text = secret[Math.floor(Math.random()*secret.length)];
 		this.Label = new cc.LabelTTF(
-				"Did stuff", "Idolwild", 26, cc.size(240, 56), cc.TEXT_ALIGNMENT_LEFT);
+				text, "Idolwild", 26, cc.size(240, 56), cc.TEXT_ALIGNMENT_LEFT);
 		this.Label.setFontFillColor(new cc.color(127,127,127,255));
 		this.Label.x = xLoc-110;
 		this.Label.y = yLoc-30;
@@ -151,4 +158,48 @@ var FriendList = cc.Layer.extend({
 		//console.log("Oh hi");
 	}
 });
+
+ //untested, just dont delete
+var secret = [ //Dash's sooper secret thing that is probably really obvious
+	  "just now",
+	  "0.00203 milliseconds ago",
+	  "literally this instant",
+	  "moments ago",
+	  "sorry ya Just missed 'em",
+	  "just now",
+	  "just now",
+	  "just now",
+	  "just now",
+	  "3 days ago",
+	  "0.0420 seconds ago",
+	  "-3.2 seconds ago",
+	  "will have been nearly posted in 2 seconds",
+	  "1821 yrs ago",
+	  "moments ago",
+		"fairly recently",
+	  "I don't know, what do I look like? A clock?",
+	  "^^ this guy needs to get outside",
+	  "just now",
+	 "jerst nerw",
+	  "help I'm trapped in DerpFerce",
+	  "just now",
+	  "just now",
+	  "just now",
+	  "just now",
+	  "just now",
+		"honestly not paying attention",
+		"probably just now",
+		"who knows",
+		"just now?",
+		"just now",
+		"joust now!",
+		"take a guess",
+		"moldy by now",
+	  "just now",
+	  "just now",
+	  "just now",
+	  "just now",
+	  "just now"
+];
+
 
