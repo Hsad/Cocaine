@@ -9,6 +9,10 @@ var res = {
 	wallFeedPNG : "res/wallUp.png",
 	friendListPNG : "res/friendList.png",
 	feedPNG : "res/feed.png",
+	postTopPNG : "res/post_top_old.png",
+	postMidPNG : "res/post_middle.png",
+	postBotPNG : "res/post_bottom_old.png",
+
     bgPNG : "res/background_happy.png",
 	//
 	dershPNG : "res/dersh.png"
