@@ -19,6 +19,8 @@
 		"src/MainScene.js",
 		"src/Merc.js",
 		"src/wallFeed.js",
-		"src/ChatWindow.js"
+		"src/ChatWindow.js",
+        "src/Dervern.js",
+        "src/Jerstern.js"
     ]
 }

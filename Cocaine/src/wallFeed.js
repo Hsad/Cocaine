@@ -25,8 +25,10 @@ var NewsFeedLayer = cc.Layer.extend({
 		//console.log("first Name=")
 		//console.log(allPeople[0].name);
 
-
+		this.contUp = false;
 		this.timer = 0;
+		this.tempPostHolder;
+
 		/*
 		if (this.hasChildNodes()) {
 			// So, first we check if the object is not empty, if the object has child nodes
@@ -41,32 +43,39 @@ var NewsFeedLayer = cc.Layer.extend({
 	*/	
 	},
 	update: function() {
-		if (this.timer > 500){ //the 500 should be a random value
-			//
-			//something that choses an avalible person for a wall post
-			//
-			//console.log("allPeople.length = ");
-			//console.log(allPeople.length);
-			randInt = Math.floor(Math.random() * allPeople.length);
-			//console.log("randInt = ");
-			//console.log(randInt);
-
-			//console.log("profName= ");
-			//console.log(allPeople[randInt].name);
-			this.feedArray[this.feedArray.length] = new NewsFeed(
-					this.xCent, this.yCent, allPeople[randInt]);
-			this.addChild(this.feedArray[this.feedArray.length - 1]); //-1 because the list just got bigger
-
-			var offset = this.feedArray[this.feedArray.length - 1].spriteHeight;
-			for (x = 0; x < this.feedArray.length - 1; x++){
-				this.feedArray[x].y -= offset;
+		if (this.timer > (
+				Math.random()*2000)+(Math.random()*2000)+(Math.random()*2000)//Mmm math
+			 	|| this.contUp){ //the 500 should be a random value
+			if (this.contUp == false){
+				this.ammountMoved = 0;
+				this.contUp = true; //once started run till completion
+				var randInt = Math.floor(Math.random() * allPeople.length);
+				this.tempPostHolder = new NewsFeed(this.xCent, this.yCent, allPeople[randInt]);
+				//this.addChild(this.feedArray[this.feedArray.length - 1]); //-1 because the list just got bigger
+				this.offset = this.tempPostHolder.spriteHeight;
 			}
-			//console.log("sir print alot?");
-			/*
+			
+			for (x = 0; x < this.feedArray.length; x++){
+				this.feedArray[x].y -= 7;
+				//console.log("moving old posts");
+			}
+			
+			this.ammountMoved += 7;
+
+			if (this.ammountMoved >= this.offset){
+				this.contUp = false;
+				this.feedArray[this.feedArray.length] = this.tempPostHolder; 
+				this.addChild(this.tempPostHolder);
+				//id action = [CCActionFadeIn actionWithDuration:0.5];
+				//[this.tempPostHolder runAction:action];
+				this.timer = 0;
+			}
+			
 			if (this.feedArray.length > 10){
-				this.feedArray[11].
-			}*/
-			this.timer = 0;
+				this.removeChild(this.feedArray.shift());
+				//console.log("number of children:");  //I was trying to see if I was truely removing the 
+				//console.log(this.hasChildNodes); // child, but I couldnt tell,  seems to work
+			}
 		}
 		this.timer++;
 	}
@@ -91,7 +100,7 @@ var NewsFeed = cc.Layer.extend({
 		});
 		this.addChild(this.topSprite);
 		this.spriteHeight += 26;
-		var postHeight = 4;  //10 is arbitrary, make it enought to cover post image 
+		var postHeight = 2;  //2 is arbitrary, make it enought to cover post image 
 		// height * 80 is total post height + a bit more 
 		for (x = 0; x < postHeight; x++){
 			var postMid = new cc.Sprite(res.postMidPNG);
@@ -117,25 +126,37 @@ var NewsFeed = cc.Layer.extend({
 		this.proSprite.attr({
 			x: xLoc - 287,
 			y: yLoc,
-			scale: 1,
+			scale: 0.8,
 			rotation: 0,
 		});
 		this.addChild(this.proSprite);
 		this.nameTxt = new cc.LabelTTF(
-				profile.name, "Idolwild", 46, cc.size(240, 56), cc.TEXT_ALIGNMENT_LEFT);
+				profile.name, "Idolwild", 46, cc.size(1400, 56), cc.TEXT_ALIGNMENT_LEFT);
 		this.nameTxt.setFontFillColor(new cc.color(59,89,177,255));
-		this.nameTxt.x = xLoc-110;
-		this.nameTxt.y = yLoc+20;
+		this.nameTxt.x = xLoc+470;
+		this.nameTxt.y = yLoc+15;
 		this.nameTxt.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
 		this.addChild(this.nameTxt);
 
 		
 		var text = secret[Math.floor(Math.random()*secret.length)];
 		this.Label = new cc.LabelTTF(
-				text, "Idolwild", 26, cc.size(240, 56), cc.TEXT_ALIGNMENT_LEFT);
+				text, "Idolwild", 20, cc.size(1400, 56), cc.TEXT_ALIGNMENT_LEFT);
 		this.Label.setFontFillColor(new cc.color(127,127,127,255));
-		this.Label.x = xLoc-110;
-		this.Label.y = yLoc-30;
+		this.Label.x = xLoc+470;
+		this.Label.y = yLoc-35;
+		this.Label.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
+		this.addChild(this.Label);
+
+		//text returns around 100-58-30 characters
+		//var text = "this is my post, there are many like it, but this one isv mine";
+		var text = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+    //this is my post, there are many like it, but this one is
+		this.Label = new cc.LabelTTF(
+				text, "Idolwild", 24, cc.size(690, 56), cc.TEXT_ALIGNMENT_LEFT);
+		this.Label.setFontFillColor(new cc.color(0,0,0,255));
+		this.Label.x = xLoc+20;
+		this.Label.y = yLoc-80;
 		this.Label.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
 		this.addChild(this.Label);
 	}
@@ -156,6 +177,23 @@ var FriendList = cc.Layer.extend({
 		});
 		this.addChild(this.sprite);
 		//console.log("Oh hi");
+		//for each friend, randomize list, then runthough and create each
+		// image > name > online/off
+	}
+});
+
+var friendIcon = cc.Layer.extend({
+	sprite : null,
+	ctor : function(xLoc, yLoc, profile){
+		this._super();
+    this.sprite = new cc.Sprite(profile.profilePic);
+		this.sprite.attr({
+			x: xLoc,
+			y: yLoc,
+			scale: 1,
+			rotation: 0,
+		});
+		this.addChild(this.sprite);
 	}
 });
 
@@ -187,7 +225,7 @@ var secret = [ //Dash's sooper secret thing that is probably really obvious
 	  "just now",
 	  "just now",
 	  "just now",
-		"honestly not paying attention",
+		"honestly wasn't paying attention",
 		"probably just now",
 		"who knows",
 		"just now?",
@@ -199,6 +237,13 @@ var secret = [ //Dash's sooper secret thing that is probably really obvious
 	  "just now",
 	  "just now",
 	  "just now",
+	  "mentoes ago",
+	  "momentum ago",
+	  "memento ago",
+	  "moments before",
+	  "moments ago",
+	  "moments ago",
+		"soon",
 	  "just now"
 ];
 
