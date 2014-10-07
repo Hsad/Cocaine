@@ -77,7 +77,6 @@ var NewsFeedLayer = cc.Layer.extend({
 		this.timer++;
 	}
 });
-
 var NewsFeed = cc.Layer.extend({
 	sprite : null,
 
@@ -89,8 +88,28 @@ var NewsFeed = cc.Layer.extend({
 		//then lays out the needed background
 		//and the extra stuff
 		//
+		this.topSprite = new cc.Sprite(res.postTopPNG);
+		this.topSprite.attr({
+			x:  xLoc,
+			y:  yLoc + 13,
+			scale: 1,
+			rotation: 0,
+		});
+		this.addChild(this.topSprite);
+		var postHeight = 10;  //10 is arbitrary, make it enought to cover post image 
+		// height * 30 is total post height + a bit more 
+		for (x = 0; x < postHeight; x++){
+			this.postMid = new cc.Sprite(res.postMidPNG);
+			this.postMid.attr({
+				x: xLoc,
+				y: yLoc - (x * 30),
+				scale: 1,
+				rotation: 0,
+			});
+			this.addChild(this.postMid);
+			console.log("inside the postmid ing thing");
+		}
 		this.sprite = new cc.Sprite(profilePic);
-		//this.sprite = new cc.Sprite(res.feedPNG);
 		this.sprite.attr({
 			x: xLoc,
 			y: yLoc,
