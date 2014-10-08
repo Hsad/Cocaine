@@ -32,9 +32,9 @@ ConXX.modules.push([
 var Con11 = new Conversation(1);
 Con11.modules.push([
 		"Hey man, hows it going? We haven't chatted in forever",
-		"good, you?"
+		"good you?"
 		"you there?",
-		"yea, I'm good, you?",
+		"yea Im good you?",
 		"And now I hope we dont chat in forver"
 		]);
 Con11.modules.push([
@@ -48,7 +48,7 @@ Con11.modules.push([
 			"what classes you taking now?",
 			"lots",
 			"I take that as none?",
-			"no way, to many",
+			"no way too many",
 			"do you even go here?"
 		]);
 Con11.modules.push([
@@ -70,16 +70,16 @@ Con12.modules.push([
 		]);
 Con12.modules.push([
 			"its the best spot in town",
-			"I like Moes too",
+			"I like moes too",
 			"like the greatest",
-			"better than Moes?",
+			"better than moes?",
 			"unlike my friends who cant be bothered to reply"
 		]);
 Con12.modules.push([
 			"Its not a resturant, its a literal gorge",
 			"ohh",
 			"do you know what a gorge is?",
-			"ok, yea I do",
+			"ok yea I do",
 			"I hope you are grabing a dictonary, because I cant be friends with anyone so gramaticly inept."
 		]);
 Con12.modules.push([
@@ -91,7 +91,7 @@ Con12.modules.push([
 		]);
 Con12.modules.push([
 			"You should check it out some time",
-			"totaly, little busy now",
+			"totaly little busy now",
 			"bring your sense of adventure",
 			"maybe when Im not swamped with work",
 			"or dont, whatever"
@@ -108,7 +108,7 @@ Con13.modules.push([
 		]);
 Con13.modules.push([
 			"are you going to get the complete aniverary pack or whatever?",
-			"Maybe",
+			"Maybe?",
 			"Do you even have an xbox?",
 			"yea",
 			"Do you even?"
@@ -122,23 +122,43 @@ Con13.modules.push([
 		]);
 Con13.modules.push([
 			"I get so anxious waiting for games to release",
-			"yea me too, I'll chat later",
+			"yea me too Ill chat later",
 			"I love it",
 			"me to, see you later",
 			"but not unresponsive corpses of friends"
 		]);
 dersh.conversations.push(Con13);
-/*
+
 var Con21 = new Conversation(2);
 Con21.modules.push([
+			"Has anyone really been so far",
+			"what",
+			"even as decided to use",
+			"the hell",
+			"even go want to do look more like"
 		]);
 Con21.modules.push([
+			"Gotta stay with the times",
+			"I dont think I like the times",
+			"or just the day",
+			"have you gotten enough sleep lately",
+			"or the pocket watch"
 		]);
 Con21.modules.push([
+			"yes, no, maybe.  what were we talking about",
+			"absolutely nothing",
+			"Turtles?",
+			"definitely not",
+			"I liek Turtles"
 		]);
 Con21.modules.push([
+			"I need to go comatose",
+			"thats probably for the best",
+			"Am I dreaming?",
+			"no go sleep you bum",
+			"I can Fly!!!!!!!!!!!"
 		]);
-dersh.conversations.push(Con21);*/
+dersh.conversations.push(Con21);
 
 
 var Convo_3_1 = new Conversation(3);
@@ -166,4 +186,36 @@ Convo_3_1.modules.push(["Whatever, point is you NEED to watch this update",
 						"What the hell are you even talking about?",
 						"Peace dude"]);
 dersh.conversations.push(Convo_3_1);
+
+
+var Con41 = new Conversation(4);
+Con41.modules.push([
+			"Do you like Pinocolats?",
+			"Please don't, I beg of you",
+			"and getting caught in the rain?",
+			"Stop, for the love of all that is holy",
+			"you don't, then I'm going to have to find some one new or something"
+		]);
+Con41.modules.push([
+			"Ok anyway, do you know when class signups are",
+			"No, why dont you just google it",
+			"I tryed googleing it but I forgot how",
+			"you are literaly beyond comprehension",
+			"am I using this thing correctly?"
+		]);
+Con41.modules.push([
+			"What do You think Im stupid?",
+			"I never said you were stupid, Im just saying that the evidence is mounting",
+			"becasue I like potatoes a lot more than you",
+			"I.. I dont know why I continue to converse with you peasant",
+			"Mashed, baked, fried, you know, I might just make some now"
+		]);
+Con41.modules.push([
+			"your a real stand up guy you know",
+			"It's you're.  How bad at spelling are you?",
+			"*you're",
+			"I'm sorry I ever doubted you",
+			"I'm going to become an editor, just look at me go."
+		]);
+dersh.conversations.push(Con41);
 
