@@ -6,6 +6,12 @@ var res = {
 	
 	//our images
 	chatCleanPNG : "res/chat.png",
+    chat1PNG : "res/cha1.png",
+    chat2PNG : "res/cha2.png",
+    chat3PNG : "res/cha3.png",
+    overlay1PNG : "res/blo.png",
+    overlay2PNG : "res/blo2.png",
+    overlay3PNG : "res/blo3.png",
     chatClipperPNG : "res/chatclipper.png",
 	//Background stuff
 	wallFeedPNG : "res/wallUp.png",

@@ -130,6 +130,7 @@ var ChatWindowLayer = cc.Layer.extend({
 		//initialize the super
         this.scheduleUpdate();
 		this._super();
+        this.jitterTimer = 0;
         this._xSpawn = _xSpawn;
         this.jittering = false;
 		//-----------------------------
@@ -156,6 +157,16 @@ var ChatWindowLayer = cc.Layer.extend({
 		this.textLog = new TextLogLayer(_xSpawn,this.sprite.height/2,317,275);
 		this.addChild(this.textLog);
         
+        this.overlay = new cc.Sprite(res.overlay1PNG);
+        this.overlay.attr({
+			x: _xSpawn,
+			y: this.overlay.height/2,
+			scale: 1,
+			rotation: 0,
+		});
+        this.overlay.setVisible(false);
+        this.addChild(this.overlay);
+        
         //-----------------------------
         // create the response box
         //-----------------------------
@@ -165,10 +176,29 @@ var ChatWindowLayer = cc.Layer.extend({
 	},
     update : function() {
         if (this.jittering) {
+            this.overlay.setVisible(true);
             jitter(this, 5, 5);
+            this.jitterTimer += .25;
+            if (this.jitterTimer > 3) {
+                this.jitterTimer += -3;
+            }
+            if (this.jitterTimer >= 0 && this.jitterTimer < 1) {
+                this.sprite.setTexture(res.chat1PNG);
+                this.overlay.setTexture(res.overlay1PNG);
+            }
+            else if (this.jitterTimer >= 1 && this.jitterTimer < 2) {
+                this.sprite.setTexture(res.chat2PNG);
+                this.overlay.setTexture(res.overlay2PNG);
+            }
+            else if (this.jitterTimer >= 2 && this.jitterTimer < 3) {
+                this.sprite.setTexture(res.chat3PNG);
+                this.overlay.setTexture(res.overlay3PNG);
+            }
         }
         else {
             jitter(this, 0, 0);
+            this.overlay.setVisible(false);
+            this.sprite.setTexture(res.chatCleanPNG);
         }
     }
 });

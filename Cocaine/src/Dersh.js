@@ -20,29 +20,29 @@ dersh.posts.push(["I mustdash you a question..."]);
 //                               |
 // this conversations difficulty v
 
-var Convo_1_1 = new Conversation(x);
-Convo_1_1.modules.push([
+var Convo_3_1 = new Conversation(3);
+Convo_3_1.modules.push([
 			"Hey Dingus, guess what?",
 			"Chicken Butt?",
 			"You busy doing something?",
 			"nada",
-			"Well just so you know, the Jerk Store called... and they’re all out of you"
+			"Well just so you know, the Jerk Store called... and they're all out of you"
 		]);
-Convo_1_1.modules.push(["Honestly should have expected that.  Anyway see the new update?",
+Convo_3_1.modules.push(["Honestly should have expected that.  Anyway see the new update?",
 						"Probably not, update for what?",
 						"Sooo is that a no?",
 						"No.  wait yes, hold on. for what?",
 						"Or is that a yes?  Because I also had an aneurysm, do you need me to call someone?"
 					]);
-Convo_1_1.modules.push(["What do you mean for what?  The greatest game since like, I don’t know, Dwarf Fort.",
-						"I don’t think thats the best reference point",
-						"Don’t tell me you don’t know what I’m talking about",
-						"I do and I don’t...",
+Convo_3_1.modules.push(["What do you mean for what?  The greatest game since like, I don't know, Dwarf Fort.",
+						"I don't think thats the best reference point",
+						"Don't tell me you don't know what I'm talking about",
+						"I do and I don't...",
 						"You are dead to me"]);
-Convo_1_1.modules.push(["Whatever, point is you NEED to watch this update",
-						"I still don’t know what you are talking about.",
-						"Ok I’m going to go watch it again",
+Convo_3_1.modules.push(["Whatever, point is you NEED to watch this update",
+						"I still don't know what you are talking about.",
+						"Ok I'm going to go watch it again",
 						"What the hell are you even talking about?",
 						"Peace dude"]);
-dersh.conversations.push(Convo_1_1);
+dersh.conversations.push(Convo_3_1);
 
