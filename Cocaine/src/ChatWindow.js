@@ -268,6 +268,7 @@ var ChatWindowLayer = cc.Layer.extend({
 			}
 		}
 		var ran = Math.floor(Math.random()* possibleConvos.length);
+		console.log("this is ran:" + ran);
 		this.currentConvo = possibleConvos[ran];
 		
 		//actually print it to the screen, you know this will always by 
@@ -403,7 +404,7 @@ var ChatWindowLayer = cc.Layer.extend({
 			if(this.usedConvos[this.usedConvos.length - 2].difficulty == 1)
 			{
 				this.difficulty = 2;
-				console.log("toughhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+				console.log("toughhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
 			}
 		}
 		else		//for every difficulty besides level 1
@@ -429,6 +430,8 @@ var ChatWindowLayer = cc.Layer.extend({
 		{
 			spawnChatWindow( wid * (7-2*numOfWindows)/2,randomPersonWithConvo(), 1, this.parent);
 		}
+		
+		console.log("the difficulty is=======================" + this.difficulty);
 		
 	}
 	
