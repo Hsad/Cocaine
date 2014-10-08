@@ -128,7 +128,7 @@ Con13.modules.push([
 			"but not unresponsive corpses of friends"
 		]);
 dersh.conversations.push(Con13);
-
+/*
 var Con21 = new Conversation(2);
 Con21.modules.push([
 		]);
@@ -138,7 +138,7 @@ Con21.modules.push([
 		]);
 Con21.modules.push([
 		]);
-dersh.conversations.push(Con21);
+dersh.conversations.push(Con21);*/
 
 
 var Convo_3_1 = new Conversation(3);
