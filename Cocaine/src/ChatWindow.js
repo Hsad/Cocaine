@@ -126,6 +126,12 @@ var ChatBubble = cc.Layer.extend({
 
 var ChatWindowLayer = cc.Layer.extend({
 	sprite : null,
+	difficulty : 1,
+	usedConversations: [],
+	currentConvo: null,
+	person: null,
+	parent: null
+	
 	
 	//Constructor. should pass in the windows X Location,
 	ctor : function(_xSpawn, _person){
@@ -134,6 +140,7 @@ var ChatWindowLayer = cc.Layer.extend({
 		this._super();
         this._xSpawn = _xSpawn;
         this.jittering = false;
+		person = _person
 		//-----------------------------
 		//sprites
 		//-----------------------------
@@ -174,5 +181,32 @@ var ChatWindowLayer = cc.Layer.extend({
         else {
             jitter(this, 0, 0);
         }
-    }
+    },
+	//-------------------------------------------------------------------------
+	//selectNewConvo()---------------------------------------------------------
+	//-------------------------------------------------------------------------
+	//called to change to a new conversation after your current one is finished
+	//and also determine how long you'll have to answer this question
+	selectNewConvo : function(){
+		var possibleConvos = []
+		for(var i = 0; i < person.conversations.length; i++){
+			if(person.conversations[i].difficulty == this.difficulty){
+				possibleConvos.push(person.conversations[i]);
+			}
+		}
+		var ran = Math.random()* possibleConvos.length;
+		this.currentConvo = possibleConvos[ran];
+		
+		
+		
+	},
+	
+	//should be called every frame, tick the counter, and advance the module if necessary
+	//
+	//
+	//
+	conversationTick : function(){
+		
+	
+	}
 });

@@ -43,7 +43,12 @@ var bgLayer = cc.Layer.extend({
     }
 });
 
+function spawnChatWindow(_person, _difficulty, _xSpawn, mainScene ){
+	
+}
+
 var MainScene = cc.Scene.extend({
+	numOfWindows : 0,
 	onEnter : function(){
 		this._super();
 		
@@ -62,6 +67,9 @@ var MainScene = cc.Scene.extend({
 		//-------------------------
 		this.chatWindowLayer1 = new ChatWindowLayer(wid*7/2, merc);
 		this.addChild(this.chatWindowLayer1);
+		this.chatWindowLayer1.selectNewConvo();
+		this.chatWindowLayer1.parent = this;
+		
 		this.chatWindowLayer2 = new ChatWindowLayer(wid*5/2, bern);
 		this.addChild(this.chatWindowLayer2);
 		this.chatWindowLayer3 = new ChatWindowLayer(wid*3/2, sperncer);
