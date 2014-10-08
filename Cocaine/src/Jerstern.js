@@ -7,6 +7,10 @@ jerstern.posts.push(["A lot of people won't even get this reference unless they 
 jerstern.posts.push(["Just because I have nothing to say, doesn't mean I won't say it anyway!", res.postJerstern4PNG]);
 jerstern.posts.push(["Wow, do I ever say anything that hasn't been said before? Read and find out!", res.postJerstern5PNG]);
 jerstern.posts.push(["Trying to bake cookies at 450 degrees without burning them because I can't figure out how to lower the oven's temperature. #turndownforwhat"]);
+jerstern.posts.push(["Is the room spinning, or is that jut me? Hahaha, vertigo jokes."]);
+jerstern.posts.push(["Okay, okay, these vertigo jokes are starting to get... DIZZYING! Ahahaha, I crack myself up."]);
+jerstern.posts.push(["How was I supposed to know that's the street I need to go down if the GPS doesn't tell me? #turndownforwhat"]);
+jerstern.posts.push(["You know who can't stand up sometimes? Me! Ahahaha, but seriously guys."]);
 //posts
 
 //create a new conversation to append to the conversation list
@@ -210,54 +214,54 @@ Convo_3_4.modules.push(["I'M NOT GOOD WITH EXPIRATION DATES.",
 jerstern.conversations.push(Convo_3_4);
 
 var Convo_4_1 = new Conversation(4);
-Convo_4_1.modules.push(["",
-                        "",
-                        "",
-                        "",
-                        ""]);
-Convo_4_1.modules.push(["",
-                        "",
-                        "",
-                        "",
-                        ""]);
+Convo_4_1.modules.push(["Bro! Guess what I just found out!",
+                        "You're actually adopted? The moon isn't made of cheese? Vertigo jokes aren't funny?",
+                        "Seriously, though. Guess.",
+                        "Uhm... mayonaise isn't an instrument? Making fun of your own disabilities gets old?",
+                        "Alright fine, don't guess."]);
+Convo_4_1.modules.push(["MY VERTIGO JOKES ARE HILARIOUS, DON'T YOU EVEN START.",
+                        "Dude, they're glorified dad jokes. You don't even have kids yet.",
+                        "I only make like seven or eight in a day. That's not overdone.",
+                        "Seriously, new jokes won't kill you. Everyone will benefit.",
+                        "Alright, whatever. I don't need to stand for this. And I probably can't, anyway."]);
 jerstern.conversations.push(Convo_4_1);
 
 var Convo_4_2 = new Conversation(4);
-Convo_4_2.modules.push(["",
-                        "",
-                        "",
-                        "",
-                        ""]);
-Convo_4_2.modules.push(["",
-                        "",
-                        "",
-                        "",
-                        ""]);
+Convo_4_2.modules.push(["Hold on. Revelation. Bacon underwater. Genius idea?",
+                        "I literally cannot think of a single idea that is worse than that one.",
+                        "I mean, maybe it sounds better than it actually is. But maybe not.",
+                        "Dude, it doesn't even sound that good, honestly. Kinda gross.",
+                        "Whatever, bro, I'm just gonna go give it a try."]);
+Convo_4_2.modules.push(["I hear you; I must, however, respectfully disagree.",
+                        "That's you prerogative, I guess. Whatever you say, bro.",
+                        "Though I might be inclined to disrespectfully disagree.",
+                        "Sorry, didn't mean to ignore you. Just a little busy.",
+                        "Douche."]);
 jerstern.conversations.push(Convo_4_2);
 
 var Convo_4_3 = new Conversation(4);
-Convo_4_3.modules.push(["",
-                        "",
-                        "",
-                        "",
-                        ""]);
-Convo_4_3.modules.push(["",
-                        "",
-                        "",
-                        "",
-                        ""]);
+Convo_4_3.modules.push(["Hear me out for a sec, though? Alright so... why don't they call peas \"green beans\"?",
+                        "Uhm. Because peas aren't legumes? I don't think so, at least.",
+                        "Like, that's basically what they are, right? But \"green beans\" are something else.",
+                        "I don't think peas are technically beans. Not sure, though.",
+                        "You are literally no help."]);
+Convo_4_3.modules.push(["What makes a bean a bean, though?",
+                        "I think the fact that it grows in the ground? Hmm...",
+                        "Like, why aren't peanuts beans?",
+                        "You know, you DO ask some good questions sometimes.",
+                        "Dude, I can't handle this right now. I need to find answers."]);
 jerstern.conversations.push(Convo_4_3);
 
 var Convo_4_4 = new Conversation(4);
-Convo_4_4.modules.push(["",
-                        "",
-                        "",
-                        "",
-                        ""]);
-Convo_4_4.modules.push(["",
-                        "",
-                        "",
-                        "",
-                        ""]);
+Convo_4_4.modules.push(["God damn, dude. Why is it that every time there's a Blood Moon, the clouds block it?",
+                        "Because the universe hates you, maybe? Or...",
+                        "Like, did I do something wrong? Do I deserve this?",
+                        "Perhaps you have terrible karma. Or maybe...",
+                        "This is my time of need, man. C'mon. Don't leave me hanging."]);
+Convo_4_4.modules.push(["What? Or what?",
+                        "Perhaps the Weather Machine is to blame? I dunno.",
+                        "SPIT IT OUT, MAN.",
+                        "Could it be the Weather Machine? Shirley's doing?",
+                        "YOU ARE LITERALLY THE WORST FOR LEAVING ME GUESSING LIKE THIS. AAAAAGGHH."]);
 jerstern.conversations.push(Convo_4_4);
 
