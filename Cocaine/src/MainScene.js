@@ -13,6 +13,21 @@ var jitter = function(node, x_jitter, y_jitter) {
     node.responseBox.y = (node.y_anchor - node.y);
 }
 
+var gameOverLayer = cc.Layer.extend({
+    sprite : null,
+    ctor : function() {
+        this._super();
+        this.sprite = new cc.Sprite(res.gameOverPNG);
+        this.sprite.attr({
+            x: 800,
+            y: 450,
+            scale: 1,
+            rotation: 0
+        });
+        this.addChild(this.sprite);
+    }
+});
+
 var bgLayer = cc.Layer.extend({
     sprite : null,
     ctor: function() {

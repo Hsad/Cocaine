@@ -1,10 +1,11 @@
 var TextLogLayer = cc.Layer.extend({
 
-	ctor : function(_xSpawn, _ySpawn, _width, _height){
+	ctor : function(_xSpawn, _ySpawn, _width, _height, _parent){
 		this._super();
 		this.bubbleList = [];
         this.x = _xSpawn;
         this.y = _ySpawn;
+        this.chatbox = _parent;
         //make clipping node
         this.clippingNode = new cc.ClippingNode();
         this.clippingNode.setContentSize(317,275);
@@ -31,7 +32,7 @@ var TextLogLayer = cc.Layer.extend({
 		//addBubble()
 		//-------------
 		this.addBubble = function(_message, _xSpawn, _ySpawn, _isPlayers){
-			this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers);
+			this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers, this);
 			this.clippingNode.addChild(this.newestBubble);
 			
 			this.bubbleList.push(this.newestBubble);
@@ -52,13 +53,14 @@ var TextLogLayer = cc.Layer.extend({
 
 var ChatBubble = cc.Layer.extend({
 	
-	ctor : function(_message, _xSpawn, _ySpawn, _isPlayers){
+	ctor : function(_message, _xSpawn, _ySpawn, _isPlayers, _parent){
 		this._super();
 		//calculate how many lines tall this bubble is (based on an average of 30 chars a line)
 		this.lines = Math.floor(_message.length / 29) + 1;
 		console.log("lines: " + this.lines);
 		//height keeps track of the height of all the sprites
 		this.height = 0;
+        this.textLog = _parent;
 		//-------------------------------------
 		//first you have to make the top sprite
 		//-------------------------------------
@@ -102,6 +104,15 @@ var ChatBubble = cc.Layer.extend({
 		this.height +=this.bottomSprite.height/2; 			//height keeps track of the height of all the sprites
 		this.addChild(this.bottomSprite);
 		
+        //-------------------------
+        //Now the profile picture!
+        //-------------------------
+        this.proPic = new cc.Sprite(this.textLog.chatbox.person.profilePic);
+        this.proPic.scale = .4;
+        this.proPic.x = -137;
+        this.proPic.y = -135;
+        this.addChild(this.proPic);
+        
 		//-----------------------------
 		//finally create the text label
 		//-----------------------------
@@ -155,16 +166,22 @@ var ChatWindowLayer = cc.Layer.extend({
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
-		var templateLabel = new cc.LabelTTF(_person.name, "Idolwild", 18, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
+		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 18, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
         templateLabel.x = _xSpawn + 30;
         templateLabel.y = this.sprite.height - 25;
         this.addChild(templateLabel);
+        
+        //little green dot
+        this.greenDot = new cc.Sprite(res.littleGreenDotPNG);
+        this.greenDot.x = _xSpawn -148;
+        this.greenDot.y = this.sprite.height -25;
+        this.addChild(this.greenDot);
 
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
-		this.textLog = new TextLogLayer(_xSpawn,this.sprite.height/2,317,275);
+		this.textLog = new TextLogLayer(_xSpawn,this.sprite.height/2,317,275,this);
 		this.addChild(this.textLog);
         
         this.overlay = new cc.Sprite(res.overlay1PNG);
