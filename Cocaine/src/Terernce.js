@@ -116,10 +116,37 @@ lvlOneConvoThree.modules.push([
 							"You're like unhealthily into this, dude.",
 							"Bet you don't even like sports, nerd."
 							]);
+
+/* Conversation Four */
+
+lvlOneConvoFour.modules.push([
+							"Hey dude, ever heard of Cookie Clicker?",
+							"...is it a game where you click cookies?",
+							"The clicking game?",
+							"It sounds kind of bland haha.",
+							"Oh well, guess not."
+							]);
+							
+lvlOneConvoFour.modules.push([
+							"It's all about getting as many cookies as possible!",
+							"Sounds... interesting. What's the point?",
+							"You build buildings with cookies that make more cookies.",
+							"So you spend cookies to make cookies?",
+							"I swear it's more interesting than I'm making it out to be."
+							]);
+							
+lvlOneConvoFour.modules.push([
+							"Yep! And you try and get achievements too!",
+							"That sounds nice. You have fun with it.",
+							"It's really quite fun.",
+							"Yeah... sounds like it. Enjoy yourself.",
+							"Honestly, some people just don't know good entertainment."
+							]);
 							
 terernce.conversations.push(lvlOneConvoOne);
 terernce.conversations.push(lvlOneConvoTwo);
 terernce.conversations.push(lvlOneConvoThree);
+terernce.conversations.push(lvlOneConvoFour);
 
 /* LEVEL TWO CONVERSATIONS */
 
@@ -198,9 +225,35 @@ lvlTwoConvoThree.modules.push([
 							"Whatever, I'll see you around."
 							]);
 							
+/* Conversation Four */
+lvlTwoConvoFour.modules.push([
+							"I'm thinking of studying abroad next semester.",
+							"Really? What country do you think you'll go to?",
+							"Should be nice to get out of the country.",
+							"Oh yeah, definitely. Where do you want to go?",
+							"Should've known better than to assume you'd be interested."
+							]);
+							
+lvlTwoConvoFour.modules.push([
+							"I was thinking either Ireland or England, one of the two.",
+							"There's definitely a lot of decent exchange programs there.",
+							"If not that, then maybe somewhere in mainland Europe.",
+							"Yeah, Europe's definitely the way to go for study abroad.",
+							"But you probably won't miss me at all."
+							]);
+
+lvlTwoConvoFour.modules.push([
+							"But yeah, I'm just hoping I can transfer credits back to RPI.",
+							"You should be able to if you're taking general education courses!",
+							"Like I don't want to waste a semester not doing schoolwork.",
+							"I completely agree, I wouldn't go abroad if I wasn't getting credit.",
+							"Speaking of waste, trying to get you to talk to me."
+							]);
+							
 terernce.conversations.push(lvlTwoConvoOne);
 terernce.conversations.push(lvlTwoConvoTwo);
 terernce.conversations.push(lvlTwoConvoThree);
+terernce.conversations.push(lvlTwoConvoFour);
 							
 /* LEVEL THREE CONVERSATIONS */
 
@@ -278,11 +331,36 @@ lvlThreeConvoThree.modules.push([
 							"I feel you, they need to focus more on the whole 'hero' thing and less on all of the namby pamby inter-character relations. It's killing the mood.",
 							"Oh well, I guess you don't care that much. Peace."
 							]);
+	
+/* Conversation Four */	
+lvlThreeConvoFour.modules.push([
+							"Oh also, do you remember how to declare a class operator in C++?",
+							"Yeah, isn't it just 'bool Class::operator[operator goes here](const args) const { code }'?",
+							"I haven't had to do it in a while and I forget how haha.",
+							"Me neither, isn't it basically just 'bool Class::operator[operator goes here](const args) const { code }'?",
+							"Oh well, guess you don't have time for me anymore."
+							]);
+							
+lvlThreeConvoFour.modules.push([
+							"Do you have any specific examples you could use? I've always been bad at understanding psuedo-code.",
+							"Well, for example, implementing '>' looks like this: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'. Does that make sense?",
+							"Please, anything at all?",
+							"Um yeah, in one of my old programs I used this for the '>' operator: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'.",
+							"Whatever, I'll go ask someone else."
+							]);
+							
+lvlThreeConvoFour.modules.push([
+							"Yeah, that makes a lot more sense than before.",
+							"No worries dude, anytime.",
+							"Thanks again!",
+							"Any time, man.",
+							"Looks like you peaced out on me... again."
+							]);
 						
 terernce.conversations.push(lvlThreeConvoOne);
 terernce.conversations.push(lvlThreeConvoTwo);
 terernce.conversations.push(lvlThreeConvoThree);
-						
+terernce.conversations.push(lvlThreeConvoFour);
 /* LEVEL FOUR CONVERSATIONS */ 
 
 /* Conversation One */
@@ -359,66 +437,9 @@ lvlFourConvoThree.modules.push([
 							"Eh, it's not really my thing. I'm the kind of person that finds something they like at a restaurant and just gets that every single time they go there (unless I see someone try something tastier).",
 							"Guess you're not as hungry as I am, haha. See ya."
 							]);
-							
-terernce.conversations.push(lvlFourConvoOne);
-terernce.conversations.push(lvlFourConvoTwo);
-terernce.conversations.push(lvlFourConvoThree);
+/* Conversation Four */						
 
-/* LEVEL FIVE CONVERSATIONS */
-
-/* Conversation One */
-lvlFiveConvoOne.modules.push([
-							"Hey, you got a minute?",
-							"While I do consider my time extremely valuable, and no doubt have a multitude of obligations I need to attend to, I suppose that I could take some time out of my busy schedule to assist you. What is your request?",
-							"You there?",
-							"I suppose it depends on what your definition of 'there' is; For example, while I am not here for you in the physical sense, in the spiritual and metaphorical sense I am all yours.",
-							"Guess not. See ya."
-							]);
-							
-lvlFiveConvoOne.modules.push([
-							"Woah, someone's verbose today.",
-							"I have decided that in order to more accurately convey my thoughts, I shall try and change my vernacular to more clearly reflect what is going on inside my mind.",
-							"Someone buy a new thesaurus?",
-							"Far from it, my friend. I'm merely attempting to reflect my extensive knowledge of the english language and celebrate the intrinsic beauty found within our native tongue.",
-							"Well it looks like you ran out of words, I'll see you around."
-							]);
-							
-lvlFiveConvoOne.modules.push([
-							"Look man, if you're going to talk like an asshole I don't think I need your help anyways.",
-							"I am afraid that this is the person that I am going to be from now on, and if you still desire to be friends with me then you must choose to accept this 'new me'.",
-							"Think you can tone it down a bit?",
-							"I am afraid not; from now on you are going to be friends with one of the most verbose and loquatious members of this school's community; hopefully you will be able to learn something from further interactions with me.",
-							"Good, wasn't particularly enjoying this conversation anyways."
-							]);
-							
-/* Conversation Two */
-lvlFiveConvoTwo.modules.push([
-							"Oh also, do you remember how to declare a class operator in C++?",
-							"Yeah, isn't it just 'bool Class::operator[operator goes here](const args) const { code }'?",
-							"I haven't had to do it in a while and I forget how haha.",
-							"Me neither, isn't it basically just 'bool Class::operator[operator goes here](const args) const { code }'?",
-							"Oh well, guess you don't have time for me anymore."
-							]);
-							
-lvlFiveConvoTwo.modules.push([
-							"Do you have any specific examples you could use? I've always been bad at understanding psuedo-code.",
-							"Well, for example, implementing '>' looks like this: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'. Does that make sense?",
-							"Please, anything at all?",
-							"Um yeah, in one of my old programs I used this for the '>' operator: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'.",
-							"Whatever, I'll go ask someone else."
-							]);
-							
-lvlFiveConvoTwo.modules.push([
-							"Yeah, that makes a lot more sense than before.",
-							"No worries dude, anytime.",
-							"Thanks again!",
-							"Any time, man.",
-							"Looks like you peaced out on me... again."
-							]);
-							
-/* Conversation Three */
-
-lvlFiveConvoThree.modules.push([
+lvlFourConvoFour.modules.push([
 							"Eyhay anmay, at'swhay upway?",
 							"Oday ouyay antway otay explainway ywhay ou'reyay eakingspay inway igpay atinlay?",
 							"Ahahay at'swhay ethay attermay, an'tcay understandway emay?",
@@ -426,7 +447,7 @@ lvlFiveConvoThree.modules.push([
 							"Uessgay Iway ostlay ouyay. Eesay ouyay aterlay, udbay."
 							]);
 							
-lvlFiveConvoThree.modules.push([
+lvlFourConvoFour.modules.push([
 							"Unnoday, Iway iguredfay I'dway ytray andway umpstay ouyay!",
 							"I'mway otnay umpedstay, isthay isway ustjay eallyray annoyingway.",
 							"Ouyay eemsay otay ebay avinghay oubletray espondingray.",
@@ -434,14 +455,15 @@ lvlFiveConvoThree.modules.push([
 							"Ehmay, itterquay. Eesay ouyay aroundway."
 							]);
 							
-lvlFiveConvoThree.modules.push([
+lvlFourConvoFour.modules.push([
 							"Eriouslysay oughthay, isthay isway ettinggay eallyray edioustay.",
 							"Yeah, let's stop.",
 							"Iway inkthay I'mway oinggay otay opstay oonsay.",
 							"Ohway eallyray? Andway erehay Iway asway inkingthay eway ereway ustjay ettinggay artedstay.",
 							"Touche, my friend."
-							]);
+							]);	
 							
-terernce.conversations.push(lvlFiveConvoOne);
-terernce.conversations.push(lvlFiveConvoTwo);
-terernce.conversations.push(lvlFiveConvoThree);
+terernce.conversations.push(lvlFourConvoOne);
+terernce.conversations.push(lvlFourConvoTwo);
+terernce.conversations.push(lvlFourConvoThree);
+terernce.conversations.push(lvlFourConvoFour);
