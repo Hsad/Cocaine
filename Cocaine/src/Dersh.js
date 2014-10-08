@@ -161,6 +161,38 @@ Con21.modules.push([
 dersh.conversations.push(Con21);
 
 
+var Con22 = new Conversation(2);
+Con22.modules.push([
+			"have you ever been down to the farmers market",
+			"once or twice, I think",
+			"The one down in troy",
+			"yea, I know the place, pretty cool",
+			"are you down there right now?"
+		]);
+Con22.modules.push([
+			"Any good time to go?",
+			"Uhh, the weekend? Like the only time its open",
+			"obviously the weekend",
+			"Oh, like eleven or twelve",
+			"I'll ask someone else, someone who cares"
+		]);
+Con22.modules.push([
+			"Cool I've got to get down there somewhere",
+			"Yea its a ton of fun, I'll tell you when I go next",
+			"Or look at pictures of it on farceDerp",
+			"I'll invite you next time I head down",
+			"Or cry myself to sleep"
+		]);
+Con22.modules.push([
+			"Awesome",
+			"yea talk to you later brahski",
+			"bye bye now",
+			"peace mate, see you around",
+			"or never, ya jerk"
+		]);
+dersh.conversations.push(Con22);
+
+
 var Convo_3_1 = new Conversation(3);
 Convo_3_1.modules.push([
 			"Hey Dingus, guess what?",
