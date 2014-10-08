@@ -1,3 +1,7 @@
+var gameOver = false;
+var gameOverScreenUp = false;
+var newConvoTime = false;
+
 var TextLogLayer = cc.Layer.extend({
 
 	ctor : function(_xSpawn, _ySpawn, _width, _height, _parent){
@@ -107,11 +111,13 @@ var ChatBubble = cc.Layer.extend({
         //-------------------------
         //Now the profile picture!
         //-------------------------
-        this.proPic = new cc.Sprite(this.textLog.chatbox.person.profilePic);
-        this.proPic.scale = .4;
-        this.proPic.x = -137;
-        this.proPic.y = -135;
-        this.addChild(this.proPic);
+        if (!_isPlayers) {
+            this.proPic = new cc.Sprite(this.textLog.chatbox.person.profilePic);
+            this.proPic.scale = .4;
+            this.proPic.x = -137;
+            this.proPic.y = -135;
+            this.addChild(this.proPic);
+        }
         
 		//-----------------------------
 		//finally create the text label
@@ -239,7 +245,8 @@ var ChatWindowLayer = cc.Layer.extend({
 	//called to change to a new conversation after your current one is finished
 	//and also determine how long you'll have to answer this question
 	selectNewConvo : function(){
-		
+		this.currentModule = 0;
+        this.currentQ = 0;
 		//need to check if you've already used this post @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		
 		var possibleConvos = []
@@ -254,64 +261,103 @@ var ChatWindowLayer = cc.Layer.extend({
 		//actually print it to the screen, you know this will always by 
 		this.textLog.addBubble(this.currentConvo.modules[0][0], this.x, this.y, false);
 		
-		//update the response handler required text @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		
-		this.determineTimer();
+		//update the response handler required text
+		this.responseBox.requiredResponse = this.currentConvo.modules[0][1];
+        this.responseBox.templateLabel.setString(this.currentConvo.modules[0][1]);
+        
+		this.determineTimer(true);
 	},
 	//----------------------------------------------------------------------------------------------
 	//updateConvo()    Called when the player submits a response or the timer ticks all the way down
 	//----------------------------------------------------------------------------------------------
-	updateConvo : function(){
+	updateConvo : function(_onTimer){
 		
 		console.log("gotta update convo");
-	
-		// update Q number by two so you can read the next question and response from the module
-		this.currentQ += 2;
-		//now test to see if you need to switch modules, because you've gone over 5 which is the number of strings per module
-		if(this.currentQ >= 5)
-		{
-			this.currentModule += 1;	//okay update the module
-			this.currentQ = 0;
-		}
-		if(this.currentConvo.modules[this.currentModule] == null)
-		{
-			//update the difficulty here please.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		
-			//okay so there is no next module in this conversation so just go to the next covo
-			this.selectNewConvo()
-		}
-		else			//okay so you don't need a new conversation, so just add a bubble of the next dialogue
-		{
-			this.textLog.addBubble(this.currentConvo.modules[this.currentModule][this.currentQ], this.x, this.y, false);
-			//update the response handler required text @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-			
-			this.determineTimer();
-		}
+        if (_onTimer) {
+            if (newConvoTime) {
+                //update the difficulty here please.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            
+                //okay so there is no next module in this conversation so just go to the next convo
+                this.selectNewConvo()
+                newConvoTime = false;
+            }
+            else {
+                // update Q number by two so you can read the next question and response from the module
+                this.currentQ += 2;
+                //now test to see if you need to switch modules, because you've gone over 5 which is the number of strings per module
+
+                this.textLog.addBubble(this.currentConvo.modules[this.currentModule][this.currentQ], this.x, this.y, false);
+                //update the response handler required text
+                if (this.currentQ != 4) {
+                    this.responseBox.requiredResponse = this.currentConvo.modules[this.currentModule][this.currentQ + 1];
+                    this.responseBox.templateLabel.setString(this.currentConvo.modules[this.currentModule][this.currentQ + 1]);
+                    this.determineTimer(true);
+                }
+                else {
+                    //throw up the game over layer
+                    gameOver = true;
+                    this.timer = 210;
+                    this.responseBox.requiredResponse = " ";
+                    this.responseBox.templateLabel.setString(" ");
+                }
+            }
+                
+        }
+        //player entered a bubble
+        else {
+            this.currentModule += 1;	//okay update the module
+            this.currentQ = -2;
+            this.determineTimer(false);
+        
+            if(this.currentConvo.modules[this.currentModule] == null)
+            {
+                newConvoTime = true;
+            }
+        }
 	},
 	
 	//-------------------------------------------------------------------------------------------------------------
 	//conversationToick()       should be called every frame, tick the counter, and advance the module if necessary
 	//-------------------------------------------------------------------------------------------------------------
 	conversationTick : function(){
-		//first check to see if the timer ran out
-		if(this.timer <= 0)
-		{
-			this.updateConvo();
-		}
-		
-		
-		if(this.timer <= this.maxTimer/2)
-		{
-			//draw the is typing bubble@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		}
-		//decrement the timer
-		this.timer--;
+        if (!gameOver) {
+            //first check to see if the timer ran out
+            if(this.timer <= 0)
+            {
+                this.updateConvo(true);
+            }
+            
+            
+            if(this.timer <= this.maxTimer/2)
+            {
+                //draw the is typing bubble@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            }
+        }
+        else {
+            if (this.timer <= 0) {
+                this.parent.addChild(new gameOverLayer());
+                console.log("made a screen");
+                gameOverScreenUp = true;
+                this.timer = 1;
+            }
+        }
+        //decrement the timer
+        if (!gameOverScreenUp) {
+            this.timer--;
+        }
+
 	},
 	
-	determineTimer: function(){
+	determineTimer: function(_isPlayers){
 		//the length of the player's required input string
-		this.timer = this.currentConvo.modules[this.currentModule][this.currentQ + 1].length * numOfWindows * 22;
-		this.maxTimer = this.timer;
+        if (_isPlayers) {
+            this.timer = this.responseBox.requiredResponse.length * numOfWindows * 27 + 60;
+            this.maxTimer = this.timer;
+        }
+        //the person's response time
+        else {
+            this.timer = 100 * numOfWindows;
+        }
 	}
 	
 });

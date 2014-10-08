@@ -34,7 +34,7 @@ Convo_1_1.modules.push(["Borp.",
 						"right. hey.",
 						"A'ight, guess you're too busy to be silly. Lame."]);
 Convo_1_1.modules.push(["So whatchu doin', gurl?",
-						"nothing much. you?",
+						"nothing much, you?",
 						"Yo. You there?",
 						"yeah. just chillin.",
 						"Guess not. A'ight. I'm out, then."]);

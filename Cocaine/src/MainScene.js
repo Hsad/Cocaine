@@ -81,7 +81,7 @@ var MainScene = cc.Scene.extend({
 		//-------------------------
 		//Create the Chat windows!!
 		//-------------------------
-		this.chatWindowLayer1 = spawnChatWindow(wid*7/2, merc, 1, this);
+		this.chatWindowLayer1 = spawnChatWindow(wid*7/2, jerstern, 1, this);
 		this.addChild(this.chatWindowLayer1);
 		
 		/*

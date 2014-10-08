@@ -122,6 +122,8 @@ var ResponseHandler = cc.Layer.extend({
    
     DoStuffWithTextFromTheField:function(s) {
         this.chatbox.textLog.addBubble(s, this.chatbox._xSpawn, 105, true);
+        this.chatbox.updateConvo(false);
+        this.templateLabel.setString(" ");
     	cc.log(s);
     }
 });
