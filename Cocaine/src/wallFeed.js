@@ -29,6 +29,7 @@ var NewsFeedLayer = cc.Layer.extend({
 		this.contUp = false;
 		this.timer = 100000;
 		this.tempPostHolder;
+        /*
 		this.onYoMind = new cc.LabelTTF(
 				"Whats on your mind?", "Idolwild", 24, cc.size(600, 620), cc.TEXT_ALIGNMENT_LEFT);
 		this.onYoMind.setFontFillColor(new cc.color(127,127,127,255));
@@ -38,6 +39,7 @@ var NewsFeedLayer = cc.Layer.extend({
 		this.onYoMind.y = this.yMind;
 		this.onYoMind.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
 		this.addChild(this.onYoMind);
+        */
 
 		/*
 		if (this.hasChildNodes()) {

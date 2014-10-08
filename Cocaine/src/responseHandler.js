@@ -7,7 +7,7 @@ var ResponseHandler = cc.Layer.extend({
         this.requiredResponse = "Default Required Response.";
         
         //create a label and add it as a child
-        this.templateLabel = new cc.LabelTTF(this.requiredResponse, "Idolwild", 14, cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT);
+        this.templateLabel = new cc.LabelTTF(this.requiredResponse, "Arial", 14, cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT);
         this.templateLabel.setFontFillColor(cc.color(100,100,100,255));
         this.templateLabel.x = x+2;
         this.templateLabel.y = y;
@@ -16,7 +16,7 @@ var ResponseHandler = cc.Layer.extend({
         
         //create a TextFieldTTF and add it as a child
 
-        this.inputField = new cc.TextFieldTTF(" ", cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT, "Idolwild", 14);
+        this.inputField = new cc.TextFieldTTF(" ", cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT, "Arial", 14);
         this.inputField.setFontFillColor(cc.color(0,0,255,255));
         this.inputField.x = x+2;
         this.inputField.y = y;
@@ -39,6 +39,7 @@ var ResponseHandler = cc.Layer.extend({
                 if (sender.getString() == sender.parent.requiredResponse) {
                     sender.parent.DoStuffWithTextFromTheField(sender.getString());
                     sender.setString("");	// clear the input field
+                    sender.setFontFillColor(cc.color(0,0,255,255));
                 }
                 return true;
             }
@@ -120,8 +121,7 @@ var ResponseHandler = cc.Layer.extend({
  
    
     DoStuffWithTextFromTheField:function(s) {
-        this.testBubble = this.chatbox.textLog.addBubble(s, this.chatbox._xSpawn, 105, true);
-        this.chatbox.addChild(this.testBubble);
+        this.chatbox.textLog.addBubble(s, this.chatbox._xSpawn, 105, true);
     	cc.log(s);
     }
 });

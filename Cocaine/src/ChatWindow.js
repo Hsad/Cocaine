@@ -3,17 +3,28 @@ var TextLogLayer = cc.Layer.extend({
 	ctor : function(_xSpawn, _ySpawn, _width, _height){
 		this._super();
 		this.bubbleList = [];
-		//initialize the clippingNode
-		this.clippingNode = cc.ClippingNode.create();
-		this.clippingNode.setAnchorPoint(.5,.5);
-		this.clippingNode.setPosition(this.x, this.y);
-		console.log(1);
-		//this.addChild(this.clippingNode);
-		this.stencil = cc.DrawNode.create();
-		var rect = [cc.p(this.x-335/2,this.y + 380/2), cc.p(this.x+335/2,this.y+380/2),cc.p(this.x-335/2, this.y-380/2), cc.p(this.x+335/2,this.y-380/2)];
-		//var rect = [cc.p(000,1000), cc.p(2000,1000),cc.p(0,0), cc.p(2000,0)];
-		this.stencil.drawPoly(rect);
-		//this.clippingNode.setStencil(this.stencil)
+        this.x = _xSpawn;
+        this.y = _ySpawn;
+        //make clipping node
+        this.clippingNode = new cc.ClippingNode();
+        this.clippingNode.setContentSize(317,275);
+        this.clippingNode.setAlphaThreshold(0.05);
+		this.addChild(this.clippingNode);
+        
+		this.stencil = new cc.Sprite(res.chatClipperPNG);
+        this.stencil.setVisible(true);
+		this.stencil.attr({
+			x: 0,
+			y: 12,
+			scale: 1,
+			rotation: 0
+		});
+        
+        this.clippingNode.setStencil(this.stencil);
+        //this.addChild(this.stencil);
+        
+        this.clippingNode.addChild(this.stencil);
+        
 		
 		
 		//-------------
@@ -22,11 +33,10 @@ var TextLogLayer = cc.Layer.extend({
 		this.addBubble = function(_message, _xSpawn, _ySpawn, _isPlayers){
 			this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers);
 			this.clippingNode.addChild(this.newestBubble);
-			console.log(this.newestBubble.x);
+			console.log(this.newestBubble.x + ", " + this.newestBubble.y);
 			
 			this.bubbleList.push(this.newestBubble);
 			this.pushLogStack();
-			return this.newestBubble;
 		}
 		//----------------
 		//pushLogStack()
@@ -53,13 +63,16 @@ var ChatBubble = cc.Layer.extend({
 		//first you have to make the top sprite
 		//-------------------------------------
 		_isPlayers ? this.topSprite = new cc.Sprite(res.playerBubbleTopPNG) : this.topSprite = new cc.Sprite(res.otherBubbleTopPNG);
-		this.topSprite.attr({
+		/*
+        this.topSprite.attr({
 			x: _xSpawn,
 			y: _ySpawn,
 			scale: 1,
 			rotation: 0
 		});
-		this.height +=this.topSprite.height; 			//height keeps track of the height of all the sprites
+        */
+        this.topSprite.y = -130;
+		this.height +=this.topSprite.height/2; 			//height keeps track of the height of all the sprites
 		this.addChild(this.topSprite);
 		//----------------------------------------------------------------------------
 		//if there's more than 1 line of text, add a middle sprite for each extra line
@@ -71,15 +84,12 @@ var ChatBubble = cc.Layer.extend({
 			for(i = 0; i < Math.floor(this.lines*3/4); i++) {
 				_isPlayers ? this.middleSprite = new cc.Sprite(res.playerBubbleMiddlePNG) : this.middleSprite = new cc.Sprite(res.otherBubbleMiddlePNG);
 				//now set the middle sprites attributes. i.e. where it is going to spawn
-				this.middleSprite.attr({
-					x: _xSpawn,
+				this.middleSprite.x  = 0
 					// the y needs to take into account how many sprite of this bubble are above this one
-					y: _ySpawn - this.topSprite.height/2 - (this.middleSprite.height/2) * ( i ) - this.middleSprite.height/2,
-					scale: 1,
-					rotation: 0
-				});
+                this.height += this.middleSprite.height/2; 	
+                this.middleSprite.y = -this.height -130;
 				this.addChild(this.middleSprite);
-				this.height +=this.middleSprite.height; 			//height keeps track of the height of all the sprites
+				this.height += this.middleSprite.height/2; 			//height keeps track of the height of all the sprites
 			}
 		}
 		//-------------------------
@@ -87,22 +97,9 @@ var ChatBubble = cc.Layer.extend({
 		//-------------------------
 		var bottomSpawn;		//the bottom sprites location needs to be based on how many middle sprites there were
 		_isPlayers ? this.bottomSprite = new cc.Sprite(res.playerBubbleBottomPNG) : this.bottomSprite = new cc.Sprite(res.otherBubbleBottomPNG);
-		if(this.middleSprite != null)
-		{
-			bottomSpawn = _ySpawn - this.topSprite.height/2 - (this.middleSprite.height/2) * (this.lines -1) - this.bottomSprite.height/2;
-		}
-		else
-		{
-			bottomSpawn = _ySpawn - this.topSprite.height/2;
-		}
-		this.bottomSprite.attr({
-			x: _xSpawn,
-			// the y needs to take into account how many sprite of this bubble are above this one
-			y: bottomSpawn,
-			scale: 1,
-			rotation: 0
-		});
-		this.height +=this.bottomSprite.height; 			//height keeps track of the height of all the sprites
+        this.height +=this.bottomSprite.height/2; 	
+        this.bottomSprite.y = -this.height -130;
+		this.height +=this.bottomSprite.height/2; 			//height keeps track of the height of all the sprites
 		this.addChild(this.bottomSprite);
 		
 		//-----------------------------
@@ -112,15 +109,16 @@ var ChatBubble = cc.Layer.extend({
 		this.text.setFontFillColor(cc.color(0,0,0,255));
 		if(_isPlayers)
 		{
-			this.text.x = _xSpawn + 30;
-			this.text.y = _ySpawn - (this.lines * 14)/2 + 5;//this is because the text field is still centered so having more lines throws of the ySpawn
+			this.text.x = 30;
+			this.text.y =  - (this.lines * 14)/2 + 5 -130;//this is because the text field is still centered so having more lines throws of the ySpawn
 		}
 		else
 		{
-			this.text.x = _xSpawn - 9;
-			this.text.y = _ySpawn - (this.lines * 15)/2;
+			this.text.x =  - 9;
+			this.text.y =  - (this.lines * 15)/2 -130;
 		}
 		this.addChild(this.text);
+        this.height += this.topSprite.height/2;
 	}
 });
 
@@ -138,6 +136,7 @@ var ChatWindowLayer = cc.Layer.extend({
 		//initialize the super
         this.scheduleUpdate();
 		this._super();
+        this.jitterTimer = 0;
         this._xSpawn = _xSpawn;
         this.jittering = false;
 		person = _person
@@ -162,10 +161,18 @@ var ChatWindowLayer = cc.Layer.extend({
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
-		this.textLog = new TextLogLayer();
-		this.textLog.x = this.x;
-		this.textLog.y = this.y;
+		this.textLog = new TextLogLayer(_xSpawn,this.sprite.height/2,317,275);
 		this.addChild(this.textLog);
+        
+        this.overlay = new cc.Sprite(res.overlay1PNG);
+        this.overlay.attr({
+			x: _xSpawn,
+			y: this.overlay.height/2,
+			scale: 1,
+			rotation: 0,
+		});
+        this.overlay.setVisible(false);
+        this.addChild(this.overlay);
         
         //-----------------------------
         // create the response box
@@ -176,10 +183,29 @@ var ChatWindowLayer = cc.Layer.extend({
 	},
     update : function() {
         if (this.jittering) {
+            this.overlay.setVisible(true);
             jitter(this, 5, 5);
+            this.jitterTimer += .25;
+            if (this.jitterTimer > 3) {
+                this.jitterTimer += -3;
+            }
+            if (this.jitterTimer >= 0 && this.jitterTimer < 1) {
+                this.sprite.setTexture(res.chat1PNG);
+                this.overlay.setTexture(res.overlay1PNG);
+            }
+            else if (this.jitterTimer >= 1 && this.jitterTimer < 2) {
+                this.sprite.setTexture(res.chat2PNG);
+                this.overlay.setTexture(res.overlay2PNG);
+            }
+            else if (this.jitterTimer >= 2 && this.jitterTimer < 3) {
+                this.sprite.setTexture(res.chat3PNG);
+                this.overlay.setTexture(res.overlay3PNG);
+            }
         }
         else {
             jitter(this, 0, 0);
+            this.overlay.setVisible(false);
+            this.sprite.setTexture(res.chatCleanPNG);
         }
     },
 	//-------------------------------------------------------------------------

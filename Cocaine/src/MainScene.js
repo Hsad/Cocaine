@@ -52,9 +52,6 @@ var MainScene = cc.Scene.extend({
 	onEnter : function(){
 		this._super();
 		
-        //how Spencer and I both feel right now
-		console.log("I hate everything");
-		
 		//gotta instantiate the layers and then make references to them and add them as children
         this.backgroundLayer = new bgLayer();
         this.addChild(this.backgroundLayer);
