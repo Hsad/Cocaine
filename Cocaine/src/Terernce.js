@@ -402,7 +402,7 @@ lvlFiveConvoTwo.modules.push([
 							
 lvlFiveConvoTwo.modules.push([
 							"Do you have any specific examples you could use? I've always been bad at understanding psuedo-code.",
-							"Well, for example, implementing '>' looks like this: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'. Does that make sense?"
+							"Well, for example, implementing '>' looks like this: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'. Does that make sense?",
 							"Please, anything at all?",
 							"Um yeah, in one of my old programs I used this for the '>' operator: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'.",
 							"Whatever, I'll go ask someone else."
