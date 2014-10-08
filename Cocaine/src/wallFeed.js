@@ -63,11 +63,11 @@ var NewsFeedLayer = cc.Layer.extend({
 			}
 			
 			for (x = 0; x < this.feedArray.length; x++){
-				this.feedArray[x].y -= 7;
+				this.feedArray[x].y -= 12;
 				//console.log("moving old posts");
 			}
 			
-			this.ammountMoved += 7;
+			this.ammountMoved += 12;
 
 			if (this.ammountMoved >= this.offset){
 				this.contUp = false;
