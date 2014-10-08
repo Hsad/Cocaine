@@ -24,6 +24,7 @@ var res = {
 	friendDotRedPNG : "res/friend_dot_red.png",
 
     bgPNG : "res/background_happy.png",
+    gameOverPNG : "res/404.png",
 	
 	//profile pictures
 	dershPNG : "res/dersh.png",
