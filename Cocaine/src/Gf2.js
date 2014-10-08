@@ -1,6 +1,6 @@
 var gf2 = new Person("Gerlfriend #2", res.gf2PNG);
 //posts
-
+gf2.posts.push(["I love my boyfriend " + playername + " so much <3"]);
 //create a new conversation to append to the conversation list
 //                               |
 // this conversations difficulty v
