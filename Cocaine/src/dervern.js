@@ -27,16 +27,16 @@ merc.conversations.push(testConvo);
 var testConvo = new Conversation(1);
 testConvo.modules.push(["BLAAAARRRRRGGGHHH!!!!", 
 						"'sup", 
-						"Why am I even here? I don't use social media.",
-						"oops, I'm back",
+						"why am I even here? I don't use social media.",
+						"oops, i'm back",
 						"I'm out, don't belong here anyway."]);
 testConvo.modules.push(["Dude, I am totally stoked for Zerlder Weryoo",
-						"I know right",
+						"i know right",
 						"Really, come on",
-						"Huh",
+						"huh",
 						"can't take this. Goodbye!"]);
 testConvo.modules.push(["Anyway, that's all I got",
-						"Okay?",
+						"okay?",
 						"well,bye",
 						"bye",
 						"screw it"]);                     
@@ -47,17 +47,17 @@ var testConvo = new Conversation(1);
 testConvo.modules.push(["I'm back", 
 						"hi there", 
 						"Are you there?",
-						"What? Yes.",
+						"what? yes.",
 						"Too late, I'm gone"]);
 testConvo.modules.push(["Have you worked on the game dev project at all?",
-						"Ha, No.",
+						"ha, no.",
 						"Hello?",
-						"What? No.",
+						"what? no.",
 						"Fine, don't respond"]);
 testConvo.modules.push(["me either",
 						"figures",
 						"seriously",
-						"Sorry, Fercederp beckons",
+						"sorry, fercederp beckons",
 						"..."]);                     
 
 dervern.conversations.push(testConvo);
@@ -69,9 +69,9 @@ testConvo.modules.push(["I can't take it dude",
 						"oh yeah, sorry",
 						"you're dead to me"]);
 testConvo.modules.push(["I have too much stuff to do this week",
-						"Oh I'm sorry",
+						"oh i'm sorry",
 						"The least you could do is respond",
-						"right, I'm sorry",
+						"right, i'm sorry",
 						"I don't have time for this"]);
 testConvo.modules.push(["Yeah well, if I expire before Friday, call my mom ok",
 						"ha, ya ok",
@@ -85,17 +85,17 @@ var testConvo = new Conversation(1);
 testConvo.modules.push(["who's on first?", 
 						"who?", 
 						"Are you there?",
-						"What? Yes.",
+						"what? yes.",
 						"Too late, I'm gone"]);
 testConvo.modules.push(["yes",
 						"what?",
 						"Hello?",
-						"What?",
+						"what?",
 						"Fine, don't respond"]);
 testConvo.modules.push(["no, he's on second",
-						"I don't get it",
+						"i don't get it",
 						"badum tish",
-						"I no think smart good",
+						"i no think smart good",
 						"..."]);                     
 
 dervern.conversations.push(testConvo);
