@@ -66,9 +66,21 @@ function spawnChatWindow( _xSpawn,_person, _difficulty, scene){
 	return window;
 }
 
-var wid = 335 ;
+function randomPersonWithConvo() {
+    var user = null;
+    while (!hasConvo){
+        randInt = Math.floor(Math.random() * allPeople.length);
+            if (allPeople[randInt].conversations.length > 0){
+                hasConvo = true;
+            }
+        }
+    user = allPeople[randInt];
+    return user;
+}
+
 var numOfWindows = 0;
 var windowsMax = 4;
+var wid = 335 ;  // width of text window
 var MainScene = cc.Scene.extend({
 	framesBeforeWin1 : 240,
 	onEnter : function(){
