@@ -3,6 +3,7 @@ var grangran = new Person("Grandma", res.grangranPNG);
 grangran.posts.push(["good luck on your test today sweetie"]);
 grangran.posts.push(["google"]);
 grangran.posts.push(["hi honey how have you been? what time is the soccer game today? hoping to see you there"]);
+grangran.posts.push(["I'm so proud of you grandson. how was your day?"]);
 //create a new conversation to append to the conversation list
 //                               |
 // this conversations difficulty v

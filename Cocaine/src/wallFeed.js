@@ -4,6 +4,7 @@ var NewsFeedLayer = cc.Layer.extend({
 	//console.log("how many times is this called"),
 	sprite : null,
 	
+	
 	//Constructor. should pass in the windows X Location,
 	ctor : function(){
 		//initialize the super
