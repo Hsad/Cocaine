@@ -1,4 +1,4 @@
-var terernce = new Person("Terernce Fererl", res.terrncePNG);
+var terernce = new Person("Terernce Fererl", res.tererncePNG);
 
 /*
 Each character should have 5 difficulty levels worth of conversations,
