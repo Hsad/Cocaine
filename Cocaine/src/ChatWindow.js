@@ -33,7 +33,6 @@ var TextLogLayer = cc.Layer.extend({
 		this.addBubble = function(_message, _xSpawn, _ySpawn, _isPlayers){
 			this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers);
 			this.clippingNode.addChild(this.newestBubble);
-			console.log(this.newestBubble.x + ", " + this.newestBubble.y);
 			
 			this.bubbleList.push(this.newestBubble);
 			this.pushLogStack();
@@ -128,6 +127,10 @@ var ChatWindowLayer = cc.Layer.extend({
 	difficulty : 1,
 	usedConversations: [],
 	currentConvo: null,
+	currentModule: 0,			//these both start at -1 because the selectNewConvo function adds 1 to both of these at the beginning of the fn
+	currentQ: 0,
+	timer: 0,
+	maxTime: 0,
 	person: null,
 	
 	//Constructor. should pass in the windows X Location,
@@ -180,8 +183,12 @@ var ChatWindowLayer = cc.Layer.extend({
         this.responseBox = new ResponseHandler(_xSpawn,33,335);
         this.responseBox.chatbox = this;
         this.addChild(this.responseBox);
+		
 	},
     update : function() {
+		//you need to update the timer
+		this.conversationTick();
+		
         if (this.jittering) {
             this.overlay.setVisible(true);
             jitter(this, 5, 5);
@@ -211,29 +218,83 @@ var ChatWindowLayer = cc.Layer.extend({
 	//-------------------------------------------------------------------------
 	//selectNewConvo()---------------------------------------------------------
 	//-------------------------------------------------------------------------
+	
 	//called to change to a new conversation after your current one is finished
 	//and also determine how long you'll have to answer this question
 	selectNewConvo : function(){
+		
+		//need to check if you've already used this post @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		
 		var possibleConvos = []
 		for(var i = 0; i < this.person.conversations.length; i++){
 			if(this.person.conversations[i].difficulty == this.difficulty){
 				possibleConvos.push(this.person.conversations[i]);
-				console.log(possibleConvos.length);
 			}
 		}
 		var ran = Math.floor(Math.random()* possibleConvos.length);
 		this.currentConvo = possibleConvos[ran];
 		
-		//actually print it to the screen
+		//actually print it to the screen, you know this will always by 
 		this.textLog.addBubble(this.currentConvo.modules[0][0], this.x, this.y, false);
+		
+		//update the response handler required text @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		
+		this.determineTimer();
+	},
+	//----------------------------------------------------------------------------------------------
+	//updateConvo()    Called when the player submits a response or the timer ticks all the way down
+	//----------------------------------------------------------------------------------------------
+	updateConvo : function(){
+		
+		console.log("gotta update convo");
+	
+		// update Q number by two so you can read the next question and response from the module
+		this.currentQ += 2;
+		//now test to see if you need to switch modules, because you've gone over 5 which is the number of strings per module
+		if(this.currentQ >= 5)
+		{
+			this.currentModule += 1;	//okay update the module
+			this.currentQ = 0;
+		}
+		if(this.currentConvo.modules[this.currentModule] == null)
+		{
+			//update the difficulty here please.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		
+			//okay so there is no next module in this conversation so just go to the next covo
+			this.selectNewConvo()
+		}
+		else			//okay so you don't need a new conversation, so just add a bubble of the next dialogue
+		{
+			this.textLog.addBubble(this.currentConvo.modules[this.currentModule][this.currentQ], this.x, this.y, false);
+			//update the response handler required text @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			
+			this.determineTimer();
+		}
 	},
 	
-	//should be called every frame, tick the counter, and advance the module if necessary
-	//
-	//
-	//
+	//-------------------------------------------------------------------------------------------------------------
+	//conversationToick()       should be called every frame, tick the counter, and advance the module if necessary
+	//-------------------------------------------------------------------------------------------------------------
 	conversationTick : function(){
+		//first check to see if the timer ran out
+		if(this.timer <= 0)
+		{
+			this.updateConvo();
+		}
 		
+		
+		if(this.timer <= this.maxTimer/2)
+		{
+			//draw the is typing bubble@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		}
+		//decrement the timer
+		this.timer--;
+	},
 	
+	determineTimer: function(){
+		//the length of the player's required input string
+		this.timer = this.currentConvo.modules[this.currentModule][this.currentQ + 1].length * numOfWindows * 22;
+		this.maxTimer = this.timer;
 	}
+	
 });

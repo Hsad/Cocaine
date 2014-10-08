@@ -44,15 +44,15 @@ var bgLayer = cc.Layer.extend({
 });
 
 function spawnChatWindow( _xSpawn,_person, _difficulty, scene){
-	scene.numOfWindows += 1;
+	numOfWindows += 1;
 	var window = new ChatWindowLayer(_xSpawn, _person, _difficulty);
 	//window.parent = scene;
 	window.selectNewConvo();
 	return window;
 }
 
+var numOfWindows = 0;
 var MainScene = cc.Scene.extend({
-	numOfWindows : 0,
 	onEnter : function(){
 		this._super();
 		
