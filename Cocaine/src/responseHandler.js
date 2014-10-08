@@ -39,6 +39,7 @@ var ResponseHandler = cc.Layer.extend({
                 if (sender.getString() == sender.parent.requiredResponse) {
                     sender.parent.DoStuffWithTextFromTheField(sender.getString());
                     sender.setString("");	// clear the input field
+                    sender.setFontFillColor(cc.color(0,0,255,255));
                 }
                 return true;
             }
@@ -120,8 +121,7 @@ var ResponseHandler = cc.Layer.extend({
  
    
     DoStuffWithTextFromTheField:function(s) {
-        this.testBubble = this.chatbox.textLog.addBubble(s, this.chatbox._xSpawn, 105, true);
-        this.chatbox.addChild(this.testBubble);
+        this.chatbox.textLog.addBubble(s, this.chatbox._xSpawn, 105, true);
     	cc.log(s);
     }
 });

@@ -6,6 +6,7 @@ var res = {
 	
 	//our images
 	chatCleanPNG : "res/chat.png",
+    chatClipperPNG : "res/chatclipper.png",
 	//Background stuff
 	wallFeedPNG : "res/wallUp.png",
 	friendListPNG : "res/friendList.png",
