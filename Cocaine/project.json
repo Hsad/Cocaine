@@ -22,6 +22,10 @@
 		"src/ChatWindow.js",
         "src/Dervern.js",
         "src/Jerstern.js",
-        "src/Terernce.js"
+        "src/Terernce.js",
+        "src/Bern.js",
+        "src/Grangran.js",
+        "src/Dersh.js",
+        "src/Sperncer.js"
     ]
 }
