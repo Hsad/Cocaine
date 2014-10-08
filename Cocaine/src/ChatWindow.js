@@ -290,7 +290,6 @@ var ChatWindowLayer = cc.Layer.extend({
 		
         if (_onTimer) {
             if (newConvoTime) {
-                //update the difficulty here please.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				this.updateDifficulty();
             
                 //okay so there is no next module in this conversation so just go to the next convo

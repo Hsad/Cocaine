@@ -6,7 +6,8 @@ sperncer.posts.push(["Okay, Cocos is actually terrible, how do you even make a c
 sperncer.posts.push(["This is social satire"]);
 sperncer.posts.push(["dehindabuh"]);
 sperncer.posts.push(["ヽ༼ຈل͜ຈ༽ﾉ"]);
-//sperncer.posts.push(["Spencer Bot: \"Jazz Jazz Butts butts Orange unicycle Butts Jazz Saxophone\" "]);
+sperncer.posts.push(["I've actually been awake for 28 hours now. shit dude"]);
+sperncer.posts.push(["satire"]);
 sperncer.posts.push(["Jazz Butts: The Musical, featuring 12 different actors portraying alternate Spencer egos, all of whom are a part of a whistling band. Together they must undermine the work of Spanker, a nefarious Spencer doppelganger trying the rid the world of all butts"]);
 
 //create a new conversation to append to the conversation list
@@ -29,7 +30,7 @@ sperncer.conversations.push(convo_1_1);
 
 var convo_1_2 = new Conversation(1);
 convo_1_2.modules.push(["so what's new?",
-						"homework",
+						"ugh homework",
 						"how are ya?",
 						"homework. super busy",
 						"I guess you're busy"]);
@@ -41,7 +42,7 @@ convo_1_2.modules.push(["don't do it!",
 convo_1_2.modules.push(["Because we're going to Brown Bag!",
 						"awesome man!",
 						"you coming?",
-						"absolutely",
+						"absolutely!",
 						"alright well I can't wait"]);
 
 sperncer.conversations.push(convo_1_2);
@@ -94,9 +95,52 @@ convo_2_1.modules.push(["yeah it's on november 21st!",
 						
 var convo_2_2 = new Conversation(2);
 
-convo_2_1.modules.push(["so how's the game dev project?",
+convo_2_2.modules.push(["so how's the game dev project?",
 						"some stupid facebook game",
 						"I bet it's terrible",
-						"",
-						"Everyone except you, ya butthole"]);
+						"yeah we're making facebook",
+						"I'm better than you"]);
+
+convo_2_2.modules.push(["you're making facebook? wow that's dumb",
+						"It wasn't my idea",
+						"totally not really cool or anything",
+						"jealous? :P",
+						"okay I'm totally jealous, I hate my team"]);
+						
+var convo_2_3 = new Conversation(2);
+
+convo_2_3.modules.push(["Dude I just thought.",
+						"really? new feeling?",
+						"Dude just think about it...",
+						"Think about what?",
+						"You're not even thinking about it"]);
+
+convo_2_3.modules.push(["...Jazz...",
+						"yes...jazz??",
+						"*starts whistling jazz music*",
+						"Stop that sounds terrible",
+						"*walks away from uninterested friend*"]);
+convo_2_3.modules.push(["shhh it's just fantastic",
+						"ehh...I can't admit that",
+						"You're just a hater",
+						"yep, that's me.",
+						"Haters gonna hate"]);
+	
+var convo_3_1 = new Conversation(3);	
+
+convo_3_1.modules.push(["Dude I just thought.",
+						"really? new feeling?",
+						"Dude just think about it...",
+						"Think about what?",
+						"You're not even thinking about it"]);
+
+convo_3_1.modules.push(["DUDE. What time is it?",
+						"Like quarter past ",
+						"*starts whistling jazz music*",
+						"Stop that sounds terrible",
+						"*walks away from uninterested friend*"]);
+						
+						
+						
+						
 						
