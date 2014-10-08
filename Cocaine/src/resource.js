@@ -13,6 +13,8 @@ var res = {
 	postTopPNG : "res/post_top.png",
 	postMidPNG : "res/post_middle.png",
 	postBotPNG : "res/post_bottom.png",
+	friendDotGreenPNG : "res/friend_dot_green.png",
+	friendDotRedPNG : "res/friend_dot_red.png",
 
     bgPNG : "res/background_happy.png",
 	

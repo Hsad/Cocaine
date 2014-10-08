@@ -29,6 +29,15 @@ var NewsFeedLayer = cc.Layer.extend({
 		this.contUp = false;
 		this.timer = 100000;
 		this.tempPostHolder;
+		this.onYoMind = new cc.LabelTTF(
+				"Whats on your mind?", "Idolwild", 24, cc.size(600, 620), cc.TEXT_ALIGNMENT_LEFT);
+		this.onYoMind.setFontFillColor(new cc.color(127,127,127,255));
+			this.xMind = 650;
+		this.onYoMind.x = this.xMind; 
+			this.yMind = 490;
+		this.onYoMind.y = this.yMind;
+		this.onYoMind.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
+		this.addChild(this.onYoMind);
 
 		/*
 		if (this.hasChildNodes()) {
@@ -75,6 +84,38 @@ var NewsFeedLayer = cc.Layer.extend({
 				this.feedArray[this.feedArray.length] = this.tempPostHolder; 
 				this.addChild(this.tempPostHolder);
 				//id action = [CCActionFadeIn actionWithDuration:0.5];
+				//this seems like a sneaky enough place to put this....
+				if (Math.random()*100 > 95){
+					//change the whats on your mind to something more nefarious...
+					this.removeChild(this.onYoMind);
+					var text = theLastOneWasAllJustACoverUpForThis_MyTrueSecretThing[
+							Math.floor(Math.random()*
+									theLastOneWasAllJustACoverUpForThis_MyTrueSecretThing.length)
+						];
+					//this is my post, there are many like it, but this one is
+					this.onYoMind = new cc.LabelTTF(
+							text, "Idolwild", 24, cc.size(600, 620), cc.TEXT_ALIGNMENT_LEFT);
+					//console.log("text length:");
+					//console.log(text);
+					this.onYoMind.setFontFillColor(new cc.color(127,127,127,255));
+					this.onYoMind.x = this.xMind;
+					this.onYoMind.y = this.yMind;
+					this.onYoMind.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
+					this.addChild(this.onYoMind);
+				}
+				else{
+					this.removeChild(this.onYoMind);
+					//this is my post, there are many like it, but this one is
+					this.onYoMind = new cc.LabelTTF(
+							"Whats on your mind?", "Idolwild", 24, cc.size(600, 620), cc.TEXT_ALIGNMENT_LEFT);
+					//console.log("text length:");
+					//console.log(text);
+					this.onYoMind.setFontFillColor(new cc.color(127,127,127,255));
+					this.onYoMind.x = this.xMind;
+					this.onYoMind.y = this.yMind;
+					this.onYoMind.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
+					this.addChild(this.onYoMind);
+				}
 				//[this.tempPostHolder runAction:action];
 				this.timer = 0;
 			}
@@ -233,7 +274,7 @@ var FriendList = cc.Layer.extend({
 	
 	ctor : function(){
 		this._super();
-
+		/*
 		this.sprite = new cc.Sprite(res.friendListPNG);
 		this.sprite.attr({
 			x: cc.winSize.width - this.sprite.width/2,
@@ -241,29 +282,59 @@ var FriendList = cc.Layer.extend({
 			scale: 1,
 			rotation: 0,
 		});
+		this.addChild(this.sprite);*/
+		
+		var tempList = allPeople.slice(0);
+		tempList.sort(function() {
+			return .5 - Math.random();
+		});
+		
+		for (x = 0; x < allPeople.length; x++){
+			var friend = new friendIcon(x, tempList[x]);
+			this.addChild(friend);
+		}	
 		//this.addChild(this.sprite);
 		//console.log("Oh hi");
 		//for each friend, randomize list, then runthough and create each
 		// image > name > online/off
+
 	}
 });
 
 var friendIcon = cc.Layer.extend({
 	sprite : null,
-	ctor : function(xLoc, yLoc, profile){
+	ctor : function( yOffset, profile){
 		this._super();
     this.sprite = new cc.Sprite(profile.profilePic);
+		console.log(profile.name);
 		this.sprite.attr({
-			x: xLoc,
-			y: yLoc,
-			scale: 1,
+			x: 1375,
+			y: 800 - (yOffset * 53),
+			scale: 0.5,
 			rotation: 0,
 		});
+		console.log("yo sup");
 		this.addChild(this.sprite);
+		//name text
+		this.nameTxt = new cc.LabelTTF(
+				profile.name, "Idolwild", 20, cc.size(190, 56), cc.TEXT_ALIGNMENT_LEFT);
+		this.nameTxt.setFontFillColor(new cc.color(0,0,0,255));
+		this.nameTxt.x = 1500;
+		this.nameTxt.y = 790 - (yOffset*53);
+		this.nameTxt.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
+		this.addChild(this.nameTxt);
+
+		var online = new cc.Sprite(res.friendDotGreenPNG);
+		online.attr({
+			x: 1503,
+			y: 806 - (yOffset * 53),
+			scale: 0.8,
+			rotation: 0,
+		});
+		this.addChild(online);
 	}
 });
 
- //untested, just dont delete
 var secret = [ //Dash's sooper secret thing that is probably really obvious
 	  "just now",
 	  "0.00203 milliseconds ago",
@@ -274,6 +345,7 @@ var secret = [ //Dash's sooper secret thing that is probably really obvious
 	  "just now",
 	  "just now",
 	  "just now",
+		"not yet",
 	  "3 days ago",
 	  "0.0420 seconds ago",
 	  "-3.2 seconds ago",
@@ -310,7 +382,21 @@ var secret = [ //Dash's sooper secret thing that is probably really obvious
 	  "moments ago",
 	  "moments ago",
 		"soon",
+		"does it matter",
+		"time has no meaning here",
+		"uhhhh",
 	  "just now"
 ];
 
-
+var theLastOneWasAllJustACoverUpForThis_MyTrueSecretThing = [
+	"Write something already",
+	"Try farcederp auto-fill, we post stupid crap so you dont have to!",
+	"What drivel do you have to share with the world today?",
+	"sup?",
+	"whats crackalackin'?",
+	"Hi I'm FarceDerp, your friendly internet psychologist, whats on your mind?",
+	"Do you think poop knows it smells weird?",
+	"I'd rather if you didn't",
+	"No one cares, go outside",
+	"No one wants to listen to My problems..."
+];

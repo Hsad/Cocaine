@@ -7,6 +7,7 @@ merc.posts.push(["It really is the best font.", res.postMerc1PNG]);
 merc.posts.push(["I have seven dress shirts that are all this color.", res.postMerc2PNG]);
 merc.posts.push(["Game of the year, every year!", res.postMerc3PNG]);
 merc.posts.push(["Score!", res.postMerc4PNG]);
+merc.posts.push(["Just saw Phantom of the Opera for the first time, I really dont see what all the fuss is about"]);
 merc.posts.push(["Just got my new salmon-colored carpets installed!"]);
 merc.posts.push(["Just got a new chair. Would not once consider throwing it."]);
 //create a new conversation to append to the conversation list
