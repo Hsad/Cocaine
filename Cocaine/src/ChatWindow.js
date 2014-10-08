@@ -142,13 +142,14 @@ var ChatBubble = cc.Layer.extend({
 var ChatWindowLayer = cc.Layer.extend({
 	sprite : null,
 	difficulty : 1,
-	usedConversations: [],
+	usedConvos: [],
 	currentConvo: null,
 	currentModule: 0,			//these both start at -1 because the selectNewConvo function adds 1 to both of these at the beginning of the fn
 	currentQ: 0,
 	timer: 0,
 	maxTime: 0,
 	person: null,
+    grittiness: 0,
 	
 	//Constructor. should pass in the windows X Location,
 	ctor : function(_xSpawn, _person, _difficulty){
@@ -212,10 +213,21 @@ var ChatWindowLayer = cc.Layer.extend({
 		//you need to update the timer
 		this.conversationTick();
 		
-        if (this.jittering) {
+        if (this.grittiness > 0) {
+            this.jittering = true;
+        }
+        else {
+            this.jittering = false;
+        }
+        if (this.grittiness > 2) {
             this.overlay.setVisible(true);
-            jitter(this, 5, 5);
-            this.jitterTimer += .25;
+        }
+        else {
+            this.overlay.setVisible(false);
+        }
+        if (this.jittering) {
+            jitter(this, this.grittiness, this.grittiness);
+            this.jitterTimer += .25*this.grittiness;
             if (this.jitterTimer > 3) {
                 this.jitterTimer += -3;
             }
@@ -234,7 +246,6 @@ var ChatWindowLayer = cc.Layer.extend({
         }
         else {
             jitter(this, 0, 0);
-            this.overlay.setVisible(false);
             this.sprite.setTexture(res.chatCleanPNG);
         }
     },
@@ -247,6 +258,7 @@ var ChatWindowLayer = cc.Layer.extend({
 	selectNewConvo : function(){
 		this.currentModule = 0;
         this.currentQ = 0;
+        this.grittiness = 0;
 		//need to check if you've already used this post @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		
 		var possibleConvos = []
@@ -266,16 +278,19 @@ var ChatWindowLayer = cc.Layer.extend({
         this.responseBox.templateLabel.setString(this.currentConvo.modules[0][1]);
         
 		this.determineTimer(true);
+		
+		//add this new convo to usedconvos
+		this.usedConvos.push(this.currentConvo);
 	},
 	//----------------------------------------------------------------------------------------------
 	//updateConvo()    Called when the player submits a response or the timer ticks all the way down
 	//----------------------------------------------------------------------------------------------
 	updateConvo : function(_onTimer){
 		
-		console.log("gotta update convo");
         if (_onTimer) {
             if (newConvoTime) {
                 //update the difficulty here please.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				this.updateDifficulty();
             
                 //okay so there is no next module in this conversation so just go to the next convo
                 this.selectNewConvo()
@@ -284,6 +299,12 @@ var ChatWindowLayer = cc.Layer.extend({
             else {
                 // update Q number by two so you can read the next question and response from the module
                 this.currentQ += 2;
+                if (this.grittiness == -1) {
+                    this.grittiness = 0;
+                }
+                if (this.grittiness == 1) {
+                    this.grittiness = 2;
+                }
                 //now test to see if you need to switch modules, because you've gone over 5 which is the number of strings per module
 
                 this.textLog.addBubble(this.currentConvo.modules[this.currentModule][this.currentQ], this.x, this.y, false);
@@ -307,6 +328,7 @@ var ChatWindowLayer = cc.Layer.extend({
         else {
             this.currentModule += 1;	//okay update the module
             this.currentQ = -2;
+            this.grittiness = -1;
             this.determineTimer(false);
         
             if(this.currentConvo.modules[this.currentModule] == null)
@@ -331,12 +353,19 @@ var ChatWindowLayer = cc.Layer.extend({
             if(this.timer <= this.maxTimer/2)
             {
                 //draw the is typing bubble@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                
+                //up the grittiness
+                if (this.grittiness == 0) {
+                    this.grittiness += 1
+                }
+                if (this.grittiness == 2) {
+                    this.grittiness += 1
+                }
             }
         }
         else {
             if (this.timer <= 0) {
                 this.parent.addChild(new gameOverLayer());
-                console.log("made a screen");
                 gameOverScreenUp = true;
                 this.timer = 1;
             }
@@ -351,13 +380,56 @@ var ChatWindowLayer = cc.Layer.extend({
 	determineTimer: function(_isPlayers){
 		//the length of the player's required input string
         if (_isPlayers) {
-            this.timer = this.responseBox.requiredResponse.length * numOfWindows * 27 + 60;
+            this.timer = this.responseBox.requiredResponse.length * numOfWindows * 30 + 60;
             this.maxTimer = this.timer;
         }
         //the person's response time
         else {
             this.timer = 100 * numOfWindows;
+            this.maxTimer = this.timer;
         }
+	},
+	
+	updateDifficulty: function()
+	{
+		if(this.currentConvo.difficulty == 4 || this.usedConvos.length == 1)	//max difficulty or only used one convo so far
+		{
+			return;
+		}
+	
+		if(this.currentConvo.difficulty == 1)
+		{
+			//if your current convo difficulty and your previous were both one, then go to level 2
+			if(this.usedConvos[this.usedConvos.length - 2].difficulty == 1)
+			{
+				this.difficulty = 2;
+				console.log("toughhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+			}
+		}
+		else		//for every difficulty besides level 1
+		{
+			var sameLevel = true;
+			var level = this.usedConvos[this.usedConvos.length - numOfWindows - 1].difficulty;
+			
+			for(var i = this.usedConvos.length - numOfWindows; i < this.usedConvos.length; i++)
+			{
+				if(this.usedConvos[i].difficulty != level)
+				{
+					sameLevel = false;
+				}
+			}
+			if(sameLevel)
+			{
+				this.difficulty++;
+			}
+		}
+		
+		//this exists to spawn new chat windows
+		if(this.difficulty > numOfWindows)
+		{
+			spawnChatWindow( wid * (7-2*numOfWindows)/2,randomPersonWithConvo(), 1, this.parent);
+		}
+		
 	}
 	
 });

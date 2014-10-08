@@ -60,16 +60,43 @@ var bgLayer = cc.Layer.extend({
 
 function spawnChatWindow( _xSpawn,_person, _difficulty, scene){
 	numOfWindows += 1;
+	usedPeople.push(_person);
 	var window = new ChatWindowLayer(_xSpawn, _person, _difficulty);
 	//window.parent = scene;
 	window.selectNewConvo();
-	return window;
+	//return window;
+	scene.addChild(window);
+}
+
+var usedPeople = []
+
+function randomPersonWithConvo() {
+    var user = null;
+	var hasConvo = false;
+    while (!hasConvo){
+        randInt = Math.floor(Math.random() * allPeople.length);
+            if (allPeople[randInt].conversations.length > 0) {
+                for (i = 0; i < usedPeople.length; i++) {
+                    if (allPeople[randInt] == usedPeople[i]) {
+                        return;
+                    }
+                }
+                hasConvo = true;
+            }
+        }
+    user = allPeople[randInt];
+    return user;
 }
 
 var numOfWindows = 0;
+var windowsMax = 4;
+var wid = 335 ;  // width of text window
+
 var MainScene = cc.Scene.extend({
+	framesBeforeWin1 : 240,
 	onEnter : function(){
 		this._super();
+		this.scheduleUpdate();
 		
 		//gotta instantiate the layers and then make references to them and add them as children
         this.backgroundLayer = new bgLayer();
@@ -77,12 +104,10 @@ var MainScene = cc.Scene.extend({
 		this.newsFeedLayer = new NewsFeedLayer();
 		this.addChild(this.newsFeedLayer);
 		
-		var wid = 335 ;
+		
 		//-------------------------
 		//Create the Chat windows!!
 		//-------------------------
-		this.chatWindowLayer1 = spawnChatWindow(wid*7/2, jerstern, 1, this);
-		this.addChild(this.chatWindowLayer1);
 		
 		/*
 		this.chatWindowLayer2 = new ChatWindowLayer(wid*5/2, bern);
@@ -93,5 +118,13 @@ var MainScene = cc.Scene.extend({
 		this.addChild(this.chatWindowLayer4);
 		*/
 		
+	},
+	update : function() {
+		this.framesBeforeWin1--;
+		if(this.framesBeforeWin1 == 0)
+		{
+			this.chatWindowLayer1 = spawnChatWindow(wid*7/2, randomPersonWithConvo(), 1, this);
+			//this.addChild(this.chatWindowLayer1);
+		}
 	}
 });

@@ -29,7 +29,7 @@ person.conversations.push(testConvo);
 
 var Convo_1_1 = new Conversation(1);
 Convo_1_1.modules.push(["Borp.",
-						"borp?",
+						"borp? what's up?",
 						"Sorry, I meant \"Hello there, fine sir. Good day to you.\"",
 						"right. hey.",
 						"A'ight, guess you're too busy to be silly. Lame."]);
