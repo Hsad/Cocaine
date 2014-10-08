@@ -75,7 +75,7 @@ function randomPersonWithConvo() {
 	var hasConvo = false;
     while (!hasConvo){
         randInt = Math.floor(Math.random() * allPeople.length);
-            if (allPeople[randInt].conversations.length > 0) {
+            if (allPeople[randInt].conversations.length >= 12) {
                 for (i = 0; i < usedPeople.length; i++) {
                     if (allPeople[randInt] == usedPeople[i]) {
                         return;
