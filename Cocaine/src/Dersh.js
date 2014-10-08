@@ -19,6 +19,8 @@ dersh.posts.push(["I mustdash you a question..."]);
 //dersh.posts.push([""]);
 //                               |
 // this conversations difficulty v
+/*
+=======
 ConXX.modules.push([
 			"",
 			"",
@@ -26,7 +28,8 @@ ConXX.modules.push([
 			"",
 			""
 		]);
-//
+        */
+
 var Con11 = new Conversation(1);
 Con11.modules.push([
 		"Hey man, hows it going? We haven't chatted in forever",
