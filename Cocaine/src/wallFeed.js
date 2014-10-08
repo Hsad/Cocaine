@@ -109,11 +109,11 @@ var NewsFeed = cc.Layer.extend({
 		//text returns around 100-58-30 characters
 		//var text = "this is my post, there are many like it, but this one isv mine";
 		var randPost = Math.floor(Math.random()*profile.posts.length);
-		console.log(profile.posts.length);
-		console.log("prof");
-		console.log(randPost);
-		console.log(profile.posts[randPost]);
-		console.log(profile.posts[randPost][0]);
+		//console.log(profile.posts.length);
+		//console.log("prof");
+		//console.log(randPost);
+		//console.log(profile.posts[randPost]);
+		//console.log(profile.posts[randPost][0]);
 		var text = profile.posts[randPost][0];
     //this is my post, there are many like it, but this one is
 		this.postText = new cc.LabelTTF(
