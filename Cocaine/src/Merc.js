@@ -3,7 +3,7 @@ var merc = new Person("Merc Dersterferner",res.mercPNG);
 //posts
 merc.posts.push(["In my personal opinion, Halo Reach is the best tragedy of our generation."]);
 merc.posts.push(["This is my post, there are many like it, but this one is mine"]);
-merc.posts.push(["look at this cute puppy",benDogPNG]);
+merc.posts.push(["look at this cute puppy.",res.benDogPNG]);
 //create a new conversation to append to the conversation list
 //                               |
 // this conversations difficulty v
