@@ -146,7 +146,7 @@ var ChatWindowLayer = cc.Layer.extend({
 	currentConvo: null,
 	currentModule: 0,			//these both start at -1 because the selectNewConvo function adds 1 to both of these at the beginning of the fn
 	currentQ: 0,
-	timer: 0,
+	timer: 100,
 	maxTime: 0,
 	person: null,
     grittiness: 0,
