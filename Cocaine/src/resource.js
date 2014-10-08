@@ -24,6 +24,13 @@ var res = {
 	dervernPNG : "res/dervin.png",
 	mercPNG : "res/derctermerc.png",
 	bernPNG : "res/berncherng.png",
+    gf1PNG : "res/gf1.png",
+    gf2PNG : "res/gf2.png",
+    animePNG : "res/anime_enthusiast.png",
+    grangranPNG : "res/grangran.png",
+    cerfeePNG : "res/cerfee.png",
+    lernkPNG : "res/lernk.png",
+    zerkPNG : "res/merkerberg.png",
 	
 	//chat bubbles
 	playerBubbleBottomPNG : "res/you_chat_bottom.png",
@@ -34,8 +41,17 @@ var res = {
 	otherBubbleTopPNG : "res/other_person_chat_top.png",
 
 	//wall posts
-	benDogPNG : "res/post/Post_Bern_1.png",
-	justBlogPNG : "res/post/Post_Jerstern_1.png",
+	postBern1PNG : "res/post/Post_Bern_1.png",
+	postJerstern1PNG : "res/post/Post_Jerstern_1.png",
+    postJerstern2PNG : "res/post/Post_Jerstern_2.png",
+    postJerstern3PNG : "res/post/Post_Jerstern_3.png",
+    postJerstern4PNG : "res/post/Post_Jerstern_4.png",
+    postJerstern5PNG : "res/post/Post_Jerstern_5.png",
+    postMerc1PNG : "res/post/Post_Merc_1.png",
+    postMerc2PNG : "res/post/Post_Merc_2.png",
+    postMerc3PNG : "res/post/Post_Merc_3.png",
+    postMerc4PNG : "res/post/Post_Merc_4.png"
+    
     
 };
 

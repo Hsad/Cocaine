@@ -1,3 +1,5 @@
+var playername = "Ernernermers";
+
 var jitter = function(node, x_jitter, y_jitter) {
     if (typeof node.x_anchor === 'undefined') {
         node.x_anchor = node.x;
@@ -23,6 +25,21 @@ var bgLayer = cc.Layer.extend({
             rotation: 0
         });
         this.addChild(this.sprite);
+        this.nameLabel = new cc.LabelTTF(playername, "Idolwild", 24, cc.size(250, 40), cc.TEXT_ALIGNMENT_LEFT);
+        this.nameLabel.x = 220;
+        this.nameLabel.y = 800;
+        this.nameLabel.setFontFillColor(cc.color(0,0,0,255));
+        this.addChild(this.nameLabel);
+        this.editLabel = new cc.LabelTTF("Edit Profile", "Idolwild", 20, cc.size(250, 40), cc.TEXT_ALIGNMENT_LEFT);
+        this.editLabel.x = 220;
+        this.editLabel.y = 770;
+        this.editLabel.setFontFillColor(cc.color(0,0,0,255));
+        this.addChild(this.editLabel);
+        this.profileLabel = new cc.LabelTTF(playername + "  |  Home", "Idolwild", 24, cc.size(450, 40), cc.TEXT_ALIGNMENT_LEFT);
+        this.profileLabel.x = 925;
+        this.profileLabel.y = 860;
+        this.profileLabel.setFontFillColor(cc.color(255,255,255,255));
+        this.addChild(this.profileLabel);
     }
 });
 
