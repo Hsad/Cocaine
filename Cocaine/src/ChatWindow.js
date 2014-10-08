@@ -57,6 +57,7 @@ var ChatBubble = cc.Layer.extend({
 		this._super();
 		//calculate how many lines tall this bubble is (based on an average of 30 chars a line)
 		this.lines = Math.floor(_message.length / 29) + 1;
+		console.log("lines: " + this.lines);
 		//height keeps track of the height of all the sprites
 		this.height = 0;
 		//-------------------------------------
@@ -128,18 +129,17 @@ var ChatWindowLayer = cc.Layer.extend({
 	usedConversations: [],
 	currentConvo: null,
 	person: null,
-	parent: null
-	
 	
 	//Constructor. should pass in the windows X Location,
-	ctor : function(_xSpawn, _person){
+	ctor : function(_xSpawn, _person, _difficulty){
 		//initialize the super
         this.scheduleUpdate();
 		this._super();
         this.jitterTimer = 0;
         this._xSpawn = _xSpawn;
         this.jittering = false;
-		person = _person
+		this.person = _person
+		this.difficulty = _difficulty;
 		//-----------------------------
 		//sprites
 		//-----------------------------
@@ -215,16 +215,17 @@ var ChatWindowLayer = cc.Layer.extend({
 	//and also determine how long you'll have to answer this question
 	selectNewConvo : function(){
 		var possibleConvos = []
-		for(var i = 0; i < person.conversations.length; i++){
-			if(person.conversations[i].difficulty == this.difficulty){
-				possibleConvos.push(person.conversations[i]);
+		for(var i = 0; i < this.person.conversations.length; i++){
+			if(this.person.conversations[i].difficulty == this.difficulty){
+				possibleConvos.push(this.person.conversations[i]);
+				console.log(possibleConvos.length);
 			}
 		}
-		var ran = Math.random()* possibleConvos.length;
+		var ran = Math.floor(Math.random()* possibleConvos.length);
 		this.currentConvo = possibleConvos[ran];
 		
-		
-		
+		//actually print it to the screen
+		this.textLog.addBubble(this.currentConvo.modules[0][0], this.x, this.y, false);
 	},
 	
 	//should be called every frame, tick the counter, and advance the module if necessary
