@@ -13,7 +13,6 @@ merc.posts.push(["Just got a new chair. Would not once consider throwing it."]);
 //create a new conversation to append to the conversation list
 //                               |
 // this conversations difficulty v
-/*
 var testConvo = new Conversation(1);
 testConvo.modules.push(["hi", 
 						"hey man", 
@@ -27,4 +26,4 @@ testConvo.modules.push(["a",
 						"e"]);
 
 merc.conversations.push(testConvo);
-*/
+

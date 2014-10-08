@@ -43,7 +43,16 @@ var bgLayer = cc.Layer.extend({
     }
 });
 
+function spawnChatWindow( _xSpawn,_person, _difficulty, scene){
+	scene.numOfWindows += 1;
+	var window = new ChatWindowLayer(_xSpawn, _person, _difficulty);
+	//window.parent = scene;
+	window.selectNewConvo();
+	return window;
+}
+
 var MainScene = cc.Scene.extend({
+	numOfWindows : 0,
 	onEnter : function(){
 		this._super();
 		
@@ -57,14 +66,17 @@ var MainScene = cc.Scene.extend({
 		//-------------------------
 		//Create the Chat windows!!
 		//-------------------------
-		this.chatWindowLayer1 = new ChatWindowLayer(wid*7/2, merc);
+		this.chatWindowLayer1 = spawnChatWindow(wid*7/2, merc, 1, this);
 		this.addChild(this.chatWindowLayer1);
+		
+		/*
 		this.chatWindowLayer2 = new ChatWindowLayer(wid*5/2, bern);
 		this.addChild(this.chatWindowLayer2);
 		this.chatWindowLayer3 = new ChatWindowLayer(wid*3/2, sperncer);
 		this.addChild(this.chatWindowLayer3);
 		this.chatWindowLayer4 = new ChatWindowLayer(wid/2, dersh);
 		this.addChild(this.chatWindowLayer4);
+		*/
 		
 	}
 });

@@ -1,6 +1,8 @@
 var lernk = new Person("Lernk", res.lernkPNG);
 //posts
-
+lernk.posts.push(["..."]);
+lernk.posts.push(["HYUUUUAAAGGGHHHH!!!"]);
+lernk.posts.push(["Well, excuuuuuuuuuuuuse me, princess!"]);
 //create a new conversation to append to the conversation list
 //                               |
 // this conversations difficulty v
