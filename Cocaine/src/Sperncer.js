@@ -93,6 +93,8 @@ convo_2_1.modules.push(["yeah it's on november 21st!",
 						"No I'll be playing smash all day",
 						"you better be there! >_<"]);
 						
+sperncer.conversations.push(convo_2_1);
+						
 var convo_2_2 = new Conversation(2);
 
 convo_2_2.modules.push(["so how's the game dev project?",
@@ -106,6 +108,8 @@ convo_2_2.modules.push(["you're making facebook? wow that's dumb",
 						"totally not really cool or anything",
 						"jealous? :P",
 						"okay I'm totally jealous, I hate my team"]);
+
+sperncer.conversations.push(convo_2_2);						
 						
 var convo_2_3 = new Conversation(2);
 
@@ -125,20 +129,40 @@ convo_2_3.modules.push(["shhh it's just fantastic",
 						"You're just a hater",
 						"yep, that's me.",
 						"Haters gonna hate"]);
+						
+sperncer.conversations.push(convo_2_3);
 	
 var convo_3_1 = new Conversation(3);	
 
-convo_3_1.modules.push(["Dude I just thought.",
-						"really? new feeling?",
-						"Dude just think about it...",
-						"Think about what?",
-						"You're not even thinking about it"]);
-
 convo_3_1.modules.push(["DUDE. What time is it?",
-						"Like quarter past ",
-						"*starts whistling jazz music*",
-						"Stop that sounds terrible",
-						"*walks away from uninterested friend*"]);
+						"Like quarter past twelve I think ",
+						"WHAT TIME IS IT????",
+						"Adventure Time? Come on grab your friends? ",
+						"Time to find friends who answer me"]);
+						
+convo_3_1.modules.push(["NO. IT'S TIME TO TAKE TO THE NEXT LEVEL",
+						"What? What does that even mean??",
+						"O - POWWERRRR",
+						"I think you need to stop playing Pokemon",
+						"POWEORWOEROWREOWEROWEROW"]);
+						
+sperncer.conversations.push(convo_3_1);
+					
+var convo_4_1 = new Conversation(4);	
+
+convo_4_1.modules.push(["Wait do you know what I just Realized?",
+						"No. What did you realize on this fine evening?",
+						"I just had a BRILLIANT idea",
+						"Well exactly how brilliant is this idea?",
+						"I guess you don't want to know!"]);
+						
+convo_4_1.modules.push(["I just realized that racecar is racecar backwards",
+						"dude why isn't the word palindrome actually a palindrome?",
+						"wow so cool. such word",
+						"Oh no not doge speak. not this again.",
+						"DOGEDOGEDOGEDOGEDOGE"]);
+						
+sperncer.conversations.push(convo_4_1);
 						
 						
 						

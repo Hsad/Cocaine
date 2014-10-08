@@ -75,13 +75,16 @@ function randomPersonWithConvo() {
 	var hasConvo = false;
     while (!hasConvo){
         randInt = Math.floor(Math.random() * allPeople.length);
-            if (allPeople[randInt].conversations.length >= 12) {
+            if (allPeople[randInt].conversations.length >= 7) {
+				var matchFound = false;
                 for (i = 0; i < usedPeople.length; i++) {
                     if (allPeople[randInt] == usedPeople[i]) {
-                        return;
+                        matchFound = true;
+						break;
                     }
                 }
-                hasConvo = true;
+				if(!matchFound)
+					hasConvo = true;
             }
         }
     user = allPeople[randInt];

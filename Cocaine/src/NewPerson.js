@@ -1,5 +1,6 @@
 var placeholder = new Person("Terernce Fererl", res.tererncePNG);
 
+var NewPerson = new Person("Terernce Fererl", res.tererncePNG);
 /* INITIALIZING CONVERSATIONS */
 
 var lvlOneConvoOne = new Conversation(1);
@@ -245,7 +246,7 @@ lvlThreeConvoOne.modules.push([
 							
 lvlThreeConvoOne.modules.push([
 							"So are you just not a fan of fantasy in general?",
-							"No I am, I just tend to prefer fantasy stories that are set in a more contemporary setting, like present day or the like."
+							"No I am, I just tend to prefer fantasy stories that are set in a more contemporary setting, like present day or the like.",
 							"No magic for you?",
 							"No, I'm still definitely a fan of magic, but I prefer fantasy stories that have a more contemporary context, like Harry Potter.",
 							"I guess someone's family got killed by wizards or something, geez..."
@@ -395,7 +396,7 @@ lvlFourConvoThree.modules.push([
 							
 lvlFourConvoThree.modules.push([
 							"Wait, what's the difference between barbacoa and sofritas again?",
-							"Sofritas is a type of tofu product, and the barbacoa is this sort of braised, shredded beef."
+							"Sofritas is a type of tofu product, and the barbacoa is this sort of braised, shredded beef.",
 							"I honestly can't remember.",
 							"Well, I'm pretty sure that Sofritas is a type of tofu product, and the barbacoa is this sort of braised, shredded beef.",
 							"Oh well, driving now, ttyl."
