@@ -20,6 +20,85 @@ dersh.posts.push(["I mustdash you a question..."]);
 //                               |
 // this conversations difficulty v
 /*
+=======
+ConXX.modules.push([
+			"",
+			"",
+			"",
+			"",
+			""
+		]);
+        */
+
+var Con11 = new Conversation(1);
+Con11.modules.push([
+		"Hey man, hows it going? We haven't chatted in forever",
+		"good, you?"
+		"you there?",
+		"yea, I'm good, you?",
+		"And now I hope we dont chat in forver"
+		]);
+Con11.modules.push([
+			"you know the usual, tanked with work, no free time",
+			"bummer",
+			"soo you too Im guessing?",
+			"yea sort of",
+			"Alright if you dont have time for an old friend, I dont have time for you."
+		]);
+Con11.modules.push([
+			"what classes you taking now?",
+			"lots",
+			"I take that as none?",
+			"no way, to many",
+			"do you even go here?"
+		]);
+Con11.modules.push([
+			"Yea I dont know the last time Ive seen the sun",
+			"probably weeks",
+			"I mean my skin is even becoming tanslucent",
+			"thats terrifying",
+			"Whoooopwobwob whoop whoop"
+		]);
+dersh.conversations.push(Con11);
+
+var Con12 = new Conversation(1);
+Con12.modules.push([
+			"So have you ever been down to the gorge?",
+			"the what?",
+			"the curious gorge..",
+			"dont think so",
+			"Ok dont care..."
+		]);
+Con12.modules.push([
+			"its the best spot in town",
+			"I like Moes too",
+			"like the greatest",
+			"better than Moes?",
+			"unlike my friends who cant be bothered to reply"
+		]);
+Con12.modules.push([
+			"Its not a resturant, its a literal gorge",
+			"ohh",
+			"do you know what a gorge is?",
+			"ok, yea I do",
+			"I hope you are grabing a dictonary, because I cant be friends with anyone so gramaticly inept."
+		]);
+Con12.modules.push([
+			"Yea there a sweet gorge in town",
+			"really?",
+			"tons of rocks to jump on",
+			"thats why your excited",
+			"and lots of pirate tresure, but obviously you dont care."
+		]);
+Con12.modules.push([
+			"You should check it out some time",
+			"totaly, little busy now",
+			"bring your sense of adventure",
+			"maybe when Im not swamped with work",
+			"or dont, whatever"
+		]);
+dersh.conversations.push(Con12);
+
 var Convo_3_1 = new Conversation(3);
 Convo_3_1.modules.push([
 			"Hey Dingus, guess what?",
@@ -45,4 +124,4 @@ Convo_3_1.modules.push(["Whatever, point is you NEED to watch this update",
 						"What the hell are you even talking about?",
 						"Peace dude"]);
 dersh.conversations.push(Convo_3_1);
-*/
+
