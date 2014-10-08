@@ -22,6 +22,7 @@ var res = {
 	postBotPNG : "res/post_bottom.png",
 	friendDotGreenPNG : "res/friend_dot_green.png",
 	friendDotRedPNG : "res/friend_dot_red.png",
+    littleGreenDotPNG : "res/little_green_dot.png",
 
     bgPNG : "res/background_happy.png",
     gameOverPNG : "res/404.png",

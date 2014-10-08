@@ -163,11 +163,17 @@ var ChatWindowLayer = cc.Layer.extend({
 			rotation: 0,
 		});
 		this.addChild(this.sprite);
-		var templateLabel = new cc.LabelTTF(_person.name, "Idolwild", 18, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
+		var templateLabel = new cc.LabelTTF(_person.name, "Arial", 18, cc.size(335, 0), cc.TEXT_ALIGNMENT_LEFT);
         templateLabel.setFontFillColor(cc.color(255,255,255,255));
         templateLabel.x = _xSpawn + 30;
         templateLabel.y = this.sprite.height - 25;
         this.addChild(templateLabel);
+        
+        //little green dot
+        this.greenDot = new cc.Sprite(res.littleGreenDotPNG);
+        this.greenDot.x = _xSpawn -148;
+        this.greenDot.y = this.sprite.height -25;
+        this.addChild(this.greenDot);
 
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
