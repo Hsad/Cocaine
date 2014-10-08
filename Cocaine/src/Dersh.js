@@ -33,7 +33,7 @@ ConXX.modules.push([
 var Con11 = new Conversation(1);
 Con11.modules.push([
 		"Hey man, hows it going? We haven't chatted in forever",
-		"good, you?"
+		"good, you?",
 		"you there?",
 		"yea, I'm good, you?",
 		"And now I hope we dont chat in forver"

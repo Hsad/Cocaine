@@ -93,6 +93,8 @@ convo_2_1.modules.push(["yeah it's on november 21st!",
 						"No I'll be playing smash all day",
 						"you better be there! >_<"]);
 						
+sperncer.conversations.push(convo_2_1);
+						
 var convo_2_2 = new Conversation(2);
 
 convo_2_2.modules.push(["so how's the game dev project?",
@@ -106,6 +108,8 @@ convo_2_2.modules.push(["you're making facebook? wow that's dumb",
 						"totally not really cool or anything",
 						"jealous? :P",
 						"okay I'm totally jealous, I hate my team"]);
+
+sperncer.conversations.push(convo_2_2);						
 						
 var convo_2_3 = new Conversation(2);
 
@@ -125,6 +129,8 @@ convo_2_3.modules.push(["shhh it's just fantastic",
 						"You're just a hater",
 						"yep, that's me.",
 						"Haters gonna hate"]);
+						
+sperncer.conversations.push(convo_2_3);
 	
 var convo_3_1 = new Conversation(3);	
 
@@ -139,6 +145,8 @@ convo_3_1.modules.push(["NO. IT'S TIME TO TAKE TO THE NEXT LEVEL",
 						"O - POWWERRRR",
 						"I think you need to stop playing Pokemon",
 						"POWEORWOEROWREOWEROWEROW"]);
+						
+sperncer.conversations.push(convo_3_1);
 					
 var convo_4_1 = new Conversation(4);	
 
@@ -153,6 +161,8 @@ convo_4_1.modules.push(["I just realized that racecar is racecar backwards",
 						"wow so cool. such word",
 						"Oh no not doge speak. not this again.",
 						"DOGEDOGEDOGEDOGEDOGE"]);
+						
+sperncer.conversations.push(convo_4_1);
 						
 						
 						
