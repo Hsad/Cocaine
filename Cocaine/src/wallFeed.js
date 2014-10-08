@@ -226,6 +226,7 @@ var NewsFeed = cc.Layer.extend({
 	}
 });
 
+//FRIENDS LIST NEED IMPLEMENT YESSIR
 var FriendList = cc.Layer.extend({
 	sprite : null,
 	
@@ -239,7 +240,7 @@ var FriendList = cc.Layer.extend({
 			scale: 1,
 			rotation: 0,
 		});
-		this.addChild(this.sprite);
+		//this.addChild(this.sprite);
 		//console.log("Oh hi");
 		//for each friend, randomize list, then runthough and create each
 		// image > name > online/off

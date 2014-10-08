@@ -7,6 +7,8 @@ jerstern.posts.push(["A lot of people won't even get this reference unless they 
 jerstern.posts.push(["Just because I have nothing to say, doesn't mean I won't say it anyway!", res.postJerstern4PNG]);
 jerstern.posts.push(["Wow, do I ever say anything that hasn't been said before? Read and find out!", res.postJerstern5PNG]);
 jerstern.posts.push(["Trying to bake cookies at 450 degrees without burning them because I can't figure out how to lower the oven's temperature. #turndownforwhat"]);
+//posts
+
 //create a new conversation to append to the conversation list
 //                               |
 // this conversations difficulty v
