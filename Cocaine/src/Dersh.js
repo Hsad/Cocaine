@@ -20,7 +20,6 @@ dersh.posts.push(["I mustdash you a question..."]);
 //                               |
 // this conversations difficulty v
 /*
-=======
 ConXX.modules.push([
 			"",
 			"",
@@ -98,6 +97,49 @@ Con12.modules.push([
 			"or dont, whatever"
 		]);
 dersh.conversations.push(Con12);
+
+var Con13 = new Conversation(1);
+Con13.modules.push([
+			"did you ever play halo 2 back in the day?",
+			"yea of course",
+			"ie best flawed game of my youth",
+			"yea mine too",
+			"are you playing it right now?"
+		]);
+Con13.modules.push([
+			"are you going to get the complete aniverary pack or whatever?",
+			"Maybe",
+			"Do you even have an xbox?",
+			"yea",
+			"Do you even?"
+		]);
+Con13.modules.push([
+			"Im going to have to bum off a friend",
+			"it happens",
+			"I dont have an xBone",
+			"yea its alright",
+			"or a ps4, or friends who care."
+		]);
+Con13.modules.push([
+			"I get so anxious waiting for games to release",
+			"yea me too, I'll chat later",
+			"I love it",
+			"me to, see you later",
+			"but not unresponsive corpses of friends"
+		]);
+dersh.conversations.push(Con13);
+/*
+var Con21 = new Conversation(2);
+Con21.modules.push([
+		]);
+Con21.modules.push([
+		]);
+Con21.modules.push([
+		]);
+Con21.modules.push([
+		]);
+dersh.conversations.push(Con21);*/
+
 
 var Convo_3_1 = new Conversation(3);
 Convo_3_1.modules.push([
