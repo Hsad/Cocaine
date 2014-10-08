@@ -126,7 +126,7 @@ var NewsFeed = cc.Layer.extend({
 		this.postText.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
 		//this.addChild(this.Label);
 		//height count
-		var lines = (text.length / 50) ;
+		var lines = (text.length / 50);
 		postHeight += Math.floor((lines / 3)) ;  //this will need to be tweaked
 		// text length / 50 = extra line numbers
 		// after 2-3 extra lines, postheight += 1
@@ -136,7 +136,7 @@ var NewsFeed = cc.Layer.extend({
 			this.postSprite = new cc.Sprite(profile.posts[randPost][1]);
 			this.postSprite.attr({
 				x: xLoc,
-				y: yLoc - (200 + (lines * 45)),
+				y: yLoc - (this.postSprite.height/2 + (lines * 25) + 60),
 				scale: 1,
 				rotation: 0,
 			});
