@@ -20,14 +20,14 @@ var NewsFeedLayer = cc.Layer.extend({
 
 		this.feedArray = [];
 
-		this.feedArray[0] = new NewsFeed(this.xCent, this.yCent, allPeople[0]); 
+		//this.feedArray[0]; //= new NewsFeed(this.xCent, this.yCent, allPeople[0]); 
 		//this should be random ^^^ so that the same person isn't always first
-		this.addChild(this.feedArray[0]);
+		//this.addChild(this.feedArray[0]);
 		//console.log("first Name=")
 		//console.log(allPeople[0].name);
 
 		this.contUp = false;
-		this.timer = 0;
+		this.timer = 100000;
 		this.tempPostHolder;
 
 		/*
@@ -50,18 +50,25 @@ var NewsFeedLayer = cc.Layer.extend({
 			if (this.contUp == false){
 				this.ammountMoved = 0;
 				this.contUp = true; //once started run till completion
-				var randInt = Math.floor(Math.random() * allPeople.length);
+				var hasPost = false;
+				var randInt;
+				while (!hasPost){
+					randInt = Math.floor(Math.random() * allPeople.length);
+					if (allPeople[randInt].posts.length > 0){
+						hasPost = true;
+					}
+				}
 				this.tempPostHolder = new NewsFeed(this.xCent, this.yCent, allPeople[randInt]);
 				//this.addChild(this.feedArray[this.feedArray.length - 1]); //-1 because the list just got bigger
 				this.offset = this.tempPostHolder.spriteHeight;
 			}
 			
 			for (x = 0; x < this.feedArray.length; x++){
-				this.feedArray[x].y -= 7;
+				this.feedArray[x].y -= 12;
 				//console.log("moving old posts");
 			}
 			
-			this.ammountMoved += 7;
+			this.ammountMoved += 12;
 
 			if (this.ammountMoved >= this.offset){
 				this.contUp = false;
@@ -92,6 +99,61 @@ var NewsFeed = cc.Layer.extend({
 		//then lays out the needed background
 		//and the extra stuff
 		//
+		//
+		//all the front stuff first so I can calculate its size
+		//then put in the back, 
+		//then add the front stuff to the child group
+		var postHeight = 2;  //2 is arbitrary, make it enought to cover post image 
+		// height * 80 is total post height + a bit more
+		//
+		//
+		//text returns around 100-58-30 characters
+		//var text = "this is my post, there are many like it, but this one isv mine";
+		var randPost = Math.floor(Math.random()*profile.posts.length);
+		//console.log(profile.posts.length);
+		//console.log("prof");
+		//console.log(randPost);
+		//console.log(profile.posts[randPost]);
+		//console.log(profile.posts[randPost][0]);
+		var text = profile.posts[randPost][0];
+    //this is my post, there are many like it, but this one is
+		this.postText = new cc.LabelTTF(
+				text, "Idolwild", 24, cc.size(640, 620), cc.TEXT_ALIGNMENT_LEFT);
+		//console.log("text length:");
+		//console.log(text.length);
+		this.postText.setFontFillColor(new cc.color(0,0,0,255));
+		this.postText.x = xLoc;
+		this.postText.y = yLoc-355;
+		this.postText.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
+		//this.addChild(this.Label);
+		//height count
+		var lines = (text.length / 50) ;
+		postHeight += Math.floor((lines / 3)) ;  //this will need to be tweaked
+		// text length / 50 = extra line numbers
+		// after 2-3 extra lines, postheight += 1
+		// plus somehting to bump images down
+
+		if (profile.posts[randPost].length > 1){
+			this.postSprite = new cc.Sprite(profile.posts[randPost][1]);
+			this.postSprite.attr({
+				x: xLoc,
+				y: yLoc - (200 + (lines * 45)),
+				scale: 1,
+				rotation: 0,
+			});
+			//console.log("image height: ");
+			//console.log(this.postSprite.height);
+			//this.addChild(this.postSprite);
+			postHeight += Math.floor(this.postSprite.height / 80) +1;
+			//add to total height count
+			//added image height = sprite.height / 80 =+ postHeight
+		}
+		//
+		//
+		//
+		//
+		//
+		//
 		this.topSprite = new cc.Sprite(res.postTopPNG);
 		this.topSprite.attr({
 			x:  xLoc + 1, //+1 because photoshop keeps crashing.  This is the definition of a hack
@@ -101,26 +163,28 @@ var NewsFeed = cc.Layer.extend({
 		});
 		this.addChild(this.topSprite);
 		this.spriteHeight += 26;
-		var postHeight = 2;  //2 is arbitrary, make it enought to cover post image 
-		// height * 80 is total post height + a bit more 
+		 
 		for (x = 0; x < postHeight; x++){
 			var postMid = new cc.Sprite(res.postMidPNG);
 			postMid.attr({
 				x: xLoc,
-				y: yLoc - (x * 80),
+				y: yLoc - (x * (80)) ,
 				scale: 1,
 				rotation: 0,
 			});
 			this.addChild(postMid);
 			this.spriteHeight += 80;
 		}
+		//console.log("postHeight");
+		//console.log(postHeight);
 		this.sprite = new cc.Sprite(res.postBotPNG);
 		this.sprite.attr({
 			x: xLoc + 1, //+1 also because PS7 is dieing.  In its defence it is 13 years old 
-			y: yLoc - ((postHeight-1)*80) - 15 - 40, //dirty math, take mercy gods of clean code
+			y: yLoc - ((postHeight)*80) - 15 + 40, //dirty math, take mercy gods of clean code
 			scale: 1,
 			rotation: 0,
 		});
+
 		this.addChild(this.sprite);
 		this.spriteHeight += 30;
 		this.proSprite = new cc.Sprite(profile.profilePic);
@@ -149,17 +213,17 @@ var NewsFeed = cc.Layer.extend({
 		this.Label.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
 		this.addChild(this.Label);
 
-		//text returns around 100-58-30 characters
-		//var text = "this is my post, there are many like it, but this one isv mine";
-		var text = "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
-    //this is my post, there are many like it, but this one is
-		this.Label = new cc.LabelTTF(
-				text, "Idolwild", 24, cc.size(690, 56), cc.TEXT_ALIGNMENT_LEFT);
-		this.Label.setFontFillColor(new cc.color(0,0,0,255));
-		this.Label.x = xLoc+20;
-		this.Label.y = yLoc-80;
-		this.Label.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
-		this.addChild(this.Label);
+		//
+		//
+		//
+		this.addChild(this.postText);
+
+		if (profile.posts[randPost].length > 1){
+			this.addChild(this.postSprite);
+			//add to total height count
+		}
+		//
+
 	}
 });
 

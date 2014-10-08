@@ -21,6 +21,7 @@
 		"src/wallFeed.js",
 		"src/ChatWindow.js",
         "src/Dervern.js",
-        "src/Jerstern.js"
+        "src/Jerstern.js",
+        "src/Terernce.js"
     ]
 }

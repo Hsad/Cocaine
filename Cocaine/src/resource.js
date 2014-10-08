@@ -45,8 +45,12 @@ var res = {
 	postJerstern1PNG : "res/post/Post_Jerstern_1.png",
     postJerstern2PNG : "res/post/Post_Jerstern_2.png",
     postJerstern3PNG : "res/post/Post_Jerstern_3.png",
+    postJerstern4PNG : "res/post/Post_Jerstern_4.png",
+    postJerstern5PNG : "res/post/Post_Jerstern_5.png",
     postMerc1PNG : "res/post/Post_Merc_1.png",
-    postMerc2PNG : "res/post/Post_Merc_2.png"
+    postMerc2PNG : "res/post/Post_Merc_2.png",
+    postMerc3PNG : "res/post/Post_Merc_3.png",
+    postMerc4PNG : "res/post/Post_Merc_4.png"
     
     
 };

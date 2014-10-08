@@ -1,4 +1,4 @@
-var terernce = new Person("Terernce Ferer", res.terrncePNG);
+var terernce = new Person("Terernce Fererl", res.terrncePNG);
 
 /*
 Each character should have 5 difficulty levels worth of conversations,
@@ -24,21 +24,21 @@ var lvlOneConvoOne = new Conversation(1);
 var lvlOneConvoTwo = new Conversation(1);
 var lvlOneConvoThree = new Conversation(1);
 
-var lvlTwoConvoOne = new Conversation(1);
-var lvlTwoConvoTwo = new Conversation(1);
-var lvlTwoConvoThree = new Conversation(1);
+var lvlTwoConvoOne = new Conversation(2);
+var lvlTwoConvoTwo = new Conversation(2);
+var lvlTwoConvoThree = new Conversation(2);
 
-var lvlThreeConvoOne = new Conversation(1);
-var lvlThreeConvoTwo = new Conversation(1);
-var lvlThreeConvoThree = new Conversation(1);
+var lvlThreeConvoOne = new Conversation(3);
+var lvlThreeConvoTwo = new Conversation(3);
+var lvlThreeConvoThree = new Conversation(3);
 
-var lvlFourConvoOne = new Conversation(1);
-var lvlFourConvoTwo = new Conversation(1);
-var lvlFourConvoThree = new Conversation(1);
+var lvlFourConvoOne = new Conversation(4);
+var lvlFourConvoTwo = new Conversation(4);
+var lvlFourConvoThree = new Conversation(4);
 
-var lvlFiveConvoOne = new Conversation(1);
-var lvlFiveConvoTwo = new Conversation(1);
-var lvlFiveConvoThree = new Conversation(1);
+var lvlFiveConvoOne = new Conversation(5);
+var lvlFiveConvoTwo = new Conversation(5);
+var lvlFiveConvoThree = new Conversation(5);
 
 /* LEVEL ONE CONVERSATIONS */
 
@@ -402,7 +402,7 @@ lvlFiveConvoTwo.modules.push([
 							
 lvlFiveConvoTwo.modules.push([
 							"Do you have any specific examples you could use? I've always been bad at understanding psuedo-code.",
-							"Well, for example, implementing '>' looks like this: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'. Does that make sense?"
+							"Well, for example, implementing '>' looks like this: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'. Does that make sense?",
 							"Please, anything at all?",
 							"Um yeah, in one of my old programs I used this for the '>' operator: bool num::operator< (const num& x, const num& y){ if (x > y){ return true; } return false; };'.",
 							"Whatever, I'll go ask someone else."

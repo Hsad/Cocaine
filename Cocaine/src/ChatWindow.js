@@ -133,7 +133,7 @@ var ChatWindowLayer = cc.Layer.extend({
         this.scheduleUpdate();
 		this._super();
         this._xSpawn = _xSpawn;
-        this.jittering = true;
+        this.jittering = false;
 		//-----------------------------
 		//sprites
 		//-----------------------------
@@ -172,8 +172,7 @@ var ChatWindowLayer = cc.Layer.extend({
             jitter(this, 5, 5);
         }
         else {
-            this.x = this.x_anchor;
-            this.y = this.y_anchor;
+            jitter(this, 0, 0);
         }
     }
 });
