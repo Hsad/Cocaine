@@ -1,5 +1,11 @@
 var dervern = new Person("Dervern Herlpert",res.dervernPNG);
-
+//posts
+dervern.posts.push(["What's with this new fercederp design. It totally sucks."]);
+dervern.posts.push(["I hate my profile pic; it doesn't look like me at all."]);
+dervern.posts.push(["Ugh, this game has turned my mind to mush"]);
+dervern.posts.push(["Greetings programmers"]);
+dervern.posts.push(["I wonder what yerterb would look like in this style."]);
+dervern.posts.push(["This site is sooooo much better than that other one."]);
 //create a new conversation to append to the conversation list
 //                               |
 // this conversations difficulty v
@@ -51,7 +57,7 @@ testConvo.modules.push(["Have you worked on the game dev project at all?",
 testConvo.modules.push(["me either",
 						"figures",
 						"seriously",
-						"Sorry, Ferssderp beckons",
+						"Sorry, Fercederp beckons",
 						"..."]);                     
 
 merc.conversations.push(testConvo);
