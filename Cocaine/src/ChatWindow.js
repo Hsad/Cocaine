@@ -146,7 +146,7 @@ var ChatWindowLayer = cc.Layer.extend({
 	currentConvo: null,
 	currentModule: 0,			//these both start at -1 because the selectNewConvo function adds 1 to both of these at the beginning of the fn
 	currentQ: 0,
-	timer: 0,
+	timer: 100,
 	maxTime: 0,
 	person: null,
     grittiness: 0,
@@ -333,7 +333,7 @@ var ChatWindowLayer = cc.Layer.extend({
             this.grittiness = -1;
             this.determineTimer(false);
         
-            if(this.currentConvo.modules[this.currentModule] == null)
+            if(this.currentConvo.modules.length > this.currentModule + 1)
             {
                 newConvoTime = true;
             }
@@ -405,7 +405,6 @@ var ChatWindowLayer = cc.Layer.extend({
 			if(this.usedConvos[this.usedConvos.length - 2].difficulty == 1)
 			{
 				this.difficulty = 2;
-				console.log("toughhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
 			}
 		}
 		else		//for every difficulty besides level 1
