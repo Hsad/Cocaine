@@ -403,6 +403,7 @@ var ChatWindowLayer = cc.Layer.extend({
 			if(this.usedConvos[this.usedConvos.length - 2].difficulty == 1)
 			{
 				this.difficulty = 2;
+				console.log("toughhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
 			}
 		}
 		else		//for every difficulty besides level 1
@@ -420,9 +421,15 @@ var ChatWindowLayer = cc.Layer.extend({
 			if(sameLevel)
 			{
 				this.difficulty++;
-				console.log("toughhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
 			}
 		}
+		
+		//this exists to spawn new chat windows
+		if(this.difficulty > numOfWindows)
+		{
+			spawnChatWindow( wid * (7-2*numOfWindows)/2,randomPersonWithConvo(), 1, this.parent);
+		}
+		
 	}
 	
 });

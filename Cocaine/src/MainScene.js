@@ -60,14 +60,17 @@ var bgLayer = cc.Layer.extend({
 
 function spawnChatWindow( _xSpawn,_person, _difficulty, scene){
 	numOfWindows += 1;
+	usedPeople.push(_person);
 	var window = new ChatWindowLayer(_xSpawn, _person, _difficulty);
 	//window.parent = scene;
 	window.selectNewConvo();
-	return window;
+	//return window;
+	scene.addChild(window);
 }
 
 function randomPersonWithConvo() {
     var user = null;
+	var hasConvo = false;
     while (!hasConvo){
         randInt = Math.floor(Math.random() * allPeople.length);
             if (allPeople[randInt].conversations.length > 0){
@@ -81,6 +84,8 @@ function randomPersonWithConvo() {
 var numOfWindows = 0;
 var windowsMax = 4;
 var wid = 335 ;  // width of text window
+var usedPeople = []
+
 var MainScene = cc.Scene.extend({
 	framesBeforeWin1 : 240,
 	onEnter : function(){
@@ -112,8 +117,8 @@ var MainScene = cc.Scene.extend({
 		this.framesBeforeWin1--;
 		if(this.framesBeforeWin1 == 0)
 		{
-			this.chatWindowLayer1 = spawnChatWindow(wid*7/2, jerstern, 1, this);
-			this.addChild(this.chatWindowLayer1);
+			this.chatWindowLayer1 = spawnChatWindow(wid*7/2, randomPersonWithConvo(), 1, this);
+			//this.addChild(this.chatWindowLayer1);
 		}
 	}
 });
