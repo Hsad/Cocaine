@@ -1,10 +1,11 @@
 var TextLogLayer = cc.Layer.extend({
 
-	ctor : function(_xSpawn, _ySpawn, _width, _height){
+	ctor : function(_xSpawn, _ySpawn, _width, _height, _parent){
 		this._super();
 		this.bubbleList = [];
         this.x = _xSpawn;
         this.y = _ySpawn;
+        this.chatbox = _parent;
         //make clipping node
         this.clippingNode = new cc.ClippingNode();
         this.clippingNode.setContentSize(317,275);
@@ -31,7 +32,7 @@ var TextLogLayer = cc.Layer.extend({
 		//addBubble()
 		//-------------
 		this.addBubble = function(_message, _xSpawn, _ySpawn, _isPlayers){
-			this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers);
+			this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers, this);
 			this.clippingNode.addChild(this.newestBubble);
 			console.log(this.newestBubble.x + ", " + this.newestBubble.y);
 			
@@ -53,13 +54,14 @@ var TextLogLayer = cc.Layer.extend({
 
 var ChatBubble = cc.Layer.extend({
 	
-	ctor : function(_message, _xSpawn, _ySpawn, _isPlayers){
+	ctor : function(_message, _xSpawn, _ySpawn, _isPlayers, _parent){
 		this._super();
 		//calculate how many lines tall this bubble is (based on an average of 30 chars a line)
 		this.lines = Math.floor(_message.length / 29) + 1;
 		console.log("lines: " + this.lines);
 		//height keeps track of the height of all the sprites
 		this.height = 0;
+        this.textLog = _parent;
 		//-------------------------------------
 		//first you have to make the top sprite
 		//-------------------------------------
@@ -103,6 +105,15 @@ var ChatBubble = cc.Layer.extend({
 		this.height +=this.bottomSprite.height/2; 			//height keeps track of the height of all the sprites
 		this.addChild(this.bottomSprite);
 		
+        //-------------------------
+        //Now the profile picture!
+        //-------------------------
+        this.proPic = new cc.Sprite(this.textLog.chatbox.person.profilePic);
+        this.proPic.scale = .4;
+        this.proPic.x = -137;
+        this.proPic.y = -135;
+        this.addChild(this.proPic);
+        
 		//-----------------------------
 		//finally create the text label
 		//-----------------------------
@@ -161,7 +172,7 @@ var ChatWindowLayer = cc.Layer.extend({
 		//------------------------------------------------
 		// create the sub-layer that is the text Log stack
 		//------------------------------------------------
-		this.textLog = new TextLogLayer(_xSpawn,this.sprite.height/2,317,275);
+		this.textLog = new TextLogLayer(_xSpawn,this.sprite.height/2,317,275,this);
 		this.addChild(this.textLog);
         
         this.overlay = new cc.Sprite(res.overlay1PNG);
