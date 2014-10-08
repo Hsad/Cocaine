@@ -19,8 +19,8 @@
 		"src/Merc.js",
 		"src/wallFeed.js",
 		"src/ChatWindow.js",
-        "src/Dervern.js",
-
+        
+        "src/Jerstern.js",
         "src/NewPerson.js",
         "src/Bern.js",
         "src/Grangran.js",
