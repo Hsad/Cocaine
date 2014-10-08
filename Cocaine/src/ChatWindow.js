@@ -7,9 +7,10 @@ var TextLogLayer = cc.Layer.extend({
 		this.clippingNode = cc.ClippingNode.create();
 		this.clippingNode.setAnchorPoint(.5,.5);
 		this.clippingNode.setPosition(this.x, this.y);
-		//this.addChild(this.clippingNode);
+		this.addChild(this.clippingNode);
 		this.stencil = cc.DrawNode.create();
 		var rect = [cc.p(this.x-335/2,this.y + 380/2), cc.p(this.x+335/2,this.y+380/2),cc.p(this.x-335/2, this.y-380/2), cc.p(this.x+335/2,this.y-380/2)];
+		
 		this.stencil.drawPoly(rect);
 		this.clippingNode.setStencil(this.stencil)
 		
@@ -19,7 +20,7 @@ var TextLogLayer = cc.Layer.extend({
 		//-------------
 		this.addBubble = function(_message, _xSpawn, _ySpawn, _isPlayers){
 			this.newestBubble = new ChatBubble(_message, _xSpawn, _ySpawn, _isPlayers);
-			this.addChild(this.newestBubble);
+			this.clippingNode.addChild(this.newestBubble);
 			
 			
 			
