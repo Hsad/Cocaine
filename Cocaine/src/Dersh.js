@@ -19,7 +19,7 @@ dersh.posts.push(["I mustdash you a question..."]);
 //dersh.posts.push([""]);
 //                               |
 // this conversations difficulty v
-
+/*
 var Convo_3_1 = new Conversation(3);
 Convo_3_1.modules.push([
 			"Hey Dingus, guess what?",
@@ -45,4 +45,4 @@ Convo_3_1.modules.push(["Whatever, point is you NEED to watch this update",
 						"What the hell are you even talking about?",
 						"Peace dude"]);
 dersh.conversations.push(Convo_3_1);
-
+*/

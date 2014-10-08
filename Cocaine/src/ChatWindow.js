@@ -263,7 +263,9 @@ var ChatWindowLayer = cc.Layer.extend({
 		
 		var possibleConvos = []
 		for(var i = 0; i < this.person.conversations.length; i++){
+            console.log(this.person.conversations[i]);
 			if(this.person.conversations[i].difficulty == this.difficulty){
+                console.log(this.person.conversations[i]);
 				possibleConvos.push(this.person.conversations[i]);
 			}
 		}
