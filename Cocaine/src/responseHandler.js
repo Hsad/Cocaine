@@ -8,7 +8,7 @@ var ResponseHandler = cc.Layer.extend({
         
         //create a label and add it as a child
         this.templateLabel = new cc.LabelTTF(this.requiredResponse, "Idolwild", 14, cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT);
-        this.templateLabel.setFontFillColor(new cc.color(100,100,100,255));
+        this.templateLabel.setFontFillColor(cc.color(100,100,100,255));
         this.templateLabel.x = x+2;
         this.templateLabel.y = y;
         this.templateLabel.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
@@ -17,7 +17,7 @@ var ResponseHandler = cc.Layer.extend({
         //create a TextFieldTTF and add it as a child
 
         this.inputField = new cc.TextFieldTTF(" ", cc.size(w-24, 56), cc.TEXT_ALIGNMENT_LEFT, "Idolwild", 14);
-        this.inputField.setFontFillColor(new cc.color(0,0,255,255));
+        this.inputField.setFontFillColor(cc.color(0,0,255,255));
         this.inputField.x = x+2;
         this.inputField.y = y;
         this.inputField.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
@@ -43,20 +43,44 @@ var ResponseHandler = cc.Layer.extend({
                 return true;
             }
             else {
-                if (text != sender.parent.requiredResponse[sender.getString().length]){
-                    sender.setFontFillColor(new cc.color(255,0,0,255));
+                //input too long
+                if (sender.parent.requiredResponse.length < sender.getString().length+1) {
+                    sender.setFontFillColor(cc.color(255,0,0,255));
                     sender.discrepancy = true;
+                }
+                //wrong character
+                else if (text != sender.parent.requiredResponse[sender.getString().length]){
+                    sender.setFontFillColor(cc.color(255,0,0,255));
+                    sender.discrepancy = true;
+                }
+                //special case: last character
+                else if (sender.parent.requiredResponse.length == sender.getString().length+1) {
+                    if (!sender.discrepancy && text == sender.parent.requiredResponse[sender.getString().length]) {
+                        sender.setFontFillColor(cc.color(0,255,0,255));
+                    }
+                    else {
+                        sender.setFontFillColor(cc.color(255,0,0,255));
+                        sender.discrepancy = true;
+                    }
                 }
                 return false;
             }
         }
         inputFieldEventHandler.onTextFieldDeleteBackward = function(sender, delText, len) {
+            //check for discrepancies
             for (i = 0; i < sender.getString().length-1; i++) {
                 if (sender.parent.requiredResponse[i] != sender.getString()[i]) {
                     return false;
                 }
             }
-            sender.setFontFillColor(new cc.color(0,0,255,255));
+            //input matches
+            if (sender.parent.requiredResponse.length == sender.getString().length-1) {
+                sender.setFontFillColor(cc.color(0,255,0,255));
+            }
+            //input still too short
+            else {
+                sender.setFontFillColor(cc.color(0,0,255,255));
+            }
             sender.discrepancy = false;
             return false;
         }
