@@ -149,6 +149,7 @@ var ChatWindowLayer = cc.Layer.extend({
 	timer: 0,
 	maxTime: 0,
 	person: null,
+    grittiness: 0,
 	
 	//Constructor. should pass in the windows X Location,
 	ctor : function(_xSpawn, _person, _difficulty){
@@ -212,10 +213,21 @@ var ChatWindowLayer = cc.Layer.extend({
 		//you need to update the timer
 		this.conversationTick();
 		
-        if (this.jittering) {
+        if (this.grittiness > 0) {
+            this.jittering = true;
+        }
+        else {
+            this.jittering = false;
+        }
+        if (this.grittiness > 2) {
             this.overlay.setVisible(true);
-            jitter(this, 5, 5);
-            this.jitterTimer += .25;
+        }
+        else {
+            this.overlay.setVisible(false);
+        }
+        if (this.jittering) {
+            jitter(this, this.grittiness, this.grittiness);
+            this.jitterTimer += .25*this.grittiness;
             if (this.jitterTimer > 3) {
                 this.jitterTimer += -3;
             }
@@ -234,7 +246,6 @@ var ChatWindowLayer = cc.Layer.extend({
         }
         else {
             jitter(this, 0, 0);
-            this.overlay.setVisible(false);
             this.sprite.setTexture(res.chatCleanPNG);
         }
     },
@@ -247,6 +258,7 @@ var ChatWindowLayer = cc.Layer.extend({
 	selectNewConvo : function(){
 		this.currentModule = 0;
         this.currentQ = 0;
+        this.grittiness = 0;
 		//need to check if you've already used this post @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		
 		var possibleConvos = []
@@ -284,6 +296,12 @@ var ChatWindowLayer = cc.Layer.extend({
             else {
                 // update Q number by two so you can read the next question and response from the module
                 this.currentQ += 2;
+                if (this.grittiness == -1) {
+                    this.grittiness = 0;
+                }
+                if (this.grittiness == 1) {
+                    this.grittiness = 2;
+                }
                 //now test to see if you need to switch modules, because you've gone over 5 which is the number of strings per module
 
                 this.textLog.addBubble(this.currentConvo.modules[this.currentModule][this.currentQ], this.x, this.y, false);
@@ -307,6 +325,7 @@ var ChatWindowLayer = cc.Layer.extend({
         else {
             this.currentModule += 1;	//okay update the module
             this.currentQ = -2;
+            this.grittiness = -1;
             this.determineTimer(false);
         
             if(this.currentConvo.modules[this.currentModule] == null)
@@ -331,12 +350,19 @@ var ChatWindowLayer = cc.Layer.extend({
             if(this.timer <= this.maxTimer/2)
             {
                 //draw the is typing bubble@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                
+                //up the grittiness
+                if (this.grittiness == 0) {
+                    this.grittiness += 1
+                }
+                if (this.grittiness == 2) {
+                    this.grittiness += 1
+                }
             }
         }
         else {
             if (this.timer <= 0) {
                 this.parent.addChild(new gameOverLayer());
-                console.log("made a screen");
                 gameOverScreenUp = true;
                 this.timer = 1;
             }
@@ -357,6 +383,7 @@ var ChatWindowLayer = cc.Layer.extend({
         //the person's response time
         else {
             this.timer = 100 * numOfWindows;
+            this.maxTimer = this.timer;
         }
 	}
 	
