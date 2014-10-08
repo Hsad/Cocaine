@@ -72,11 +72,11 @@ var NewsFeedLayer = cc.Layer.extend({
 			}
 			
 			for (x = 0; x < this.feedArray.length; x++){
-				this.feedArray[x].y -= 7;
+				this.feedArray[x].y -= 12;
 				//console.log("moving old posts");
 			}
 			
-			this.ammountMoved += 7;
+			this.ammountMoved += 12;
 
 			if (this.ammountMoved >= this.offset){
 				this.contUp = false;
@@ -167,7 +167,7 @@ var NewsFeed = cc.Layer.extend({
 		this.postText.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
 		//this.addChild(this.Label);
 		//height count
-		var lines = (text.length / 50) ;
+		var lines = (text.length / 50);
 		postHeight += Math.floor((lines / 3)) ;  //this will need to be tweaked
 		// text length / 50 = extra line numbers
 		// after 2-3 extra lines, postheight += 1
@@ -177,7 +177,7 @@ var NewsFeed = cc.Layer.extend({
 			this.postSprite = new cc.Sprite(profile.posts[randPost][1]);
 			this.postSprite.attr({
 				x: xLoc,
-				y: yLoc - (198 + (lines * 30)),
+				y: yLoc - (this.postSprite.height/2 + (lines * 25) + 60),
 				scale: 1,
 				rotation: 0,
 			});
@@ -267,6 +267,7 @@ var NewsFeed = cc.Layer.extend({
 	}
 });
 
+//FRIENDS LIST NEED IMPLEMENT YESSIR
 var FriendList = cc.Layer.extend({
 	sprite : null,
 	
@@ -291,7 +292,8 @@ var FriendList = cc.Layer.extend({
 			var friend = new friendIcon(x, tempList[x]);
 			this.addChild(friend);
 		}	
-		console.log("Oh hi");
+		//this.addChild(this.sprite);
+		//console.log("Oh hi");
 		//for each friend, randomize list, then runthough and create each
 		// image > name > online/off
 
