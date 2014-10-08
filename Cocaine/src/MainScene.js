@@ -68,12 +68,19 @@ function spawnChatWindow( _xSpawn,_person, _difficulty, scene){
 	scene.addChild(window);
 }
 
+var usedPeople = []
+
 function randomPersonWithConvo() {
     var user = null;
 	var hasConvo = false;
     while (!hasConvo){
         randInt = Math.floor(Math.random() * allPeople.length);
-            if (allPeople[randInt].conversations.length > 0){
+            if (allPeople[randInt].conversations.length > 0) {
+                for (i = 0; i < usedPeople.length; i++) {
+                    if (allPeople[randInt] == usedPeople[i]) {
+                        return;
+                    }
+                }
                 hasConvo = true;
             }
         }
@@ -84,7 +91,6 @@ function randomPersonWithConvo() {
 var numOfWindows = 0;
 var windowsMax = 4;
 var wid = 335 ;  // width of text window
-var usedPeople = []
 
 var MainScene = cc.Scene.extend({
 	framesBeforeWin1 : 240,
