@@ -13,7 +13,6 @@
     "jsList":[
         "src/resource.js",
         "src/Person.js",
-		"src/people.js",
         "src/responseHandler.js",
         "src/app.js",
 		"src/MainScene.js",
@@ -26,6 +25,12 @@
         "src/Bern.js",
         "src/Grangran.js",
         "src/Dersh.js",
-        "src/Sperncer.js"
+        "src/Sperncer.js",
+        "src/Zerk.js",
+        "src/Lernk.js",
+        "src/Cerfee.js",
+        "src/Anime.js",
+        "src/Gf1.js",
+        "src/Gf2.js"
     ]
 }

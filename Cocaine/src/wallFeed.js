@@ -29,17 +29,17 @@ var NewsFeedLayer = cc.Layer.extend({
 		this.contUp = false;
 		this.timer = 100000;
 		this.tempPostHolder;
-        /*
+        
 		this.onYoMind = new cc.LabelTTF(
-				"Whats on your mind?", "Idolwild", 24, cc.size(600, 620), cc.TEXT_ALIGNMENT_LEFT);
+				"Whats on your mind?", "Idolwild", 24, cc.size(540, 620), cc.TEXT_ALIGNMENT_LEFT);
 		this.onYoMind.setFontFillColor(new cc.color(127,127,127,255));
-			this.xMind = 650;
+			this.xMind = 620;
 		this.onYoMind.x = this.xMind; 
 			this.yMind = 490;
 		this.onYoMind.y = this.yMind;
 		this.onYoMind.verticalAlign = cc.VERTICAL_TEXT_ALIGNMENT_TOP;
 		this.addChild(this.onYoMind);
-        */
+        
 
 		/*
 		if (this.hasChildNodes()) {
@@ -87,7 +87,7 @@ var NewsFeedLayer = cc.Layer.extend({
 				this.addChild(this.tempPostHolder);
 				//id action = [CCActionFadeIn actionWithDuration:0.5];
 				//this seems like a sneaky enough place to put this....
-				if (Math.random()*100 > 95){
+				if (Math.random()*100 > 90){
 					//change the whats on your mind to something more nefarious...
 					this.removeChild(this.onYoMind);
 					var text = theLastOneWasAllJustACoverUpForThis_MyTrueSecretThing[
@@ -96,7 +96,7 @@ var NewsFeedLayer = cc.Layer.extend({
 						];
 					//this is my post, there are many like it, but this one is
 					this.onYoMind = new cc.LabelTTF(
-							text, "Idolwild", 24, cc.size(600, 620), cc.TEXT_ALIGNMENT_LEFT);
+							text, "Idolwild", 24, cc.size(540, 620), cc.TEXT_ALIGNMENT_LEFT);
 					//console.log("text length:");
 					//console.log(text);
 					this.onYoMind.setFontFillColor(new cc.color(127,127,127,255));
@@ -109,7 +109,7 @@ var NewsFeedLayer = cc.Layer.extend({
 					this.removeChild(this.onYoMind);
 					//this is my post, there are many like it, but this one is
 					this.onYoMind = new cc.LabelTTF(
-							"Whats on your mind?", "Idolwild", 24, cc.size(600, 620), cc.TEXT_ALIGNMENT_LEFT);
+							"Whats on your mind?", "Idolwild", 24, cc.size(540, 620), cc.TEXT_ALIGNMENT_LEFT);
 					//console.log("text length:");
 					//console.log(text);
 					this.onYoMind.setFontFillColor(new cc.color(127,127,127,255));
@@ -284,8 +284,8 @@ var FriendList = cc.Layer.extend({
 			scale: 1,
 			rotation: 0,
 		});
-		this.addChild(this.sprite);*/
-		
+		this.addChild(this.sprite);
+		*/
 		var tempList = allPeople.slice(0);
 		tempList.sort(function() {
 			return .5 - Math.random();
@@ -359,12 +359,52 @@ var secret = [ //Dash's sooper secret thing that is probably really obvious
 	  "^^ this guy needs to get outside",
 	  "just now",
 	 "jerst nerw",
-	  "help I'm trapped in DerpFerce",
+	  "help I'm trapped in FerceDerp",
 	  "just now",
 	  "just now",
 	  "just now",
 	  "just now",
 	  "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now",
+      "just now that's what I call music 173",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
+      "a few seconds ago",
 		"honestly wasn't paying attention",
 		"probably just now",
 		"who knows",
@@ -396,9 +436,10 @@ var theLastOneWasAllJustACoverUpForThis_MyTrueSecretThing = [
 	"What drivel do you have to share with the world today?",
 	"sup?",
 	"whats crackalackin'?",
-	"Hi I'm FarceDerp, your friendly internet psychologist, whats on your mind?",
+	"Hi I'm FerceDerp, your friendly internet psychologist, whats on your mind?",
 	"Do you think poop knows it smells weird?",
 	"I'd rather if you didn't",
 	"No one cares, go outside",
-	"No one wants to listen to My problems..."
+	"No one wants to listen to my problems...",
+    "'Sup, dood?"
 ];
