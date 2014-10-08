@@ -142,7 +142,7 @@ var ChatBubble = cc.Layer.extend({
 var ChatWindowLayer = cc.Layer.extend({
 	sprite : null,
 	difficulty : 1,
-	usedConversations: [],
+	usedConvos: [],
 	currentConvo: null,
 	currentModule: 0,			//these both start at -1 because the selectNewConvo function adds 1 to both of these at the beginning of the fn
 	currentQ: 0,
@@ -266,16 +266,19 @@ var ChatWindowLayer = cc.Layer.extend({
         this.responseBox.templateLabel.setString(this.currentConvo.modules[0][1]);
         
 		this.determineTimer(true);
+		
+		//add this new convo to usedconvos
+		this.usedConvos.push(this.currentConvo);
 	},
 	//----------------------------------------------------------------------------------------------
 	//updateConvo()    Called when the player submits a response or the timer ticks all the way down
 	//----------------------------------------------------------------------------------------------
 	updateConvo : function(_onTimer){
 		
-		console.log("gotta update convo");
         if (_onTimer) {
             if (newConvoTime) {
                 //update the difficulty here please.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				this.updateDifficulty();
             
                 //okay so there is no next module in this conversation so just go to the next convo
                 this.selectNewConvo()
@@ -351,13 +354,48 @@ var ChatWindowLayer = cc.Layer.extend({
 	determineTimer: function(_isPlayers){
 		//the length of the player's required input string
         if (_isPlayers) {
-            this.timer = this.responseBox.requiredResponse.length * numOfWindows * 27 + 60;
+            this.timer = this.responseBox.requiredResponse.length * numOfWindows * 30 + 60;
             this.maxTimer = this.timer;
         }
         //the person's response time
         else {
             this.timer = 100 * numOfWindows;
         }
+	},
+	
+	updateDifficulty: function()
+	{
+		if(this.currentConvo.difficulty == 4 || this.usedConvos.length == 1)	//max difficulty or only used one convo so far
+		{
+			return;
+		}
+	
+		if(this.currentConvo.difficulty == 1)
+		{
+			//if your current convo difficulty and your previous were both one, then go to level 2
+			if(this.usedConvos[this.usedConvos.length - 2].difficulty == 1)
+			{
+				this.difficulty = 2;
+			}
+		}
+		else		//for every difficulty besides level 1
+		{
+			var sameLevel = true;
+			var level = this.usedConvos[this.usedConvos.length - numOfWindows - 1].difficulty;
+			
+			for(var i = this.usedConvos.length - numOfWindows; i < this.usedConvos.length; i++)
+			{
+				if(this.usedConvos[i].difficulty != level)
+				{
+					sameLevel = false;
+				}
+			}
+			if(sameLevel)
+			{
+				this.difficulty++;
+				console.log("toughhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+			}
+		}
 	}
 	
 });

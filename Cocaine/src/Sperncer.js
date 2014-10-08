@@ -46,7 +46,7 @@ convo_1_2.modules.push(["Because we're going to Brown Bag!",
 
 sperncer.conversations.push(convo_1_2);
 
-var Convo_1_3 = new Conversation(1);
+var convo_1_3 = new Conversation(1);
 convo_1_3.modules.push(["hey guess what!",
 						"chicken butt",
 						"guesssssss",
