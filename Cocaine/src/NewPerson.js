@@ -1,5 +1,3 @@
-var placeholder = new Person("Terernce Fererl", res.tererncePNG);
-
 var NewPerson = new Person("Terernce Fererl", res.tererncePNG);
 /* INITIALIZING CONVERSATIONS */
 

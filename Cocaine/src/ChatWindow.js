@@ -147,7 +147,7 @@ var ChatWindowLayer = cc.Layer.extend({
 	currentModule: 0,			//these both start at -1 because the selectNewConvo function adds 1 to both of these at the beginning of the fn
 	currentQ: 0,
 	timer: 100,
-	maxTime: 0,
+	maxTimer: 100,
 	person: null,
     grittiness: 0,
 	
@@ -335,6 +335,7 @@ var ChatWindowLayer = cc.Layer.extend({
         
             if(this.currentConvo.modules.length > this.currentModule + 1)
             {
+                //this.currentModule += -1;
                 newConvoTime = true;
             }
         }
